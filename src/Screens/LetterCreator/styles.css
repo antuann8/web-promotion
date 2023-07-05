@@ -1,0 +1,69 @@
+.output__container {
+    width: 700px;
+    min-height: 1000px;
+    background-color: white;
+    text-align: right;
+    margin: 0 auto;
+}
+
+.letter__reset {
+    margin: 0;
+    padding: 0;
+}
+
+.letter-redactor__container {
+    display: flex;
+    /*grid-template-areas: "one two three";*/
+}
+
+.letter-redactor__button {
+    background: #333;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    width: 160px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.letter-redactor__button:hover {
+    background-color: #aaaaaa;
+}
+
+.letter-redactor__header {
+    margin-bottom: 10px;
+}
+
+/*.letter__one {*/
+/*    grid-area: one;*/
+/*}*/
+
+/*.letter__two {*/
+/*    grid-area: two;*/
+/*}*/
+
+/*.letter__three {*/
+/*    grid-area: three;*/
+/*}*/
+
+.letter-redactor__blocks__container {
+    width: 300px;
+}
+
+.letter-redactor__button__container {
+    width: 300px;
+}
+
+.letter-redactor__button-manage {
+    background: #333;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    padding: 5px;
+    width: 120px;
+    height: 30px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,32 @@
+urls:
+  api:
+    promotion:    'http://localhost:8190/api/v1/'
+    check:        'https://api.check.super-appz.ru/api/v1/'
+    download:     'https://s3.super-appz.ru/download'
+    assets:       'https://s3.super-appz.ru/download'
+    passport:     'https://api.passport.super-appz.ru/api/v1/'
+    presentation: 'https://api.presentation.super-appz.ru/api/v1/'
+    fitness:      'https://api.fitness.super-appz.ru/api/v1/'
+    food:         'https://api.food.super-appz.ru/api/v1/'
+    taxi:         'https://api.taxi.super-appz.ru/api/v1/'
+    hotels:       'https://api.hotels.super-appz.ru/api/v1/'
+    avia:         'https://api.travel.super-appz.ru/api/v1/'
+    support:      'https://api.support.super-appz.ru/api/v1/'
+    marketplace:  'https://api.marketplace.super-appz.ru/api/v1/'
+    statistic:    'https://api.statistic.super-appz.ru/api/v1/'
+    booking:      'https://api.booking.super-appz.ru/api/v1/'
+  assets:
+    fitness:      'https://s3.super-appz.ru/download/fitness'
+    food:         'https://s3.super-appz.ru/download/food'
+    hotels:       'https://s3.super-appz.ru/download/hotels'
+    presentation: 'https://s3.super-appz.ru/download/presentation'
+    marketplace:  'https://s3.super-appz.ru/download/marketplace'
+    booking:      'https://s3.super-appz.ru/download/booking'
+  socket:
+    taxi:         'wss://websocket.client.workers.taxi.super-appz.ru/websocket/main'
+docs:
+  tos		: 'https://superapp.ru/tos.html'
+  privacy	: 'https://superapp.ru/privacy.html'
+  marketplace:
+    seller		: 'https://superapp.ru/marketplace/seller'
+    business	: 'https://superapp.ru/marketplace/business'

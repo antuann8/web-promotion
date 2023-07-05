@@ -1,0 +1,110 @@
+.requisite__form-container {
+    zoom: 1;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px hsl(38deg 16% 76% / 50%);
+    margin-bottom: 50px;
+    margin-top: 20px;
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.requisite__header {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.back-button {
+    content:'';
+    width:30px;
+    height:30px;
+    border: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    background:url(./images/back.svg) 0 0 no-repeat;
+}
+
+.requisite__form-container__name {
+    color: #777;
+    display: block;
+    width: 400px;
+    margin: 0 0 5px;
+    font-size: 11px;
+}
+
+.requisite__form-container__input {
+    background: #fffcf5;
+    border: 1px solid #ccc5b9;
+    border-radius: 4px;
+    box-shadow: none;
+    display: block;
+    padding: 10px;
+    transition: background-color .3s ease 0s;
+    width: 450px;
+}
+
+.requisite__form-container__button {
+    background: #333;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 20px;
+    width: 160px;
+}
+
+.requisite__form-container__button-container {
+    background: #f4f3ef;
+    border-top: 1px solid #ccc;
+    bottom: 0;
+    margin-left: -30px;
+    padding: 15px 10px;
+    position: fixed;
+    width: 100%;
+}
+
+.requisite__form-container__grid {
+    display: grid;
+    gap: 7px;
+}
+
+.requisite__form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.requisites__form-container__img__item {
+    width: 70%;
+}
+
+.head__edit {
+    display: flex;
+}
+
+.requisite__container__head {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*.exercises__form-container__img {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(2, 1fr); !* Две колонки с равномерным распределением *!*/
+/*    grid-gap: 10px; !* Отступ между элементами *!*/
+/*    grid-template-areas:*/
+/*    "one two"*/
+/*    "three four"*/
+/*    "five six"*/
+/*    "video video"; !* Задаем сетку с использованием grid template areas *!*/
+/*    margin-left: 50px;*/
+/*}*/
+
+.one { grid-area: one; } /* Устанавливаем элементу класс one соответствующий grid area */
+.two { grid-area: two; }
+.three { grid-area: three; }
+.four { grid-area: four; }
+.five { grid-area: five; }
+.six { grid-area: six; }
