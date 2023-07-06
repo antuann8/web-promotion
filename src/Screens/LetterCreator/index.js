@@ -5,6 +5,7 @@ import Template from "../../Components/Template";
 
 // components
 import SelectBlock from "../SelectBlock";
+import LetterCenter from "../LetterCenter";
 
 // functions
 import {
@@ -67,13 +68,14 @@ const LetterCreatorScreen = () => {
                         <button className="letter__redactor__button-left" onClick={() => handleClearAllBlocks(setEmptyLetter, setSelectedOptions, setSelectedFontFamily, setSelectedFontSize)}>Очистить все блоки</button>
                     </div>
                 </div>
-                <div className="letter__redactor-center">
-                    {emptyLetter ? (
-                        <span className='letter__reset' dangerouslySetInnerHTML={{ __html: emptyLetter }}></span>
-                    ) : (
-                        <div>Loading...</div>
-                    )}
-                </div>
+                {/*<div className="letter__redactor-center">*/}
+                {/*    {emptyLetter ? (*/}
+                {/*        <span className='letter__reset' dangerouslySetInnerHTML={{ __html: emptyLetter }}></span>*/}
+                {/*    ) : (*/}
+                {/*        <div>Loading...</div>*/}
+                {/*    )}*/}
+                {/*</div>*/}
+                <LetterCenter emptyLetter={emptyLetter} />
                 <div className='letter__redactor-right'>
                     <h2>Управление блоками ({countBlocks})</h2>
 
