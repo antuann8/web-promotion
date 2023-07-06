@@ -7,6 +7,7 @@ import Template from "../../Components/Template";
 import SelectBlock from "../SelectBlock";
 import LetterCenter from "../LetterCenter";
 import LetterLeft from "../LetterLeft";
+import InputBlock from "../InputBlock";
 
 // custom hooks
 import useUpdateBlockSettings from "../../Components/CustomHooks";
@@ -28,6 +29,7 @@ import './styles.css';
 
 // constants
 import {colors, fonts} from '../../Globals/Constants/index'
+
 
 const LetterCreatorScreen = () => {
     const [emptyLetter, setEmptyLetter] = useState(null);
@@ -65,7 +67,6 @@ const LetterCreatorScreen = () => {
                 <LetterCenter emptyLetter={emptyLetter} />
                 <div className='letter__redactor-right'>
                     <h2>Управление блоками ({countBlocks})</h2>
-
                     {
                         Array.from({ length: countBlocks }, (_, index) => (
                             <div key={index}>
@@ -102,28 +103,20 @@ const LetterCreatorScreen = () => {
                                         }}
                                         options={fonts}
                                     />
-                                    <div>
-                                        <div className="letter__redactor__description">Введите значение шрифта в px (max: 80, min: 2)</div>
-                                        <input
-                                            className="letter__redactor__description-value"
-                                            type="number"
-                                            min="2"
-                                            max="80"
-                                            value={selectedFontSize[index]}
-                                            onChange={(event) => {
-                                                handleFontSizeChange(
-                                                    index,
-                                                    event,
-                                                    setSelectedFontSize,
-                                                    selectedFontSize,
-                                                    selectedFontFamily[index],
-                                                    selectedOptions[index],
-                                                    setEmptyLetter,
-                                                );
-                                            }}
-                                        />
-                                        <span> px</span>
-                                    </div>
+                                    <InputBlock
+                                        index={index}
+                                        selectedFontSize={selectedFontSize}
+                                        handleFontSizeChange={handleFontSizeChange}
+                                        setSelectedFontSize={setSelectedFontSize}
+                                        selectedFontFamily={selectedFontFamily}
+                                        selectedOptions={selectedOptions}
+                                        setEmptyLetter={setEmptyLetter}
+                                        min="2"
+                                        max="80"
+                                        label="Введите значение шрифта в px (max: 80, min: 2)"
+                                        selectedValue={selectedFontSize[index]}
+                                        unit="px"
+                                    />
                                     <div>
                                         <button className="letter__redactor__button-right" onClick={() => clearOneBlock(index, setEmptyLetter, setSelectedOptions, setSelectedFontFamily, setSelectedFontSize)}>Удалить блок</button>
                                     </div>
