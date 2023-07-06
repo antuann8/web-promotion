@@ -6,6 +6,10 @@ import Template from "../../Components/Template";
 // components
 import SelectBlock from "../SelectBlock";
 import LetterCenter from "../LetterCenter";
+import LetterLeft from "../LetterLeft";
+
+// custom hooks
+import useUpdateBlockSettings from "../../Components/CustomHooks";
 
 // functions
 import {
@@ -37,44 +41,27 @@ const LetterCreatorScreen = () => {
         getBlocksCount(setCountBlocks);
     });
 
-    useEffect(() => {
-        if (selectedFontFamily.length < countBlocks) {
-            setSelectedFontFamily(prevSelectedFontFamily => [...prevSelectedFontFamily, fonts["1"]]);
-        }
-    }, [countBlocks, selectedFontFamily]);
-
-    useEffect(() => {
-        if (selectedFontSize.length < countBlocks) {
-            setSelectedFontSize(prevSelectedFontSize => [...prevSelectedFontSize, "10"]);
-        }
-    }, [countBlocks, selectedFontSize]);
-
-    useEffect(() => {
-        if (selectedOptions.length < countBlocks) {
-            setSelectedOptions(prevSelectedOptions => [...prevSelectedOptions, colors['Зеленый']]);
-        }
-    }, [countBlocks, selectedOptions]);
+    useUpdateBlockSettings(
+        countBlocks,
+        selectedFontFamily,
+        setSelectedFontFamily,
+        selectedFontSize,
+        setSelectedFontSize,
+        selectedOptions,
+        setSelectedOptions);
 
     return (
         <Template>
             <h1 className="letter__redactor__header">Визуальный редактор письма</h1>
             <div className="letter__redactor__container">
-                <div className="letter__redactor-left">
-                    <div className="letter__redactor__button__container letter__one">
-                        <button className="letter__redactor__button-left" onClick={() => createBlock(setEmptyLetter
-                            // , setSelectedOptions,
-                            // setSelectedFontFamily
-                        )}>Создание блока с текстом</button>
-                        <button className="letter__redactor__button-left" onClick={() => handleClearAllBlocks(setEmptyLetter, setSelectedOptions, setSelectedFontFamily, setSelectedFontSize)}>Очистить все блоки</button>
-                    </div>
-                </div>
-                {/*<div className="letter__redactor-center">*/}
-                {/*    {emptyLetter ? (*/}
-                {/*        <span className='letter__reset' dangerouslySetInnerHTML={{ __html: emptyLetter }}></span>*/}
-                {/*    ) : (*/}
-                {/*        <div>Loading...</div>*/}
-                {/*    )}*/}
-                {/*</div>*/}
+                <LetterLeft
+                    createBlock={createBlock}
+                    handleClearAllBlocks={handleClearAllBlocks}
+                    setEmptyLetter={setEmptyLetter}
+                    setSelectedOptions={setSelectedOptions}
+                    setSelectedFontFamily={setSelectedFontFamily}
+                    setSelectedFontSize={setSelectedFontSize}
+                />
                 <LetterCenter emptyLetter={emptyLetter} />
                 <div className='letter__redactor-right'>
                     <h2>Управление блоками ({countBlocks})</h2>
