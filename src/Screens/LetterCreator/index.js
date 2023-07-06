@@ -19,12 +19,15 @@ import {
     getBlocksCount,
     getUpdateLetter,
     createBlock,
-    clearOneBlock,
-    handleClearAllBlocks,
     handleBackColorChange,
     handleFontFamilyChange,
     handleFontSizeChange,
 } from '../Utils';
+
+import {
+    handleClearAllBlocks,
+    handleClearOneBlock,
+} from "../../Components/ClearUtils";
 
 // styles
 import './styles.css';
@@ -79,7 +82,7 @@ const LetterCreatorScreen = () => {
                     setSelectedFontFamily={setSelectedFontFamily}
                     handleFontSizeChange={handleFontSizeChange}
                     setSelectedFontSize={setSelectedFontSize}
-                    clearOneBlock={clearOneBlock}
+                    clearOneBlock={handleClearOneBlock}
                     colors={colors}
                     fonts={fonts}
                 />

@@ -2,8 +2,8 @@ import {
     get,
     getCountBlocks,
     addBlock,
-    clearAllBlocks,
-    clearBlock,
+    // clearAllBlocks,
+    // clearBlock,
     changeFontFamily,
     changeBackColor,
     changeFontSize
@@ -19,19 +19,19 @@ export const getUpdateLetter = async (setEmptyLetter) => {
     setEmptyLetter(res);
 };
 
-export const handleClearAllBlocks = async (setEmptyLetter,
-                                           setSelectedOptions,
-                                           setSelectedFontFamily,
-                                           setSelectedFontSize,
-                                                                ) => {
-
-    await clearAllBlocks();
-    setSelectedFontFamily([]);
-    setSelectedOptions([]);
-    setSelectedFontSize([]);
-
-    await getUpdateLetter(setEmptyLetter);
-};
+// export const handleClearAllBlocks = async (setEmptyLetter,
+//                                            setSelectedOptions,
+//                                            setSelectedFontFamily,
+//                                            setSelectedFontSize,
+//                                                                 ) => {
+//
+//     await clearAllBlocks();
+//     setSelectedFontFamily([]);
+//     setSelectedOptions([]);
+//     setSelectedFontSize([]);
+//
+//     await getUpdateLetter(setEmptyLetter);
+// };
 
 export const createBlock = async (setEmptyLetter) => {
 
@@ -47,24 +47,24 @@ export const createBlock = async (setEmptyLetter) => {
 };
 
 
-export const clearOneBlock = async (index,
-                                    setEmptyLetter,
-                                    setSelectedOptions,
-                                    setSelectedFontFamily,
-                                    setSelectedFontSize
-                                                            ) => {
-
-    const data = index;
-
-    // Отправить POST-запрос
-    const response = await clearBlock(data);
-
-    // Обновить пустое письмо с результатом POST-запроса
-    setSelectedOptions(prevSelectedOptions => prevSelectedOptions.filter((_, i) => i !== index));
-    setSelectedFontFamily(prevSelectedFontFamily => prevSelectedFontFamily.map((item, i) => i === index ? 'Arial, Helvetica, sans-serif' : item));
-    setSelectedFontSize(prevSelectedFontSize => prevSelectedFontSize.filter((_, i) => i !== index));
-    setEmptyLetter(response);
-}
+// export const clearOneBlock = async (index,
+//                                     setEmptyLetter,
+//                                     setSelectedOptions,
+//                                     setSelectedFontFamily,
+//                                     setSelectedFontSize
+//                                                             ) => {
+//
+//     const data = index;
+//
+//     // Отправить POST-запрос
+//     const response = await clearBlock(data);
+//
+//     // Обновить пустое письмо с результатом POST-запроса
+//     setSelectedOptions(prevSelectedOptions => prevSelectedOptions.filter((_, i) => i !== index));
+//     setSelectedFontFamily(prevSelectedFontFamily => prevSelectedFontFamily.map((item, i) => i === index ? 'Arial, Helvetica, sans-serif' : item));
+//     setSelectedFontSize(prevSelectedFontSize => prevSelectedFontSize.filter((_, i) => i !== index));
+//     setEmptyLetter(response);
+// }
 
 export const handleBackColorChange = async (index,
                                             event,

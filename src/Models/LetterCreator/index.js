@@ -10,7 +10,7 @@ const clearAllBlocks = async ()                 => await Http.requestHtmlNotResp
 
 const changeBackColor = async (data)            => await Http.requestJsonNotResponse(`creator/change/backgroundColor`, data);
 
-const clearBlock = async (data)                => await Http.requestJsonGetHtml(`creator/clear/one`, data);
+const clearOneBlock = async (data)                => await Http.requestJsonGetHtml(`creator/clear/one`, data);
 
 const changeFontFamily = async (data)          => await Http.requestJsonNotResponse(`creator/change/fontFamily`, data);
 
@@ -25,7 +25,7 @@ export {
     addBlock,
     clearAllBlocks,
     changeBackColor,
-    clearBlock,
+    clearOneBlock,
     changeFontFamily,
     changeFontSize,
 }
