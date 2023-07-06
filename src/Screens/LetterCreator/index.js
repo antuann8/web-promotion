@@ -4,11 +4,12 @@ import React, { useEffect, useState } from 'react';
 import Template from "../../Components/Template";
 
 // components
-import SelectBlock from "../SelectBlock";
 import LetterCenter from "../LetterCenter";
 import LetterLeft from "../LetterLeft";
-import InputBlock from "../InputBlock";
+import LetterRight from "../LetterRight";
+import SelectBlock from "../SelectBlock";
 import ClearOneBlockButton from "../ClearOneBlockButton";
+import InputBlock from "../InputBlock";
 
 // custom hooks
 import useUpdateBlockSettings from "../../Components/CustomHooks";
@@ -66,71 +67,22 @@ const LetterCreatorScreen = () => {
                     setSelectedFontSize={setSelectedFontSize}
                 />
                 <LetterCenter emptyLetter={emptyLetter} />
-                <div className='letter__redactor-right'>
-                    <h2>Управление блоками ({countBlocks})</h2>
-                    {
-                        Array.from({ length: countBlocks }, (_, index) => (
-                            <div key={index}>
-                                <h3>Блок №{index + 1}</h3>
-                                <div>
-                                    <SelectBlock
-                                        label="Выберите задний фон блока:"
-                                        selectValue={selectedOptions[index]}
-                                        onChange={(event) => {
-                                            handleBackColorChange(
-                                                index,
-                                                event,
-                                                setSelectedOptions,
-                                                selectedOptions,
-                                                selectedFontFamily[index],
-                                                setEmptyLetter,
-                                                selectedFontSize[index],
-                                            );
-                                        }}
-                                        options={colors}
-                                    />
-                                    <SelectBlock
-                                        label="Выберите шрифт текста блока:"
-                                        selectValue={selectedFontFamily[index]}
-                                        onChange={(event) => {
-                                            handleFontFamilyChange(
-                                                index,
-                                                event,
-                                                setSelectedFontFamily,
-                                                selectedFontFamily,
-                                                selectedOptions[index],
-                                                setEmptyLetter,
-                                                selectedFontSize[index]);
-                                        }}
-                                        options={fonts}
-                                    />
-                                    <InputBlock
-                                        index={index}
-                                        selectedFontSize={selectedFontSize}
-                                        handleFontSizeChange={handleFontSizeChange}
-                                        setSelectedFontSize={setSelectedFontSize}
-                                        selectedFontFamily={selectedFontFamily}
-                                        selectedOptions={selectedOptions}
-                                        setEmptyLetter={setEmptyLetter}
-                                        min="2"
-                                        max="80"
-                                        label="Введите значение шрифта в px (max: 80, min: 2)"
-                                        selectedValue={selectedFontSize[index]}
-                                        unit="px"
-                                    />
-                                    <ClearOneBlockButton
-                                        index={index}
-                                        clearOneBlock={clearOneBlock}
-                                        setEmptyLetter={setEmptyLetter}
-                                        setSelectedOptions={setSelectedOptions}
-                                        setSelectedFontFamily={setSelectedFontFamily}
-                                        setSelectedFontSize={setSelectedFontSize}
-                                    />
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div>
+                <LetterRight
+                    countBlocks={countBlocks}
+                    selectedOptions={selectedOptions}
+                    handleBackColorChange={handleBackColorChange}
+                    setSelectedOptions={setSelectedOptions}
+                    selectedFontFamily={selectedFontFamily}
+                    setEmptyLetter={setEmptyLetter}
+                    selectedFontSize={selectedFontSize}
+                    handleFontFamilyChange={handleFontFamilyChange}
+                    setSelectedFontFamily={setSelectedFontFamily}
+                    handleFontSizeChange={handleFontSizeChange}
+                    setSelectedFontSize={setSelectedFontSize}
+                    clearOneBlock={clearOneBlock}
+                    colors={colors}
+                    fonts={fonts}
+                />
             </div>
         </Template>
     );

@@ -12,6 +12,9 @@ const useUpdateBlockSettings = (
     selectedOptions,
     setSelectedOptions,
                         ) => {
+
+    const startFontSize = "10";
+
     useEffect(() => {
         if (selectedFontFamily.length < countBlocks) {
             setSelectedFontFamily(prevSelectedFontFamily => [...prevSelectedFontFamily, fonts["1"]]);
@@ -20,7 +23,7 @@ const useUpdateBlockSettings = (
 
     useEffect(() => {
         if (selectedFontSize.length < countBlocks) {
-            setSelectedFontSize(prevSelectedFontSize => [...prevSelectedFontSize, "10"]);
+            setSelectedFontSize(prevSelectedFontSize => [...prevSelectedFontSize, startFontSize]);
         }
     }, [countBlocks, selectedFontSize]);
 
