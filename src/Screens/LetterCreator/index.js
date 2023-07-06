@@ -8,6 +8,7 @@ import SelectBlock from "../SelectBlock";
 import LetterCenter from "../LetterCenter";
 import LetterLeft from "../LetterLeft";
 import InputBlock from "../InputBlock";
+import ClearOneBlockButton from "../ClearOneBlockButton";
 
 // custom hooks
 import useUpdateBlockSettings from "../../Components/CustomHooks";
@@ -117,9 +118,14 @@ const LetterCreatorScreen = () => {
                                         selectedValue={selectedFontSize[index]}
                                         unit="px"
                                     />
-                                    <div>
-                                        <button className="letter__redactor__button-right" onClick={() => clearOneBlock(index, setEmptyLetter, setSelectedOptions, setSelectedFontFamily, setSelectedFontSize)}>Удалить блок</button>
-                                    </div>
+                                    <ClearOneBlockButton
+                                        index={index}
+                                        clearOneBlock={clearOneBlock}
+                                        setEmptyLetter={setEmptyLetter}
+                                        setSelectedOptions={setSelectedOptions}
+                                        setSelectedFontFamily={setSelectedFontFamily}
+                                        setSelectedFontSize={setSelectedFontSize}
+                                    />
                                 </div>
                             </div>
                         ))
