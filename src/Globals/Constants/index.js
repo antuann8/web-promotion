@@ -24,16 +24,17 @@ const colors = {
 };
 
 const fonts = {
-    1: "Arial, Helvetica, sans-serif",
-    2: "'Arial Black', Gadget, sans-serif",
-    3: "Georgia, serif",
-    4: "'MS Sans Serif', Geneva, sans-serif",
-    5: "'MS Serif', 'New York', sans-serif",
-    6: "Tahoma, Geneva, sans-serif",
-    7: "'Times New Roman', Times, serif",
-    8: "'Trebuchet MS', Helvetica, sans-serif",
-    9: "Verdana, Geneva, sans-serif"
+    "Arial, Helvetica, sans-serif": "Arial, Helvetica, sans-serif",
+    "'Arial Black', Gadget, sans-serif": "'Arial Black', Gadget, sans-serif",
+    "Georgia, serif": "Georgia, serif",
+    "'MS Sans Serif', Geneva, sans-serif": "'MS Sans Serif', Geneva, sans-serif",
+    "'MS Serif', 'New York', sans-serif": "'MS Serif', 'New York', sans-serif",
+    "Tahoma, Geneva, sans-serif": "Tahoma, Geneva, sans-serif",
+    "'Times New Roman', Times, serif": "'Times New Roman', Times, serif",
+    "'Trebuchet MS', Helvetica, sans-serif": "'Trebuchet MS', Helvetica, sans-serif",
+    "Verdana, Geneva, sans-serif": "Verdana, Geneva, sans-serif"
 };
+
 
 const commonStatus = {
     IN_ACTIVE: 0,

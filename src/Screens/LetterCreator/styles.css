@@ -1,22 +1,35 @@
-.output__container {
+/* Main container*/
+.letter__redactor__container {
+    display: grid;
+    grid-template-areas: 'left center right';
+}
+
+/* left, center, right containers */
+
+.letter__redactor-left {
+    width: 180px;
+    grid-area: left;
+}
+
+.letter__redactor-center {
     width: 700px;
     min-height: 1000px;
     background-color: white;
     text-align: right;
     margin: 0 auto;
+    grid-area: center;
+
 }
 
-.letter__reset {
-    margin: 0;
-    padding: 0;
+.letter__redactor-right {
+    width: 600px;
+    grid-area: right;
+    margin-left: 20px;
 }
 
-.letter-redactor__container {
-    display: flex;
-    /*grid-template-areas: "one two three";*/
-}
+/* buttons */
 
-.letter-redactor__button {
+.letter__redactor__button-left {
     background: #333;
     border: none;
     border-radius: 3px;
@@ -28,35 +41,11 @@
     margin-bottom: 10px;
 }
 
-.letter-redactor__button:hover {
+.letter__redactor__button-left:hover {
     background-color: #aaaaaa;
 }
 
-.letter-redactor__header {
-    margin-bottom: 10px;
-}
-
-/*.letter__one {*/
-/*    grid-area: one;*/
-/*}*/
-
-/*.letter__two {*/
-/*    grid-area: two;*/
-/*}*/
-
-/*.letter__three {*/
-/*    grid-area: three;*/
-/*}*/
-
-.letter-redactor__blocks__container {
-    width: 300px;
-}
-
-.letter-redactor__button__container {
-    width: 300px;
-}
-
-.letter-redactor__button-manage {
+.letter__redactor__button-right {
     background: #333;
     border: none;
     border-radius: 3px;
@@ -65,5 +54,28 @@
     padding: 5px;
     width: 120px;
     height: 30px;
+    margin: 10px 0;
+}
+
+.letter__redactor__button-right:hover {
+    background-color: #aaaaaa;
+}
+
+/* other styles */
+
+.letter__reset {
+    margin: 0;
+    padding: 0;
+}
+
+.letter__redactor__header {
     margin-bottom: 10px;
+}
+
+.letter__redactor__description {
+    margin-bottom: 5px;
+}
+
+.letter__redactor__description-value {
+    margin-bottom: 5px;
 }

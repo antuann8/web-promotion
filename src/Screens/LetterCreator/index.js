@@ -3,8 +3,17 @@ import React, { useEffect, useState } from 'react';
 // template
 import Template from "../../Components/Template";
 
+// components
+import SelectBlock from "../SelectBlock";
+
 // functions
-import { getBlocksCount, getUpdateLetter, handleClearAllBlocks, createBlock, clearOneBlock, handleBackColorChange,
+import {
+    getBlocksCount,
+    getUpdateLetter,
+    createBlock,
+    clearOneBlock,
+    handleClearAllBlocks,
+    handleBackColorChange,
     handleFontFamilyChange,
     handleFontSizeChange,
 } from '../Utils';
@@ -47,33 +56,36 @@ const LetterCreatorScreen = () => {
 
     return (
         <Template>
-            <h1 className="letter-redactor__header">Визуальный редактор письма</h1>
-            <div className="letter-redactor__container">
-                <div className="letter-redactor__button__container letter__one">
-                    <button className="letter-redactor__button" onClick={() => createBlock(setEmptyLetter
-                        // , setSelectedOptions,
-                        // setSelectedFontFamily
-                    )}>Создание блока с текстом</button>
-                    <button className="letter-redactor__button" onClick={() => handleClearAllBlocks(setEmptyLetter, setSelectedOptions, setSelectedFontFamily, setSelectedFontSize)}>Очистить все блоки</button>
+            <h1 className="letter__redactor__header">Визуальный редактор письма</h1>
+            <div className="letter__redactor__container">
+                <div className="letter__redactor-left">
+                    <div className="letter__redactor__button__container letter__one">
+                        <button className="letter__redactor__button-left" onClick={() => createBlock(setEmptyLetter
+                            // , setSelectedOptions,
+                            // setSelectedFontFamily
+                        )}>Создание блока с текстом</button>
+                        <button className="letter__redactor__button-left" onClick={() => handleClearAllBlocks(setEmptyLetter, setSelectedOptions, setSelectedFontFamily, setSelectedFontSize)}>Очистить все блоки</button>
+                    </div>
                 </div>
-                <div className="output__container letter__three">
+                <div className="letter__redactor-center">
                     {emptyLetter ? (
                         <span className='letter__reset' dangerouslySetInnerHTML={{ __html: emptyLetter }}></span>
                     ) : (
                         <div>Loading...</div>
                     )}
                 </div>
-                <div className='letter-redactor__blocks__container letter__two'>
-                    <h2>Управление блоками {countBlocks}</h2>
+                <div className='letter__redactor-right'>
+                    <h2>Управление блоками ({countBlocks})</h2>
 
                     {
                         Array.from({ length: countBlocks }, (_, index) => (
                             <div key={index}>
                                 <h3>Блок №{index + 1}</h3>
                                 <div>
-                                    <div>
-                                        <span>Выберите задний фон блока:</span>
-                                        <select value={selectedOptions[index]} onChange={(event) => {
+                                    <SelectBlock
+                                        label="Выберите задний фон блока:"
+                                        selectValue={selectedOptions[index]}
+                                        onChange={(event) => {
                                             handleBackColorChange(
                                                 index,
                                                 event,
@@ -83,33 +95,28 @@ const LetterCreatorScreen = () => {
                                                 setEmptyLetter,
                                                 selectedFontSize[index],
                                             );
-                                        }}>
-                                            {
-                                                Object.entries(colors).map(([name, value]) => (
-                                                    <option key={value} value={value}>
-                                                        {name}
-                                                    </option>
-                                                ))
-                                            }
-                                        </select>
-                                    </div>
+                                        }}
+                                        options={colors}
+                                    />
+                                    <SelectBlock
+                                        label="Выберите шрифт текста блока:"
+                                        selectValue={selectedFontFamily[index]}
+                                        onChange={(event) => {
+                                            handleFontFamilyChange(
+                                                index,
+                                                event,
+                                                setSelectedFontFamily,
+                                                selectedFontFamily,
+                                                selectedOptions[index],
+                                                setEmptyLetter,
+                                                selectedFontSize[index]);
+                                        }}
+                                        options={fonts}
+                                    />
                                     <div>
-                                        <span>Выберите шрифт текста блока:</span>
-                                        <select value={selectedFontFamily[index]} onChange={(event) => {
-                                            handleFontFamilyChange(index, event, setSelectedFontFamily, selectedFontFamily, selectedOptions[index], setEmptyLetter, selectedFontSize[index]);
-                                        }}>
-                                            {
-                                                Object.entries(fonts).map(([name, value]) => (
-                                                    <option key={name} value={value}>
-                                                        {value}
-                                                    </option>
-                                                ))
-                                            }
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <div>Введите значение шрифта в px (max: 80, min: 2)</div>
+                                        <div className="letter__redactor__description">Введите значение шрифта в px (max: 80, min: 2)</div>
                                         <input
+                                            className="letter__redactor__description-value"
                                             type="number"
                                             min="2"
                                             max="80"
@@ -126,10 +133,10 @@ const LetterCreatorScreen = () => {
                                                 );
                                             }}
                                         />
-
+                                        <span> px</span>
                                     </div>
                                     <div>
-                                        <button className="letter-redactor__button-manage" onClick={() => clearOneBlock(index, setEmptyLetter, setSelectedOptions, setSelectedFontFamily, setSelectedFontSize)}>Удалить блок</button>
+                                        <button className="letter__redactor__button-right" onClick={() => clearOneBlock(index, setEmptyLetter, setSelectedOptions, setSelectedFontFamily, setSelectedFontSize)}>Удалить блок</button>
                                     </div>
                                 </div>
                             </div>
