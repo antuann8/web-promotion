@@ -6,71 +6,62 @@ import {
 
 import {getUpdateLetter} from "../../Screens/Utils";
 
-export const handleBackColorChange = async (
-                                            index,
-                                            event,
-                                            setSelectedOptions,
-                                            selectedOptions,
-                                            fontFamily,
-                                            setEmptyLetter,
-                                            fontSize
-) => {
-    const newSelectedOptions = [...selectedOptions];
-    newSelectedOptions[index] = event.target.value;
-    setSelectedOptions(newSelectedOptions);
+const updateBlock = async (index, value, setSelected, selected, data, updateFunction, setEmptyLetter) => {
+    const newSelectedOptions = [...selected];
+    newSelectedOptions[index] = value;
+    setSelected(newSelectedOptions);
 
-    const updateFontSize = fontSize + 'px';
-    // Отправка данных на сервер
-    const data = {
-        'backcolor' : event.target.value,
-        'index' : index,
-        'fontFamily' : fontFamily,
-        'fontSize' : updateFontSize,
-    }
-    await changeBackColor(data);
+    await updateFunction(data);
     await getUpdateLetter(setEmptyLetter);
 };
 
+export const handleBackColorChange = async (
+    index,
+    event,
+    setSelectedOptions,
+    selectedOptions,
+    fontFamily,
+    setEmptyLetter,
+    fontSize
+) => {
+    const updateFontSize = fontSize + 'px';
+    const data = {
+        'backcolor': event.target.value,
+        'index': index,
+        'fontFamily': fontFamily,
+        'fontSize': updateFontSize,
+    }
+    await updateBlock(index, event.target.value, setSelectedOptions, selectedOptions, data, changeBackColor, setEmptyLetter);
+};
 
 export const handleFontFamilyChange = async (
-                                             index,
-                                             event,
-                                             setSelectedFontFamily,
-                                             selectedFontFamily,
-                                             backcolor,
-                                             setEmptyLetter,
-                                             fontSize
+    index,
+    event,
+    setSelectedFontFamily,
+    selectedFontFamily,
+    backcolor,
+    setEmptyLetter,
+    fontSize
 ) => {
-    const newSelectedOptions = [...selectedFontFamily];
-    newSelectedOptions[index] = event.target.value;
-    setSelectedFontFamily(newSelectedOptions);
-
     const updateFontSize = fontSize + 'px';
-    // Отправка данных на сервер
     const data = {
-        'fontFamily' : event.target.value,
-        'index' : index,
-        'backcolor' : backcolor,
-        'fontSize' : updateFontSize,
+        'fontFamily': event.target.value,
+        'index': index,
+        'backcolor': backcolor,
+        'fontSize': updateFontSize,
     }
-    await changeFontFamily(data);
-    await getUpdateLetter(setEmptyLetter);
+    await updateBlock(index, event.target.value, setSelectedFontFamily, selectedFontFamily, data, changeFontFamily, setEmptyLetter);
 };
 
 export const handleFontSizeChange = async (
-                                           index,
-                                           event,
-                                           setSelectedFontSize,
-                                           selectedFontSize,
-                                           fontFamily,
-                                           backcolor,
-                                           setEmptyLetter
+    index,
+    event,
+    setSelectedFontSize,
+    selectedFontSize,
+    fontFamily,
+    backcolor,
+    setEmptyLetter
 ) => {
-
-    const newSelectedOptions = [...selectedFontSize];
-    newSelectedOptions[index] = event.target.value;
-    setSelectedFontSize(newSelectedOptions);
-
     let fontSize = event.target.value;
     if (fontSize >= 2 && fontSize <= 80) {
         fontSize = event.target.value + 'px';
@@ -79,13 +70,11 @@ export const handleFontSizeChange = async (
     }
 
     const data = {
-        'fontFamily' : fontFamily,
-        'index' : index,
-        'backcolor' : backcolor,
-        'fontSize' : fontSize,
+        'fontFamily': fontFamily,
+        'index': index,
+        'backcolor': backcolor,
+        'fontSize': fontSize,
     }
 
-    await changeFontSize(data);
-    await getUpdateLetter(setEmptyLetter);
-
+    await updateBlock(index, event.target.value, setSelectedFontSize, selectedFontSize, data, changeFontSize, setEmptyLetter);
 };
