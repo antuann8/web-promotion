@@ -1,13 +1,11 @@
 import {
     clearAllBlocks,
     clearOneBlock,
-    get,
 } from "../../Models/LetterCreator"
 
-export const getUpdateLetter = async (setEmptyLetter) => {
-    const res = await get();
-    setEmptyLetter(res);
-};
+import {
+    getUpdateLetter
+} from "../../Screens/Utils";
 
 export const handleClearAllBlocks = async (
                                     setEmptyLetter,

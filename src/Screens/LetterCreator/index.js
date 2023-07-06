@@ -7,9 +7,6 @@ import Template from "../../Components/Template";
 import LetterCenter from "../LetterCenter";
 import LetterLeft from "../LetterLeft";
 import LetterRight from "../LetterRight";
-import SelectBlock from "../SelectBlock";
-import ClearOneBlockButton from "../ClearOneBlockButton";
-import InputBlock from "../InputBlock";
 
 // custom hooks
 import useUpdateBlockSettings from "../../Components/CustomHooks";
@@ -19,15 +16,18 @@ import {
     getBlocksCount,
     getUpdateLetter,
     createBlock,
-    handleBackColorChange,
-    handleFontFamilyChange,
-    handleFontSizeChange,
 } from '../Utils';
 
 import {
     handleClearAllBlocks,
     handleClearOneBlock,
 } from "../../Components/ClearUtils";
+
+import {
+    handleBackColorChange,
+    handleFontFamilyChange,
+    handleFontSizeChange,
+} from "../../Components/ParamsUtils";
 
 // styles
 import './styles.css';
