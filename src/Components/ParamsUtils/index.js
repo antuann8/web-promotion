@@ -1,7 +1,5 @@
 import {
-    changeBackColor,
-    changeFontFamily,
-    changeFontSize
+    changeParams
 } from "../../Models/LetterCreator";
 
 import {getUpdateLetter} from "../../Screens/Utils";
@@ -31,7 +29,7 @@ export const handleBackColorChange = async (
         'fontFamily': fontFamily,
         'fontSize': updateFontSize,
     }
-    await updateBlock(index, event.target.value, setSelectedOptions, selectedOptions, data, changeBackColor, setEmptyLetter);
+    await updateBlock(index, event.target.value, setSelectedOptions, selectedOptions, data, changeParams, setEmptyLetter);
 };
 
 export const handleFontFamilyChange = async (
@@ -50,7 +48,7 @@ export const handleFontFamilyChange = async (
         'backcolor': backcolor,
         'fontSize': updateFontSize,
     }
-    await updateBlock(index, event.target.value, setSelectedFontFamily, selectedFontFamily, data, changeFontFamily, setEmptyLetter);
+    await updateBlock(index, event.target.value, setSelectedFontFamily, selectedFontFamily, data, changeParams, setEmptyLetter);
 };
 
 export const handleFontSizeChange = async (
@@ -76,5 +74,5 @@ export const handleFontSizeChange = async (
         'fontSize': fontSize,
     }
 
-    await updateBlock(index, event.target.value, setSelectedFontSize, selectedFontSize, data, changeFontSize, setEmptyLetter);
+    await updateBlock(index, event.target.value, setSelectedFontSize, selectedFontSize, data, changeParams, setEmptyLetter);
 };

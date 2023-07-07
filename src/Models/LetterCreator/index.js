@@ -8,13 +8,9 @@ const addBlock	= async (data)				    => await Http.requestJsonNotResponse(`creat
 
 const clearAllBlocks = async ()                 => await Http.requestHtmlNotResponse(`creator/clear/all`);
 
-const changeBackColor = async (data)            => await Http.requestJsonNotResponse(`creator/change/backgroundColor`, data);
-
 const clearOneBlock = async (data)                => await Http.requestJsonGetHtml(`creator/clear/one`, data);
 
-const changeFontFamily = async (data)          => await Http.requestJsonNotResponse(`creator/change/fontFamily`, data);
-
-const changeFontSize = async (data)          => await Http.requestJsonNotResponse(`creator/change/fontSize`, data);
+const changeParams = async (data)          => await Http.requestJsonNotResponse(`creator/change/params`, data);
 
 
 
@@ -24,8 +20,6 @@ export {
     getCountBlocks,
     addBlock,
     clearAllBlocks,
-    changeBackColor,
     clearOneBlock,
-    changeFontFamily,
-    changeFontSize,
+    changeParams,
 }
