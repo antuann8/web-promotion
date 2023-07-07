@@ -11,6 +11,8 @@ const useUpdateBlockSettings = (
     setSelectedFontSize,
     selectedOptions,
     setSelectedOptions,
+    selectedColor,
+    setSelectedColor,
                         ) => {
 
     const startFontSize = "10";
@@ -32,6 +34,12 @@ const useUpdateBlockSettings = (
             setSelectedOptions(prevSelectedOptions => [...prevSelectedOptions, colors['Зеленый']]);
         }
     }, [countBlocks, selectedOptions]);
+
+    useEffect(() => {
+        if (selectedColor.length < countBlocks) {
+            setSelectedColor(prevSelectedColor => [...prevSelectedColor, colors['Черный']]);
+        }
+    }, [countBlocks, selectedColor]);
 };
 
 export default useUpdateBlockSettings;

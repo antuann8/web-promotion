@@ -12,12 +12,14 @@ export const handleClearAllBlocks = async (
                                     setSelectedOptions,
                                     setSelectedFontFamily,
                                     setSelectedFontSize,
+                                    setSelectedColor,
 ) => {
 
     await clearAllBlocks();
     setSelectedFontFamily([]);
     setSelectedOptions([]);
     setSelectedFontSize([]);
+    setSelectedColor([]);
 
     await getUpdateLetter(setEmptyLetter);
 };
@@ -27,7 +29,8 @@ export const handleClearOneBlock = async (
                                     setEmptyLetter,
                                     setSelectedOptions,
                                     setSelectedFontFamily,
-                                    setSelectedFontSize
+                                    setSelectedFontSize,
+                                    setSelectedColor,
 ) => {
 
     const response = await clearOneBlock(index);
@@ -36,5 +39,6 @@ export const handleClearOneBlock = async (
     setSelectedOptions(prevSelectedOptions => prevSelectedOptions.filter((_, i) => i !== index));
     setSelectedFontFamily(prevSelectedFontFamily => prevSelectedFontFamily.map((item, i) => i === index ? 'Arial, Helvetica, sans-serif' : item));
     setSelectedFontSize(prevSelectedFontSize => prevSelectedFontSize.filter((_, i) => i !== index));
+    setSelectedColor(prevSelectedColor => prevSelectedColor.filter((_, i) => i !== index));
     setEmptyLetter(response);
 }

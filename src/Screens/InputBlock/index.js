@@ -12,7 +12,9 @@ const InputBlock = ({
                         max,
                         label,
                         selectedValue,
-                        unit }) => {
+                        unit,
+                        selectedColor,
+                        }) => {
     return (
         <div>
             <div className="letter__redactor__description">{label}</div>
@@ -31,6 +33,7 @@ const InputBlock = ({
                         selectedFontFamily[index],
                         selectedOptions[index],
                         setEmptyLetter,
+                        selectedColor[index],
                     );
                 }}
             />

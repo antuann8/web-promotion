@@ -6,14 +6,18 @@ const ClearOneBlockButton = ({
                                setEmptyLetter,
                                setSelectedOptions,
                                setSelectedFontFamily,
-                               setSelectedFontSize }) => {
+                               setSelectedFontSize,
+                               setSelectedColor,
+                                }) => {
     return (
         <div>
             <button className="letter__redactor__button-right" onClick={() => clearOneBlock(index,
                 setEmptyLetter,
                 setSelectedOptions,
                 setSelectedFontFamily,
-                setSelectedFontSize)}>Удалить блок</button>
+                setSelectedFontSize,
+                setSelectedColor,
+            )}>Удалить блок</button>
         </div>
     );
 };

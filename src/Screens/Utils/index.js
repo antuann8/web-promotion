@@ -20,6 +20,7 @@ export const createBlock = async (setEmptyLetter) => {
         backcolor: '#00ff00',
         fontFamily: 'Arial, Helvetica, sans-serif',
         fontSize: '10px',
+        color: '#000000',
     };
     // Отправить POST-запрос
     await addBlock(data);

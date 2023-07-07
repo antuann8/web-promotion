@@ -27,6 +27,7 @@ import {
     handleBackColorChange,
     handleFontFamilyChange,
     handleFontSizeChange,
+    handleColorChange,
 } from "../../Components/ParamsUtils";
 
 // styles
@@ -42,6 +43,7 @@ const LetterCreatorScreen = () => {
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [selectedFontFamily, setSelectedFontFamily] = useState([]);
     const [selectedFontSize, setSelectedFontSize] = useState([]);
+    const [selectedColor, setSelectedColor] = useState([]);
 
     useEffect(() => {
         getUpdateLetter(setEmptyLetter);
@@ -55,7 +57,10 @@ const LetterCreatorScreen = () => {
         selectedFontSize,
         setSelectedFontSize,
         selectedOptions,
-        setSelectedOptions);
+        setSelectedOptions,
+        selectedColor,
+        setSelectedColor,
+        );
 
     return (
         <Template>
@@ -68,6 +73,7 @@ const LetterCreatorScreen = () => {
                     setSelectedOptions={setSelectedOptions}
                     setSelectedFontFamily={setSelectedFontFamily}
                     setSelectedFontSize={setSelectedFontSize}
+                    setSelectedColor={setSelectedColor}
                 />
                 <LetterCenter emptyLetter={emptyLetter} />
                 <LetterRight
@@ -82,6 +88,10 @@ const LetterCreatorScreen = () => {
                     setSelectedFontFamily={setSelectedFontFamily}
                     handleFontSizeChange={handleFontSizeChange}
                     setSelectedFontSize={setSelectedFontSize}
+                    selectedColor={selectedColor}
+                    setSelectedColor={setSelectedColor}
+                    handleColorChange={handleColorChange}
+
                     clearOneBlock={handleClearOneBlock}
                     colors={colors}
                     fonts={fonts}
