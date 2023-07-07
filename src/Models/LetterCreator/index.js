@@ -8,7 +8,7 @@ const addBlock	= async (data)				    => await Http.requestJsonNotResponse(`creat
 
 const clearAllBlocks = async ()                 => await Http.requestHtmlNotResponse(`creator/clear/all`);
 
-const clearOneBlock = async (data)                => await Http.requestJsonGetHtml(`creator/clear/one`, data);
+const clearOneBlock = async (data)                => await Http.requestJsonNotResponse(`creator/clear/one`, data);
 
 const changeParams = async (data)          => await Http.requestJsonNotResponse(`creator/change/params`, data);
 

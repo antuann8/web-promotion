@@ -15,10 +15,13 @@ const useUpdateBlockSettings = (
     setSelectedColor,
     selectedWidth,
     setSelectedWidth,
+    selectedHeight,
+    setSelectedHeight,
                         ) => {
 
     const startFontSize = "10";
     const startWidth = "600";
+    const startHeight = "200";
 
     useEffect(() => {
         if (selectedFontFamily.length < countBlocks) {
@@ -49,6 +52,12 @@ const useUpdateBlockSettings = (
             setSelectedWidth(prevSelectedWidth => [...prevSelectedWidth, startWidth]);
         }
     }, [countBlocks, selectedWidth]);
+
+    useEffect(() => {
+        if (selectedHeight.length < countBlocks) {
+            setSelectedHeight(prevSelectedHeight => [...prevSelectedHeight, startHeight]);
+        }
+    }, [countBlocks, selectedHeight]);
 };
 
 export default useUpdateBlockSettings;

@@ -2,7 +2,6 @@ import React from 'react';
 import SelectBlock from '../SelectBlock';
 import InputBlock from "../InputBlock";
 import ClearOneBlockButton from "../ClearOneBlockButton";
-import {handleColorChange} from "../../Components/ParamsUtils";
 
 const LetterRight = ({
                     countBlocks,
@@ -22,6 +21,9 @@ const LetterRight = ({
                     selectedWidth,
                     setSelectedWidth,
                     handleWidthChange,
+                    selectedHeight,
+                    setSelectedHeight,
+                    handleHeightChange,
                     clearOneBlock,
                     colors,
                     fonts
@@ -48,6 +50,7 @@ const LetterRight = ({
                                         selectedFontSize[index],
                                         selectedColor[index],
                                         selectedWidth[index],
+                                        selectedHeight[index],
                                     );
                                 }}
                                 options={colors}
@@ -66,6 +69,7 @@ const LetterRight = ({
                                         selectedFontSize[index],
                                         selectedColor[index],
                                         selectedWidth[index],
+                                        selectedHeight[index],
                                     );
                                 }}
                                 options={fonts}
@@ -84,6 +88,7 @@ const LetterRight = ({
                                         selectedFontSize[index],
                                         selectedOptions[index],
                                         selectedWidth[index],
+                                        selectedHeight[index],
                                     );
                                 }}
                                 options={colors}
@@ -101,6 +106,7 @@ const LetterRight = ({
                                         setEmptyLetter,
                                         selectedColor[index],
                                         selectedWidth[index],
+                                        selectedHeight[index],
                                     );
                                 }}
                                 min="2"
@@ -121,11 +127,33 @@ const LetterRight = ({
                                         setEmptyLetter,
                                         selectedColor[index],
                                         selectedFontSize[index],
+                                        selectedHeight[index],
                                     );
                                 }}
                                 min="10"
                                 max="600"
                                 label="Введите значение ширины блока в px (max: 600, min: 10)"
+                                unit="px"
+                            />
+                            <InputBlock
+                                selectedValue={selectedHeight[index]}
+                                onChange={(event) => {
+                                    handleHeightChange(
+                                        index,
+                                        event,
+                                        setSelectedHeight,
+                                        selectedHeight,
+                                        selectedFontFamily[index],
+                                        selectedOptions[index],
+                                        setEmptyLetter,
+                                        selectedColor[index],
+                                        selectedFontSize[index],
+                                        selectedWidth[index],
+                                    );
+                                }}
+                                min="10"
+                                max="1000"
+                                label="Введите значение высоты блока в px (max: 1000, min: 10)"
                                 unit="px"
                             />
                             <ClearOneBlockButton
@@ -136,6 +164,8 @@ const LetterRight = ({
                                 setSelectedFontFamily={setSelectedFontFamily}
                                 setSelectedFontSize={setSelectedFontSize}
                                 setSelectedColor={setSelectedColor}
+                                setSelectedWidth={setSelectedWidth}
+                                setSelectedHeight={setSelectedHeight}
                             />
                         </div>
                     </div>

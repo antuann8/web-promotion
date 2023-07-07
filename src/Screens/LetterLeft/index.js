@@ -9,6 +9,7 @@ const LetterLeft = ({
                         setSelectedFontSize,
                         setSelectedColor,
                         setSelectedWidth,
+                        setSelectedHeight,
                     }) => {
     return (
         <div className="letter__redactor-left">
@@ -21,6 +22,7 @@ const LetterLeft = ({
                     setSelectedFontSize,
                     setSelectedColor,
                     setSelectedWidth,
+                    setSelectedHeight,
                 )}>Очистить все блоки</button>
             </div>
         </div>

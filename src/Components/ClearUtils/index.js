@@ -14,6 +14,7 @@ export const handleClearAllBlocks = async (
                                     setSelectedFontSize,
                                     setSelectedColor,
                                     setSelectedWidth,
+                                    setSelectedHeight,
 ) => {
 
     await clearAllBlocks();
@@ -22,6 +23,7 @@ export const handleClearAllBlocks = async (
     setSelectedFontSize([]);
     setSelectedColor([]);
     setSelectedWidth([]);
+    setSelectedHeight([]);
 
     await getUpdateLetter(setEmptyLetter);
 };
@@ -34,6 +36,7 @@ export const handleClearOneBlock = async (
                                     setSelectedFontSize,
                                     setSelectedColor,
                                     setSelectedWidth,
+                                    setSelectedHeight,
 ) => {
 
     const response = await clearOneBlock(index);
@@ -44,5 +47,6 @@ export const handleClearOneBlock = async (
     setSelectedFontSize(prevSelectedFontSize => prevSelectedFontSize.filter((_, i) => i !== index));
     setSelectedColor(prevSelectedColor => prevSelectedColor.filter((_, i) => i !== index));
     setSelectedWidth(prevSelectedWidth => prevSelectedWidth.filter((_, i) => i !== index));
+    setSelectedHeight(prevSelectedHeight => prevSelectedHeight.filter((_, i) => i !== index));
     setEmptyLetter(response);
 }

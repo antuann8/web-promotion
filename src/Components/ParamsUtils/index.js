@@ -23,9 +23,13 @@ export const handleBackColorChange = async (
     fontSize,
     color,
     width,
+    height,
 ) => {
+
     const updateFontSize = fontSize + 'px';
     const updateWidth = width + 'px';
+    const updateHeight = height + 'px';
+
     const data = {
         'backcolor': event.target.value,
         'index': index,
@@ -33,6 +37,7 @@ export const handleBackColorChange = async (
         'fontSize': updateFontSize,
         'color' : color,
         'width' : updateWidth,
+        'height' : updateHeight,
     }
     await updateBlock(index, event.target.value, setSelectedOptions, selectedOptions, data, changeParams, setEmptyLetter);
 };
@@ -47,9 +52,13 @@ export const handleFontFamilyChange = async (
     fontSize,
     color,
     width,
+    height,
 ) => {
+
     const updateFontSize = fontSize + 'px';
     const updateWidth = width + 'px';
+    const updateHeight = height + 'px';
+
     const data = {
         'fontFamily': event.target.value,
         'index': index,
@@ -57,6 +66,7 @@ export const handleFontFamilyChange = async (
         'fontSize': updateFontSize,
         'color' : color,
         'width' : updateWidth,
+        'height' : updateHeight,
     }
     await updateBlock(index, event.target.value, setSelectedFontFamily, selectedFontFamily, data, changeParams, setEmptyLetter);
 };
@@ -71,6 +81,7 @@ export const handleFontSizeChange = async (
     setEmptyLetter,
     color,
     width,
+    height,
 ) => {
     let fontSize = event.target.value;
     if (fontSize >= 2 && fontSize <= 80) {
@@ -80,6 +91,8 @@ export const handleFontSizeChange = async (
     }
 
     const updateWidth = width + 'px';
+    const updateHeight = height + 'px';
+
     const data = {
         'fontFamily': fontFamily,
         'index': index,
@@ -87,6 +100,7 @@ export const handleFontSizeChange = async (
         'fontSize': fontSize,
         'color' : color,
         'width' : updateWidth,
+        'height' : updateHeight,
     }
 
     await updateBlock(index, event.target.value, setSelectedFontSize, selectedFontSize, data, changeParams, setEmptyLetter);
@@ -102,9 +116,11 @@ export const handleColorChange = async (
     fontSize,
     backcolor,
     width,
+    height,
 ) => {
     const updateFontSize = fontSize + 'px';
     const updateWidth = width + 'px';
+    const updateHeight = height + 'px';
 
     const data = {
         'index': index,
@@ -113,6 +129,7 @@ export const handleColorChange = async (
         'fontSize': updateFontSize,
         'color' : event.target.value,
         'width' : updateWidth,
+        'height' : updateHeight,
     }
     await updateBlock(index, event.target.value, setSelectedColor, selectedColor, data, changeParams, setEmptyLetter);
 };
@@ -127,9 +144,12 @@ export const handleWidthChange = async (
     setEmptyLetter,
     color,
     fontSize,
+    height,
 ) => {
 
     const updateFontSize = fontSize + 'px';
+    const updateHeight = height + 'px';
+
     let width = event.target.value;
     if (width >= 10 && width <= 600) {
         width = event.target.value + 'px';
@@ -144,7 +164,44 @@ export const handleWidthChange = async (
         'fontSize': updateFontSize,
         'color' : color,
         'width' : width,
+        'height' : updateHeight,
     }
 
     await updateBlock(index, event.target.value, setSelectedWidth, selectedWidth, data, changeParams, setEmptyLetter);
+};
+
+export const handleHeightChange = async (
+    index,
+    event,
+    setSelectedHeight,
+    selectedHeight,
+    fontFamily,
+    backcolor,
+    setEmptyLetter,
+    color,
+    fontSize,
+    width,
+) => {
+
+    const updateFontSize = fontSize + 'px';
+    const updateWidth = width + 'px';
+
+    let height = event.target.value;
+    if (height >= 10 && height <= 1000) {
+        height = event.target.value + 'px';
+    } else {
+        height = '200px';
+    }
+
+    const data = {
+        'fontFamily': fontFamily,
+        'index': index,
+        'backcolor': backcolor,
+        'fontSize': updateFontSize,
+        'color' : color,
+        'width' : updateWidth,
+        'height' : height,
+    }
+
+    await updateBlock(index, event.target.value, setSelectedHeight, selectedHeight, data, changeParams, setEmptyLetter);
 };

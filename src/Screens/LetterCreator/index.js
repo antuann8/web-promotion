@@ -29,6 +29,7 @@ import {
     handleFontSizeChange,
     handleColorChange,
     handleWidthChange,
+    handleHeightChange,
 } from "../../Components/ParamsUtils";
 
 // styles
@@ -46,6 +47,7 @@ const LetterCreatorScreen = () => {
     const [selectedFontSize, setSelectedFontSize] = useState([]);
     const [selectedColor, setSelectedColor] = useState([]);
     const [selectedWidth, setSelectedWidth] = useState([]);
+    const [selectedHeight, setSelectedHeight] = useState([]);
 
 
     useEffect(() => {
@@ -65,6 +67,8 @@ const LetterCreatorScreen = () => {
         setSelectedColor,
         selectedWidth,
         setSelectedWidth,
+        selectedHeight,
+        setSelectedHeight,
         );
 
     return (
@@ -80,6 +84,7 @@ const LetterCreatorScreen = () => {
                     setSelectedFontSize={setSelectedFontSize}
                     setSelectedColor={setSelectedColor}
                     setSelectedWidth={setSelectedWidth}
+                    setSelectedHeight={setSelectedHeight}
                 />
                 <LetterCenter emptyLetter={emptyLetter} />
                 <LetterRight
@@ -100,6 +105,9 @@ const LetterCreatorScreen = () => {
                     selectedWidth={selectedWidth}
                     setSelectedWidth={setSelectedWidth}
                     handleWidthChange={handleWidthChange}
+                    selectedHeight={selectedHeight}
+                    setSelectedHeight={setSelectedHeight}
+                    handleHeightChange={handleHeightChange}
 
                     clearOneBlock={handleClearOneBlock}
                     colors={colors}
