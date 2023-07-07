@@ -142,7 +142,6 @@ const LetterRight = ({
                                 min="10"
                                 max="600"
                                 label="Введите значение ширины блока в px (max: 600, min: 10)"
-                                unit="px"
                             />
                             <InputBlock
                                 selectedValue={selectedHeight[index]}

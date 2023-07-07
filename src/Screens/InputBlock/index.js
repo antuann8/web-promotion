@@ -5,7 +5,6 @@ const InputBlock = ({
                         max,
                         label,
                         selectedValue,
-                        unit,
                         onChange,
                         }) => {
     return (
@@ -19,7 +18,6 @@ const InputBlock = ({
                 value={selectedValue}
                 onChange={onChange}
             />
-            <span> {unit}</span>
         </div>
     );
 };
