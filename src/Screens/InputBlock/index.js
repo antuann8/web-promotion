@@ -1,19 +1,12 @@
 import React from 'react';
 
 const InputBlock = ({
-                        index,
-                        selectedFontSize,
-                        handleFontSizeChange,
-                        setSelectedFontSize,
-                        selectedFontFamily,
-                        selectedOptions,
-                        setEmptyLetter,
                         min,
                         max,
                         label,
                         selectedValue,
                         unit,
-                        selectedColor,
+                        onChange,
                         }) => {
     return (
         <div>
@@ -24,18 +17,7 @@ const InputBlock = ({
                 min={min}
                 max={max}
                 value={selectedValue}
-                onChange={(event) => {
-                    handleFontSizeChange(
-                        index,
-                        event,
-                        setSelectedFontSize,
-                        selectedFontSize,
-                        selectedFontFamily[index],
-                        selectedOptions[index],
-                        setEmptyLetter,
-                        selectedColor[index],
-                    );
-                }}
+                onChange={onChange}
             />
             <span> {unit}</span>
         </div>

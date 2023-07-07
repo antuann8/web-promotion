@@ -82,15 +82,19 @@ const LetterRight = ({
                                 options={colors}
                             />
                             <InputBlock
-                                index={index}
-                                selectedFontSize={selectedFontSize}
-                                handleFontSizeChange={handleFontSizeChange}
-                                setSelectedFontSize={setSelectedFontSize}
-                                selectedFontFamily={selectedFontFamily}
-                                selectedOptions={selectedOptions}
-                                setEmptyLetter={setEmptyLetter}
                                 selectedValue={selectedFontSize[index]}
-                                selectedColor={selectedColor}
+                                onChange={(event) => {
+                                    handleFontSizeChange(
+                                        index,
+                                        event,
+                                        setSelectedFontSize,
+                                        selectedFontSize,
+                                        selectedFontFamily[index],
+                                        selectedOptions[index],
+                                        setEmptyLetter,
+                                        selectedColor[index],
+                                    );
+                                }}
                                 min="2"
                                 max="80"
                                 label="Введите значение шрифта в px (max: 80, min: 2)"
