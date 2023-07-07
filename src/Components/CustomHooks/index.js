@@ -13,9 +13,12 @@ const useUpdateBlockSettings = (
     setSelectedOptions,
     selectedColor,
     setSelectedColor,
+    selectedWidth,
+    setSelectedWidth,
                         ) => {
 
     const startFontSize = "10";
+    const startWidth = "600";
 
     useEffect(() => {
         if (selectedFontFamily.length < countBlocks) {
@@ -40,6 +43,12 @@ const useUpdateBlockSettings = (
             setSelectedColor(prevSelectedColor => [...prevSelectedColor, colors['Черный']]);
         }
     }, [countBlocks, selectedColor]);
+
+    useEffect(() => {
+        if (selectedWidth.length < countBlocks) {
+            setSelectedWidth(prevSelectedWidth => [...prevSelectedWidth, startWidth]);
+        }
+    }, [countBlocks, selectedWidth]);
 };
 
 export default useUpdateBlockSettings;

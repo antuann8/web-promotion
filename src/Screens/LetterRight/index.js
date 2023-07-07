@@ -5,23 +5,27 @@ import ClearOneBlockButton from "../ClearOneBlockButton";
 import {handleColorChange} from "../../Components/ParamsUtils";
 
 const LetterRight = ({
-                         countBlocks,
-                         selectedOptions,
-                         handleBackColorChange,
-                         setSelectedOptions,
-                         selectedFontFamily,
-                         setEmptyLetter,
-                         selectedFontSize,
-                         handleFontFamilyChange,
-                         setSelectedFontFamily,
-                         handleFontSizeChange,
-                         setSelectedFontSize,
-                         selectedColor,
-                         setSelectedColor,
-                         handleColorChange,
-                         clearOneBlock,
-                         colors,
-                         fonts }) => {
+                    countBlocks,
+                    selectedOptions,
+                    handleBackColorChange,
+                    setSelectedOptions,
+                    selectedFontFamily,
+                    setEmptyLetter,
+                    selectedFontSize,
+                    handleFontFamilyChange,
+                    setSelectedFontFamily,
+                    handleFontSizeChange,
+                    setSelectedFontSize,
+                    selectedColor,
+                    setSelectedColor,
+                    handleColorChange,
+                    selectedWidth,
+                    setSelectedWidth,
+                    handleWidthChange,
+                    clearOneBlock,
+                    colors,
+                    fonts
+}) => {
     return (
         <div className='letter__redactor-right'>
             <h2>Управление блоками ({countBlocks})</h2>
@@ -43,6 +47,7 @@ const LetterRight = ({
                                         setEmptyLetter,
                                         selectedFontSize[index],
                                         selectedColor[index],
+                                        selectedWidth[index],
                                     );
                                 }}
                                 options={colors}
@@ -60,6 +65,7 @@ const LetterRight = ({
                                         setEmptyLetter,
                                         selectedFontSize[index],
                                         selectedColor[index],
+                                        selectedWidth[index],
                                     );
                                 }}
                                 options={fonts}
@@ -77,6 +83,7 @@ const LetterRight = ({
                                         setEmptyLetter,
                                         selectedFontSize[index],
                                         selectedOptions[index],
+                                        selectedWidth[index],
                                     );
                                 }}
                                 options={colors}
@@ -93,11 +100,32 @@ const LetterRight = ({
                                         selectedOptions[index],
                                         setEmptyLetter,
                                         selectedColor[index],
+                                        selectedWidth[index],
                                     );
                                 }}
                                 min="2"
                                 max="80"
                                 label="Введите значение шрифта в px (max: 80, min: 2)"
+                                unit="px"
+                            />
+                            <InputBlock
+                                selectedValue={selectedWidth[index]}
+                                onChange={(event) => {
+                                    handleWidthChange(
+                                        index,
+                                        event,
+                                        setSelectedWidth,
+                                        selectedWidth,
+                                        selectedFontFamily[index],
+                                        selectedOptions[index],
+                                        setEmptyLetter,
+                                        selectedColor[index],
+                                        selectedFontSize[index],
+                                    );
+                                }}
+                                min="10"
+                                max="600"
+                                label="Введите значение ширины блока в px (max: 600, min: 10)"
                                 unit="px"
                             />
                             <ClearOneBlockButton
