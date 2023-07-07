@@ -23,6 +23,7 @@ export const createBlock = async (setEmptyLetter) => {
         color: '#000000',
         width: '600px',
         height: '200px',
+        text: 'Измените текст, фон блока, фон текста в управлении блоком',
     };
     // Отправить POST-запрос
     await addBlock(data);

@@ -10,6 +10,7 @@ const ClearOneBlockButton = ({
                                 setSelectedColor,
                                 setSelectedWidth,
                                 setSelectedHeight,
+                                setSelectedText,
                                 }) => {
     return (
         <div>
@@ -21,6 +22,7 @@ const ClearOneBlockButton = ({
                 setSelectedColor,
                 setSelectedWidth,
                 setSelectedHeight,
+                setSelectedText,
             )}>Удалить блок</button>
         </div>
     );
