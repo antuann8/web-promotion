@@ -7,27 +7,28 @@ import ClearOneBlockButton from "../ClearOneBlockButton";
 const LetterRight = ({
                     countBlocks,
                     selectedOptions,
-                    handleBackColorChange,
+                    handleChange,
+                    // handleBackColorChange,
                     setSelectedOptions,
                     selectedFontFamily,
                     setEmptyLetter,
                     selectedFontSize,
-                    handleFontFamilyChange,
+                    // handleFontFamilyChange,
                     setSelectedFontFamily,
-                    handleFontSizeChange,
+                    // handleFontSizeChange,
                     setSelectedFontSize,
                     selectedColor,
                     setSelectedColor,
-                    handleColorChange,
+                    // handleColorChange,
                     selectedWidth,
                     setSelectedWidth,
-                    handleWidthChange,
+                    // handleWidthChange,
                     selectedHeight,
                     setSelectedHeight,
-                    handleHeightChange,
+                    // handleHeightChange,
                     selectedText,
                     setSelectedText,
-                    handleTextChange,
+                    // handleTextChange,
                     clearOneBlock,
                     colors,
                     fonts
@@ -35,6 +36,171 @@ const LetterRight = ({
     return (
         <div className='letter__redactor-right'>
             <h2>Управление блоками ({countBlocks})</h2>
+            {/*{*/}
+            {/*    Array.from({ length: countBlocks }, (_, index) => (*/}
+            {/*        <div key={index}>*/}
+            {/*            <h3>Блок №{index + 1}</h3>*/}
+            {/*            <div>*/}
+            {/*                <SelectBlock*/}
+            {/*                    label="Выберите задний фон блока:"*/}
+            {/*                    selectValue={selectedOptions[index]}*/}
+            {/*                    onChange={(event) => {*/}
+            {/*                        handleBackColorChange(*/}
+            {/*                            index,*/}
+            {/*                            event,*/}
+            {/*                            setSelectedOptions,*/}
+            {/*                            selectedOptions,*/}
+            {/*                            selectedFontFamily[index],*/}
+            {/*                            setEmptyLetter,*/}
+            {/*                            selectedFontSize[index],*/}
+            {/*                            selectedColor[index],*/}
+            {/*                            selectedWidth[index],*/}
+            {/*                            selectedHeight[index],*/}
+            {/*                            selectedText[index],*/}
+            {/*                        );*/}
+            {/*                    }}*/}
+            {/*                    options={colors}*/}
+            {/*                />*/}
+            {/*                <SelectBlock*/}
+            {/*                    label="Выберите шрифт текста блока:"*/}
+            {/*                    selectValue={selectedFontFamily[index]}*/}
+            {/*                    onChange={(event) => {*/}
+            {/*                        handleFontFamilyChange(*/}
+            {/*                            index,*/}
+            {/*                            event,*/}
+            {/*                            setSelectedFontFamily,*/}
+            {/*                            selectedFontFamily,*/}
+            {/*                            selectedOptions[index],*/}
+            {/*                            setEmptyLetter,*/}
+            {/*                            selectedFontSize[index],*/}
+            {/*                            selectedColor[index],*/}
+            {/*                            selectedWidth[index],*/}
+            {/*                            selectedHeight[index],*/}
+            {/*                            selectedText[index],*/}
+            {/*                        );*/}
+            {/*                    }}*/}
+            {/*                    options={fonts}*/}
+            {/*                />*/}
+            {/*                <SelectBlock*/}
+            {/*                    label="Выберите цвет текста блока:"*/}
+            {/*                    selectValue={selectedColor[index]}*/}
+            {/*                    onChange={(event) => {*/}
+            {/*                        handleColorChange(*/}
+            {/*                            index,*/}
+            {/*                            event,*/}
+            {/*                            setSelectedColor,*/}
+            {/*                            selectedColor,*/}
+            {/*                            selectedFontFamily[index],*/}
+            {/*                            setEmptyLetter,*/}
+            {/*                            selectedFontSize[index],*/}
+            {/*                            selectedOptions[index],*/}
+            {/*                            selectedWidth[index],*/}
+            {/*                            selectedHeight[index],*/}
+            {/*                            selectedText[index],*/}
+            {/*                        );*/}
+            {/*                    }}*/}
+            {/*                    options={colors}*/}
+            {/*                />*/}
+            {/*                <InputBlock*/}
+            {/*                    selectedValue={selectedFontSize[index]}*/}
+            {/*                    onChange={(event) => {*/}
+            {/*                        handleFontSizeChange(*/}
+            {/*                            index,*/}
+            {/*                            event,*/}
+            {/*                            setSelectedFontSize,*/}
+            {/*                            selectedFontSize,*/}
+            {/*                            selectedFontFamily[index],*/}
+            {/*                            selectedOptions[index],*/}
+            {/*                            setEmptyLetter,*/}
+            {/*                            selectedColor[index],*/}
+            {/*                            selectedWidth[index],*/}
+            {/*                            selectedHeight[index],*/}
+            {/*                            selectedText[index],*/}
+            {/*                        );*/}
+            {/*                    }}*/}
+            {/*                    min="2"*/}
+            {/*                    max="80"*/}
+            {/*                    label="Введите значение шрифта в px (max: 80, min: 2)"*/}
+            {/*                    unit="px"*/}
+            {/*                />*/}
+            {/*                <InputBlock*/}
+            {/*                    selectedValue={selectedWidth[index]}*/}
+            {/*                    onChange={(event) => {*/}
+            {/*                        handleWidthChange(*/}
+            {/*                            index,*/}
+            {/*                            event,*/}
+            {/*                            setSelectedWidth,*/}
+            {/*                            selectedWidth,*/}
+            {/*                            selectedFontFamily[index],*/}
+            {/*                            selectedOptions[index],*/}
+            {/*                            setEmptyLetter,*/}
+            {/*                            selectedColor[index],*/}
+            {/*                            selectedFontSize[index],*/}
+            {/*                            selectedHeight[index],*/}
+            {/*                            selectedText[index],*/}
+            {/*                        );*/}
+            {/*                    }}*/}
+            {/*                    min="10"*/}
+            {/*                    max="600"*/}
+            {/*                    label="Введите значение ширины блока в px (max: 600, min: 10)"*/}
+            {/*                />*/}
+            {/*                <InputBlock*/}
+            {/*                    selectedValue={selectedHeight[index]}*/}
+            {/*                    onChange={(event) => {*/}
+            {/*                        handleHeightChange(*/}
+            {/*                            index,*/}
+            {/*                            event,*/}
+            {/*                            setSelectedHeight,*/}
+            {/*                            selectedHeight,*/}
+            {/*                            selectedFontFamily[index],*/}
+            {/*                            selectedOptions[index],*/}
+            {/*                            setEmptyLetter,*/}
+            {/*                            selectedColor[index],*/}
+            {/*                            selectedFontSize[index],*/}
+            {/*                            selectedWidth[index],*/}
+            {/*                            selectedText[index],*/}
+            {/*                        );*/}
+            {/*                    }}*/}
+            {/*                    min="10"*/}
+            {/*                    max="1000"*/}
+            {/*                    label="Введите значение высоты блока в px (max: 1000, min: 10)"*/}
+            {/*                    unit="px"*/}
+            {/*                />*/}
+            {/*                <InputBlockText*/}
+            {/*                    selectedValue={selectedText[index]}*/}
+            {/*                    onChange={(event) => {*/}
+            {/*                        handleTextChange(*/}
+            {/*                            index,*/}
+            {/*                            event,*/}
+            {/*                            setSelectedText,*/}
+            {/*                            selectedText,*/}
+            {/*                            selectedFontFamily[index],*/}
+            {/*                            selectedOptions[index],*/}
+            {/*                            setEmptyLetter,*/}
+            {/*                            selectedColor[index],*/}
+            {/*                            selectedFontSize[index],*/}
+            {/*                            selectedWidth[index],*/}
+            {/*                            selectedHeight[index],*/}
+            {/*                        );*/}
+            {/*                    }}*/}
+            {/*                    label="Введите текст"*/}
+            {/*                />*/}
+            {/*                <ClearOneBlockButton*/}
+            {/*                    index={index}*/}
+            {/*                    clearOneBlock={clearOneBlock}*/}
+            {/*                    setEmptyLetter={setEmptyLetter}*/}
+            {/*                    setSelectedOptions={setSelectedOptions}*/}
+            {/*                    setSelectedFontFamily={setSelectedFontFamily}*/}
+            {/*                    setSelectedFontSize={setSelectedFontSize}*/}
+            {/*                    setSelectedColor={setSelectedColor}*/}
+            {/*                    setSelectedWidth={setSelectedWidth}*/}
+            {/*                    setSelectedHeight={setSelectedHeight}*/}
+            {/*                    setSelectedText={setSelectedText}*/}
+            {/*                />*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    ))*/}
+            {/*}*/}
             {
                 Array.from({ length: countBlocks }, (_, index) => (
                     <div key={index}>
@@ -44,18 +210,20 @@ const LetterRight = ({
                                 label="Выберите задний фон блока:"
                                 selectValue={selectedOptions[index]}
                                 onChange={(event) => {
-                                    handleBackColorChange(
+                                    handleChange(
+                                        'backcolor',
                                         index,
                                         event,
                                         setSelectedOptions,
                                         selectedOptions,
-                                        selectedFontFamily[index],
+                                        selectedOptions[index],
                                         setEmptyLetter,
+                                        selectedFontFamily[index],
                                         selectedFontSize[index],
                                         selectedColor[index],
                                         selectedWidth[index],
                                         selectedHeight[index],
-                                        selectedText[index],
+                                        selectedText[index]
                                     );
                                 }}
                                 options={colors}
@@ -64,18 +232,20 @@ const LetterRight = ({
                                 label="Выберите шрифт текста блока:"
                                 selectValue={selectedFontFamily[index]}
                                 onChange={(event) => {
-                                    handleFontFamilyChange(
+                                    handleChange(
+                                        'fontFamily',
                                         index,
                                         event,
                                         setSelectedFontFamily,
                                         selectedFontFamily,
                                         selectedOptions[index],
                                         setEmptyLetter,
+                                        selectedFontFamily[index],
                                         selectedFontSize[index],
                                         selectedColor[index],
                                         selectedWidth[index],
                                         selectedHeight[index],
-                                        selectedText[index],
+                                        selectedText[index]
                                     );
                                 }}
                                 options={fonts}
@@ -84,105 +254,107 @@ const LetterRight = ({
                                 label="Выберите цвет текста блока:"
                                 selectValue={selectedColor[index]}
                                 onChange={(event) => {
-                                    handleColorChange(
+                                    handleChange(
+                                        'color',
                                         index,
                                         event,
                                         setSelectedColor,
                                         selectedColor,
-                                        selectedFontFamily[index],
-                                        setEmptyLetter,
-                                        selectedFontSize[index],
                                         selectedOptions[index],
+                                        setEmptyLetter,
+                                        selectedFontFamily[index],
+                                        selectedFontSize[index],
+                                        selectedColor[index],
                                         selectedWidth[index],
                                         selectedHeight[index],
-                                        selectedText[index],
+                                        selectedText[index]
                                     );
                                 }}
                                 options={colors}
                             />
                             <InputBlock
+                                label="Выберите размер шрифта блока:"
                                 selectedValue={selectedFontSize[index]}
                                 onChange={(event) => {
-                                    handleFontSizeChange(
+                                    handleChange(
+                                        'fontSize',
                                         index,
                                         event,
                                         setSelectedFontSize,
                                         selectedFontSize,
-                                        selectedFontFamily[index],
                                         selectedOptions[index],
                                         setEmptyLetter,
+                                        selectedFontFamily[index],
+                                        selectedFontSize[index],
                                         selectedColor[index],
                                         selectedWidth[index],
                                         selectedHeight[index],
-                                        selectedText[index],
+                                        selectedText[index]
                                     );
                                 }}
-                                min="2"
-                                max="80"
-                                label="Введите значение шрифта в px (max: 80, min: 2)"
-                                unit="px"
                             />
                             <InputBlock
+                                label="Выберите ширину блока:"
                                 selectedValue={selectedWidth[index]}
                                 onChange={(event) => {
-                                    handleWidthChange(
+                                    handleChange(
+                                        'width',
                                         index,
                                         event,
                                         setSelectedWidth,
                                         selectedWidth,
-                                        selectedFontFamily[index],
                                         selectedOptions[index],
                                         setEmptyLetter,
-                                        selectedColor[index],
+                                        selectedFontFamily[index],
                                         selectedFontSize[index],
+                                        selectedColor[index],
+                                        selectedWidth[index],
                                         selectedHeight[index],
-                                        selectedText[index],
+                                        selectedText[index]
                                     );
                                 }}
-                                min="10"
-                                max="600"
-                                label="Введите значение ширины блока в px (max: 600, min: 10)"
                             />
                             <InputBlock
+                                label="Выберите высоту блока:"
                                 selectedValue={selectedHeight[index]}
                                 onChange={(event) => {
-                                    handleHeightChange(
+                                    handleChange(
+                                        'height',
                                         index,
                                         event,
                                         setSelectedHeight,
                                         selectedHeight,
-                                        selectedFontFamily[index],
                                         selectedOptions[index],
                                         setEmptyLetter,
-                                        selectedColor[index],
+                                        selectedFontFamily[index],
                                         selectedFontSize[index],
+                                        selectedColor[index],
                                         selectedWidth[index],
-                                        selectedText[index],
+                                        selectedHeight[index],
+                                        selectedText[index]
                                     );
                                 }}
-                                min="10"
-                                max="1000"
-                                label="Введите значение высоты блока в px (max: 1000, min: 10)"
-                                unit="px"
                             />
                             <InputBlockText
+                                label="Введите текст блока:"
                                 selectedValue={selectedText[index]}
                                 onChange={(event) => {
-                                    handleTextChange(
+                                    handleChange(
+                                        'text',
                                         index,
                                         event,
                                         setSelectedText,
                                         selectedText,
-                                        selectedFontFamily[index],
                                         selectedOptions[index],
                                         setEmptyLetter,
-                                        selectedColor[index],
+                                        selectedFontFamily[index],
                                         selectedFontSize[index],
+                                        selectedColor[index],
                                         selectedWidth[index],
                                         selectedHeight[index],
+                                        selectedText[index],
                                     );
                                 }}
-                                label="Введите текст"
                             />
                             <ClearOneBlockButton
                                 index={index}

@@ -24,13 +24,14 @@ import {
 } from "../../Components/ClearUtils";
 
 import {
-    handleBackColorChange,
-    handleFontFamilyChange,
-    handleFontSizeChange,
-    handleColorChange,
-    handleWidthChange,
-    handleHeightChange,
-    handleTextChange,
+    // handleBackColorChange,
+    // handleFontFamilyChange,
+    // handleFontSizeChange,
+    // handleColorChange,
+    // handleWidthChange,
+    // handleHeightChange,
+    // handleTextChange,
+    handleChange,
 } from "../../Components/ParamsUtils";
 
 // styles
@@ -95,27 +96,28 @@ const LetterCreatorScreen = () => {
                 <LetterRight
                     countBlocks={countBlocks}
                     selectedOptions={selectedOptions}
-                    handleBackColorChange={handleBackColorChange}
+                    handleChange={handleChange}
+                    // handleBackColorChange={handleBackColorChange}
                     setSelectedOptions={setSelectedOptions}
                     selectedFontFamily={selectedFontFamily}
                     setEmptyLetter={setEmptyLetter}
                     selectedFontSize={selectedFontSize}
-                    handleFontFamilyChange={handleFontFamilyChange}
+                    // handleFontFamilyChange={handleFontFamilyChange}
                     setSelectedFontFamily={setSelectedFontFamily}
-                    handleFontSizeChange={handleFontSizeChange}
+                    // handleFontSizeChange={handleFontSizeChange}
                     setSelectedFontSize={setSelectedFontSize}
                     selectedColor={selectedColor}
                     setSelectedColor={setSelectedColor}
-                    handleColorChange={handleColorChange}
+                    // handleColorChange={handleColorChange}
                     selectedWidth={selectedWidth}
                     setSelectedWidth={setSelectedWidth}
-                    handleWidthChange={handleWidthChange}
+                    // handleWidthChange={handleWidthChange}
                     selectedHeight={selectedHeight}
                     setSelectedHeight={setSelectedHeight}
-                    handleHeightChange={handleHeightChange}
+                    // handleHeightChange={handleHeightChange}
                     selectedText={selectedText}
                     setSelectedText={setSelectedText}
-                    handleTextChange={handleTextChange}
+                    // handleTextChange={handleTextChange}
 
                     clearOneBlock={handleClearOneBlock}
                     colors={colors}
