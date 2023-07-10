@@ -192,6 +192,7 @@ export const handleChange = async (
             fontSize = value;
         } else {
             fontSize = 10;
+            setSelected(index, fontSize);
         }
     } else if (type === 'width') {
         if (value >= 10 && value <= 600) {

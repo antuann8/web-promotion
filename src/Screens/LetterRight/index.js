@@ -273,7 +273,7 @@ const LetterRight = ({
                                 options={colors}
                             />
                             <InputBlock
-                                label="Выберите размер шрифта блока:"
+                                label="Выберите размер шрифта блока: (min: 2 , max: 80)"
                                 selectedValue={selectedFontSize[index]}
                                 onChange={(event) => {
                                     handleChange(
@@ -296,7 +296,7 @@ const LetterRight = ({
                                 max={80}
                             />
                             <InputBlock
-                                label="Выберите ширину блока:"
+                                label="Выберите ширину блока: (min: 10 , max: 600)"
                                 selectedValue={selectedWidth[index]}
                                 onChange={(event) => {
                                     handleChange(
@@ -319,7 +319,7 @@ const LetterRight = ({
                                 max={600}
                             />
                             <InputBlock
-                                label="Выберите высоту блока:"
+                                label="Выберите высоту блока: (min: 10 , max: 1000)"
                                 selectedValue={selectedHeight[index]}
                                 onChange={(event) => {
                                     handleChange(
