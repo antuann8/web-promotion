@@ -97,27 +97,20 @@ const LetterCreatorScreen = () => {
                     countBlocks={countBlocks}
                     selectedOptions={selectedOptions}
                     handleChange={handleChange}
-                    // handleBackColorChange={handleBackColorChange}
                     setSelectedOptions={setSelectedOptions}
                     selectedFontFamily={selectedFontFamily}
                     setEmptyLetter={setEmptyLetter}
                     selectedFontSize={selectedFontSize}
-                    // handleFontFamilyChange={handleFontFamilyChange}
                     setSelectedFontFamily={setSelectedFontFamily}
-                    // handleFontSizeChange={handleFontSizeChange}
                     setSelectedFontSize={setSelectedFontSize}
                     selectedColor={selectedColor}
                     setSelectedColor={setSelectedColor}
-                    // handleColorChange={handleColorChange}
                     selectedWidth={selectedWidth}
                     setSelectedWidth={setSelectedWidth}
-                    // handleWidthChange={handleWidthChange}
                     selectedHeight={selectedHeight}
                     setSelectedHeight={setSelectedHeight}
-                    // handleHeightChange={handleHeightChange}
                     selectedText={selectedText}
                     setSelectedText={setSelectedText}
-                    // handleTextChange={handleTextChange}
 
                     clearOneBlock={handleClearOneBlock}
                     colors={colors}
