@@ -292,6 +292,8 @@ const LetterRight = ({
                                         selectedText[index]
                                     );
                                 }}
+                                min={2}
+                                max={80}
                             />
                             <InputBlock
                                 label="Выберите ширину блока:"
@@ -313,6 +315,8 @@ const LetterRight = ({
                                         selectedText[index]
                                     );
                                 }}
+                                min={10}
+                                max={600}
                             />
                             <InputBlock
                                 label="Выберите высоту блока:"
@@ -334,6 +338,8 @@ const LetterRight = ({
                                         selectedText[index]
                                     );
                                 }}
+                                min={10}
+                                max={1000}
                             />
                             <InputBlockText
                                 label="Введите текст блока:"

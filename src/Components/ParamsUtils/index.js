@@ -186,7 +186,6 @@ export const handleChange = async (
     text
 ) => {
     let value = event.target.value;
-    const properties = { backcolor, fontFamily, fontSize, color, width, height, text };
 
     if (type === 'fontSize') {
         if (value >= 2 && value <= 80) {
