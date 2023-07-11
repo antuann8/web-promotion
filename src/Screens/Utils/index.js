@@ -2,6 +2,7 @@ import {
     get,
     getCountBlocks,
     addBlock,
+    addArrowBlock,
 } from "../../Models/LetterCreator"
 
 export const getBlocksCount = async (setCountBlocks) => {
@@ -27,6 +28,17 @@ export const createBlock = async (setEmptyLetter) => {
     };
     // Отправить POST-запрос
     await addBlock(data);
+
+    await getUpdateLetter(setEmptyLetter);
+};
+
+export const createArrowBlock = async (setEmptyLetter) => {
+
+    const data = {
+        backcolor: '#00ff00',
+    };
+    // Отправить POST-запрос
+    await addArrowBlock(data);
 
     await getUpdateLetter(setEmptyLetter);
 };

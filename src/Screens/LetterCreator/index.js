@@ -16,6 +16,7 @@ import {
     getBlocksCount,
     getUpdateLetter,
     createBlock,
+    createArrowBlock,
 } from '../Utils';
 
 import {
@@ -74,6 +75,7 @@ const LetterCreatorScreen = () => {
             <h1 className="letter__redactor__header">Визуальный редактор письма</h1>
             <div className="letter__redactor__container">
                 <LetterLeft
+                    createArrowBlock={createArrowBlock}
                     createBlock={createBlock}
                     handleClearAllBlocks={handleClearAllBlocks}
                     setEmptyLetter={setEmptyLetter}

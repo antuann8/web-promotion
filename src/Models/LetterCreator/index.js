@@ -6,11 +6,13 @@ const getCountBlocks = async ()                 => await Http.get('creator/getCo
 
 const addBlock	= async (data)				    => await Http.requestJsonNotResponse(`creator/add`, data);
 
+const addArrowBlock = async (data)              => await Http.requestJsonNotResponse(`creator/addArrowBlock`, data);
+
 const clearAllBlocks = async ()                 => await Http.requestHtmlNotResponse(`creator/clear/all`);
 
-const clearOneBlock = async (data)                => await Http.requestJsonNotResponse(`creator/clear/one`, data);
+const clearOneBlock = async (data)              => await Http.requestJsonNotResponse(`creator/clear/one`, data);
 
-const changeParams = async (data)          => await Http.requestJsonNotResponse(`creator/change/params`, data);
+const changeParams = async (data)               => await Http.requestJsonNotResponse(`creator/change/params`, data);
 
 
 
@@ -22,4 +24,5 @@ export {
     clearAllBlocks,
     clearOneBlock,
     changeParams,
+    addArrowBlock,
 }
