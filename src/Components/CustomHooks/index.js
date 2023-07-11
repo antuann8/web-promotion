@@ -23,12 +23,12 @@ const useUpdateBlockSettings = (
 
     const startFontSize = "10";
     const startWidth = "600";
-    const startHeight = "200";
+    const startHeight = "30";
     const startText = "Измените текст, фон блока, фон текста в управлении блоком";
 
     useEffect(() => {
         if (selectedFontFamily.length < countBlocks) {
-            setSelectedFontFamily(prevSelectedFontFamily => [...prevSelectedFontFamily, fonts["1"]]);
+            setSelectedFontFamily(prevSelectedFontFamily => [...prevSelectedFontFamily, fonts["Arial, Helvetica, sans-serif"]]);
         }
     }, [countBlocks, selectedFontFamily]);
 

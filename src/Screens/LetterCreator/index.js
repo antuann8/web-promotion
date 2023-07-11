@@ -24,13 +24,6 @@ import {
 } from "../../Components/ClearUtils";
 
 import {
-    // handleBackColorChange,
-    // handleFontFamilyChange,
-    // handleFontSizeChange,
-    // handleColorChange,
-    // handleWidthChange,
-    // handleHeightChange,
-    // handleTextChange,
     handleChange,
 } from "../../Components/ParamsUtils";
 

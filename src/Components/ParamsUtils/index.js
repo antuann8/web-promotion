@@ -56,10 +56,10 @@ export const handleChange = async (
             width = 600;
         }
     } else if (type === 'height') {
-        if (value >= 10 && value <= 1000) {
+        if (value >= 1 && value <= 100) {
             height = value;
         } else {
-            height = 200;
+            height = 30;
         }
     }
 
