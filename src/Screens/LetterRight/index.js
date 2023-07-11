@@ -146,29 +146,29 @@ const LetterRight = ({
                                 min={10}
                                 max={600}
                             />
-                            {/*<InputBlock*/}
-                            {/*    label="Выберите величину пространства между строками: (min: 1 , max: 100)"*/}
-                            {/*    selectedValue={selectedHeight[index]}*/}
-                            {/*    onChange={(event) => {*/}
-                            {/*        handleChange(*/}
-                            {/*            'height',*/}
-                            {/*            index,*/}
-                            {/*            event,*/}
-                            {/*            setSelectedHeight,*/}
-                            {/*            selectedHeight,*/}
-                            {/*            selectedOptions[index],*/}
-                            {/*            setEmptyLetter,*/}
-                            {/*            selectedFontFamily[index],*/}
-                            {/*            selectedFontSize[index],*/}
-                            {/*            selectedColor[index],*/}
-                            {/*            selectedWidth[index],*/}
-                            {/*            selectedHeight[index],*/}
-                            {/*            selectedText[index]*/}
-                            {/*        );*/}
-                            {/*    }}*/}
-                            {/*    min={1}*/}
-                            {/*    max={50}*/}
-                            {/*/>*/}
+                            <InputBlock
+                                label="Выберите величину пространства между строками: (min: 1 , max: 100)"
+                                selectedValue={selectedHeight[index]}
+                                onChange={(event) => {
+                                    handleChange(
+                                        'height',
+                                        index,
+                                        event,
+                                        setSelectedHeight,
+                                        selectedHeight,
+                                        selectedOptions[index],
+                                        setEmptyLetter,
+                                        selectedFontFamily[index],
+                                        selectedFontSize[index],
+                                        selectedColor[index],
+                                        selectedWidth[index],
+                                        selectedHeight[index],
+                                        selectedText[index]
+                                    );
+                                }}
+                                min={1}
+                                max={100}
+                            />
                             <InputBlockText
                                 label="Введите текст блока:"
                                 selectedValue={selectedText[index]}

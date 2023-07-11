@@ -22,7 +22,7 @@ export const createBlock = async (setEmptyLetter) => {
         fontSize: '10px',
         color: '#000000',
         width: '600px',
-        height: '200px',
+        height: '30px',
         text: 'Измените текст, фон блока, фон текста в управлении блоком',
     };
     // Отправить POST-запрос
