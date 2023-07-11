@@ -45,6 +45,7 @@ const LetterCreatorScreen = () => {
     const [selectedWidth, setSelectedWidth] = useState([]);
     const [selectedHeight, setSelectedHeight] = useState([]);
     const [selectedText, setSelectedText] = useState([]);
+    const [calledFunction, setCalledFunction] = useState('');
 
 
     useEffect(() => {
@@ -75,6 +76,7 @@ const LetterCreatorScreen = () => {
             <h1 className="letter__redactor__header">Визуальный редактор письма</h1>
             <div className="letter__redactor__container">
                 <LetterLeft
+                    setCalledFunction={setCalledFunction}
                     createArrowBlock={createArrowBlock}
                     createBlock={createBlock}
                     handleClearAllBlocks={handleClearAllBlocks}
@@ -89,6 +91,7 @@ const LetterCreatorScreen = () => {
                 />
                 <LetterCenter emptyLetter={emptyLetter} />
                 <LetterRight
+                    calledFunction={calledFunction}
                     countBlocks={countBlocks}
                     selectedOptions={selectedOptions}
                     handleChange={handleChange}

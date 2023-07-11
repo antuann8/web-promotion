@@ -15,7 +15,9 @@ export const getUpdateLetter = async (setEmptyLetter) => {
     setEmptyLetter(res);
 };
 
-export const createBlock = async (setEmptyLetter) => {
+export const createBlock = async (setEmptyLetter, setCalledFunction) => {
+
+    setCalledFunction('createBlock');
 
     const data = {
         backcolor: '#00ff00',
@@ -32,7 +34,9 @@ export const createBlock = async (setEmptyLetter) => {
     await getUpdateLetter(setEmptyLetter);
 };
 
-export const createArrowBlock = async (setEmptyLetter) => {
+export const createArrowBlock = async (setEmptyLetter, setCalledFunction) => {
+
+    setCalledFunction('createArrowBlock');
 
     const data = {
         backcolor: '#00ff00',

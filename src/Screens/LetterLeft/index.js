@@ -3,6 +3,7 @@ import React from 'react';
 const LetterLeft = ({
                         createBlock,
                         createArrowBlock,
+                        setCalledFunction,
                         handleClearAllBlocks,
                         setEmptyLetter,
                         setSelectedOptions,
@@ -16,8 +17,8 @@ const LetterLeft = ({
     return (
         <div className="letter__redactor-left">
             <div className="letter__redactor__button__container letter__one">
-                <button className="letter__redactor__button-left" onClick={() => createBlock(setEmptyLetter)}>Создание блока с текстом</button>
-                <button className="letter__redactor__button-left" onClick={() => createArrowBlock(setEmptyLetter)}>Создание блока с ссылкой</button>
+                <button className="letter__redactor__button-left" onClick={() => createBlock(setEmptyLetter, setCalledFunction)}>Создание блока с текстом</button>
+                <button className="letter__redactor__button-left" onClick={() => createArrowBlock(setEmptyLetter, setCalledFunction)}>Создание блока с ссылкой</button>
                 <button className="letter__redactor__button-left" onClick={() => handleClearAllBlocks(
                     setEmptyLetter,
                     setSelectedOptions,
