@@ -16,6 +16,7 @@ export const handleClearAllBlocks = async (
                                     setSelectedWidth,
                                     setSelectedHeight,
                                     setSelectedText,
+                                    setCalledFunctions,
 ) => {
 
     await clearAllBlocks();
@@ -26,6 +27,7 @@ export const handleClearAllBlocks = async (
     setSelectedWidth([]);
     setSelectedHeight([]);
     setSelectedText([]);
+    setCalledFunctions([]);
 
     await getUpdateLetter(setEmptyLetter);
 };
@@ -40,6 +42,8 @@ export const handleClearOneBlock = async (
                                     setSelectedWidth,
                                     setSelectedHeight,
                                     setSelectedText,
+                                    calledFunctions,
+                                    setCalledFunctions,
 ) => {
 
     const response = await clearOneBlock(index);
@@ -52,5 +56,6 @@ export const handleClearOneBlock = async (
     setSelectedWidth(prevSelectedWidth => prevSelectedWidth.filter((_, i) => i !== index));
     setSelectedHeight(prevSelectedHeight => prevSelectedHeight.filter((_, i) => i !== index));
     setSelectedText(prevSelectedText => prevSelectedText.filter((_, i) => i !== index));
+    setCalledFunctions(calledFunctions.filter((_, i) => i !== index));
     setEmptyLetter(response);
 }

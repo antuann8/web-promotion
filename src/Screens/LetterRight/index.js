@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import LetterRightText from "../LetterRightText";
 import LetterRightArrow from "../LetterRightArrow";
 import CollapsibleBlock from "../CollapsibleBlock";
 
 const LetterRight = ({
-                    calledFunction,
+                    setCalledFunctions,
+                    calledFunctions,
                     countBlocks,
                     selectedOptions,
                     handleChange,
@@ -35,7 +36,9 @@ const LetterRight = ({
                     <div key={index}>
                         <CollapsibleBlock title="Блок №" index={index + 1}>
                             {
-                                calledFunction === 'createBlock' ? <LetterRightText
+                                calledFunctions[index] === 'createBlock' ? <LetterRightText
+                                    calledFunctions={calledFunctions}
+                                    setCalledFunctions={setCalledFunctions}
                                     selectedOptions={selectedOptions}
                                     handleChange={handleChange}
                                     setSelectedOptions={setSelectedOptions}
@@ -53,12 +56,21 @@ const LetterRight = ({
                                     selectedText={selectedText}
                                     setSelectedText={setSelectedText}
                                     index={index}
+                                    // setIndex={setIndex}
                                     clearOneBlock={clearOneBlock}
                                     colors={colors}
                                     fonts={fonts}
-                                /> : calledFunction === 'createArrowBlock' ?
-                                    <LetterRightArrow /> :
-                                    <LetterRightArrow />
+                                /> : <LetterRightArrow index={index} />
+                                    // : calledFunctions[index] === 'createArrowBlock' ?
+                                    // <LetterRightArrow
+                                    //     // setIndex={setIndex}
+                                    //     index={index}
+                                    // />
+                                    // :
+                                    // <LetterRightArrow
+                                    //     // setIndex={setIndex}
+                                    //     index={index}
+                                    // />
                             }
                         </CollapsibleBlock>
                     </div>

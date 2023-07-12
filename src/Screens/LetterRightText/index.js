@@ -2,10 +2,11 @@ import SelectBlock from "../SelectBlock";
 import InputBlock from "../InputBlock";
 import InputBlockText from "../InputBlockText";
 import ClearOneBlockButton from "../ClearOneBlockButton";
-import React from "react";
-
+import React, { useEffect} from "react";
 
 const LetterRightText = ({
+                             calledFunctions,
+                             setCalledFunctions,
                              selectedOptions,
                              handleChange,
                              setSelectedOptions,
@@ -27,6 +28,8 @@ const LetterRightText = ({
                              fonts,
                              index,
                          }) => {
+
+    console.log(`letterRightText index - ${index}`);
     return (
         <div>
             <SelectBlock
@@ -196,6 +199,8 @@ const LetterRightText = ({
                 setSelectedWidth={setSelectedWidth}
                 setSelectedHeight={setSelectedHeight}
                 setSelectedText={setSelectedText}
+                setCalledFunctions={setCalledFunctions}
+                calledFunctions={calledFunctions}
             />
         </div>
     );

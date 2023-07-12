@@ -1,16 +1,18 @@
 import React from 'react';
 
 const ClearOneBlockButton = ({
-                                index,
-                                clearOneBlock,
-                                setEmptyLetter,
-                                setSelectedOptions,
-                                setSelectedFontFamily,
-                                setSelectedFontSize,
-                                setSelectedColor,
-                                setSelectedWidth,
-                                setSelectedHeight,
-                                setSelectedText,
+                            index,
+                            clearOneBlock,
+                            setEmptyLetter,
+                            setSelectedOptions,
+                            setSelectedFontFamily,
+                            setSelectedFontSize,
+                            setSelectedColor,
+                            setSelectedWidth,
+                            setSelectedHeight,
+                            setSelectedText,
+                            calledFunctions,
+                            setCalledFunctions,
                                 }) => {
     return (
         <div>
@@ -23,6 +25,8 @@ const ClearOneBlockButton = ({
                 setSelectedWidth,
                 setSelectedHeight,
                 setSelectedText,
+                calledFunctions,
+                setCalledFunctions,
             )}>Удалить блок</button>
         </div>
     );
