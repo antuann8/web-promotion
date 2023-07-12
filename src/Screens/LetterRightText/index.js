@@ -5,6 +5,7 @@ import ClearOneBlockButton from "../ClearOneBlockButton";
 import React, { useEffect} from "react";
 
 const LetterRightText = ({
+                             blockType,
                              calledFunctions,
                              setCalledFunctions,
                              selectedOptions,
@@ -37,6 +38,7 @@ const LetterRightText = ({
                 selectValue={selectedOptions[index]}
                 onChange={(event) => {
                     handleChange(
+                        blockType,
                         'backcolor',
                         index,
                         event,
@@ -59,6 +61,7 @@ const LetterRightText = ({
                 selectValue={selectedFontFamily[index]}
                 onChange={(event) => {
                     handleChange(
+                        blockType,
                         'fontFamily',
                         index,
                         event,
@@ -81,6 +84,7 @@ const LetterRightText = ({
                 selectValue={selectedColor[index]}
                 onChange={(event) => {
                     handleChange(
+                        blockType,
                         'color',
                         index,
                         event,
@@ -103,6 +107,7 @@ const LetterRightText = ({
                 selectedValue={selectedFontSize[index]}
                 onChange={(event) => {
                     handleChange(
+                        blockType,
                         'fontSize',
                         index,
                         event,
@@ -126,6 +131,7 @@ const LetterRightText = ({
                 selectedValue={selectedWidth[index]}
                 onChange={(event) => {
                     handleChange(
+                        blockType,
                         'width',
                         index,
                         event,
@@ -149,6 +155,7 @@ const LetterRightText = ({
                 selectedValue={selectedHeight[index]}
                 onChange={(event) => {
                     handleChange(
+                        blockType,
                         'height',
                         index,
                         event,
@@ -172,6 +179,7 @@ const LetterRightText = ({
                 selectedValue={selectedText[index]}
                 onChange={(event) => {
                     handleChange(
+                        blockType,
                         'text',
                         index,
                         event,

@@ -37,6 +37,7 @@ const LetterRight = ({
                         <CollapsibleBlock title="Блок №" index={index + 1}>
                             {
                                 calledFunctions[index] === 'createBlock' ? <LetterRightText
+                                    blockType="text"
                                     calledFunctions={calledFunctions}
                                     setCalledFunctions={setCalledFunctions}
                                     selectedOptions={selectedOptions}
@@ -56,11 +57,34 @@ const LetterRight = ({
                                     selectedText={selectedText}
                                     setSelectedText={setSelectedText}
                                     index={index}
-                                    // setIndex={setIndex}
                                     clearOneBlock={clearOneBlock}
                                     colors={colors}
                                     fonts={fonts}
-                                /> : <LetterRightArrow index={index} />
+                                /> : <LetterRightArrow
+                                    blockType="arrow"
+                                    calledFunctions={calledFunctions}
+                                    setCalledFunctions={setCalledFunctions}
+                                    selectedOptions={selectedOptions}
+                                    handleChange={handleChange}
+                                    setSelectedOptions={setSelectedOptions}
+                                    selectedFontFamily={selectedFontFamily}
+                                    setEmptyLetter={setEmptyLetter}
+                                    selectedFontSize={selectedFontSize}
+                                    setSelectedFontFamily={setSelectedFontFamily}
+                                    setSelectedFontSize={setSelectedFontSize}
+                                    selectedColor={selectedColor}
+                                    setSelectedColor={setSelectedColor}
+                                    selectedWidth={selectedWidth}
+                                    setSelectedWidth={setSelectedWidth}
+                                    selectedHeight={selectedHeight}
+                                    setSelectedHeight={setSelectedHeight}
+                                    selectedText={selectedText}
+                                    setSelectedText={setSelectedText}
+                                    index={index}
+                                    clearOneBlock={clearOneBlock}
+                                    colors={colors}
+                                    fonts={fonts}
+                                    />
                                     // : calledFunctions[index] === 'createArrowBlock' ?
                                     // <LetterRightArrow
                                     //     // setIndex={setIndex}

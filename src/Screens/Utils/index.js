@@ -27,6 +27,7 @@ export const createBlock = async (setEmptyLetter, setCalledFunctions, calledFunc
         width: '600px',
         height: '30px',
         text: 'Измените текст, фон блока, фон текста в управлении блоком',
+        type: 'text',
     };
     // Отправить POST-запрос
     await addBlock(data);
@@ -40,6 +41,13 @@ export const createArrowBlock = async (setEmptyLetter, setCalledFunctions, calle
 
     const data = {
         backcolor: '#00ff00',
+        fontFamily: 'Arial, Helvetica, sans-serif',
+        fontSize: '10px',
+        color: '#000000',
+        width: '600px',
+        height: '30px',
+        text: 'Измените текст, фон блока, фон текста в управлении блоком',
+        type: 'arrow',
     };
     // Отправить POST-запрос
     await addArrowBlock(data);

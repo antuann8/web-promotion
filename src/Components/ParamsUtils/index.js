@@ -13,8 +13,9 @@ const updateBlock = async (index, value, setSelected, selected, data, updateFunc
     await getUpdateLetter(setEmptyLetter);
 };
 
-const createDataObject = (index, backcolor, fontFamily, fontSize, color, width, height, text) => {
+const createDataObject = (blockType, index, backcolor, fontFamily, fontSize, color, width, height, text) => {
     return {
+        'blockType' : blockType,
         'index': index,
         'backcolor': backcolor,
         'fontFamily': fontFamily,
@@ -27,6 +28,7 @@ const createDataObject = (index, backcolor, fontFamily, fontSize, color, width, 
 }
 
 export const handleChange = async (
+    blockType,
     type,
     index,
     event,
@@ -68,7 +70,7 @@ export const handleChange = async (
     color = type === 'color' ? event.target.value : color;
     text = type === 'text' ? event.target.value : text;
 
-    const data = createDataObject(index, backcolor, fontFamily, fontSize, color, width, height, text);
+    const data = createDataObject(blockType, index, backcolor, fontFamily, fontSize, color, width, height, text);
 
     await updateBlock(index, event.target.value, setSelected, selected, data, changeParams, setEmptyLetter);
 };
