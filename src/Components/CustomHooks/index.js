@@ -19,12 +19,15 @@ const useUpdateBlockSettings = (
     setSelectedHeight,
     selectedText,
     setSelectedText,
+    selectedArrow,
+    setSelectedArrow,
                         ) => {
 
     const startFontSize = "10";
     const startWidth = "600";
     const startHeight = "30";
     const startText = "Измените текст, фон блока, фон текста в управлении блоком";
+    const startArrow = "#";
 
     useEffect(() => {
         if (selectedFontFamily.length < countBlocks) {
@@ -67,6 +70,12 @@ const useUpdateBlockSettings = (
             setSelectedText(prevSelectedText => [...prevSelectedText, startText]);
         }
     }, [countBlocks, selectedText]);
+
+    useEffect(() => {
+        if (selectedArrow.length < countBlocks) {
+            setSelectedArrow(prevSelectedArrow => [...prevSelectedArrow, startArrow]);
+        }
+    }, [countBlocks, selectedArrow]);
 };
 
 export default useUpdateBlockSettings;

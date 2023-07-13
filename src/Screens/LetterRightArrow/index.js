@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from "react";
 import SelectBlock from "../SelectBlock";
 import InputBlock from "../InputBlock";
 import InputBlockText from "../InputBlockText";
+import InputBlockArrow from "../InputBlockArrow";
 import ClearOneBlockButton from "../ClearOneBlockButton";
 
 
@@ -25,6 +26,9 @@ const LetterRightArrow = ({
                               setSelectedHeight,
                               selectedText,
                               setSelectedText,
+                              selectedArrow,
+                              setSelectedArrow,
+
                               clearOneBlock,
                               colors,
                               fonts,
@@ -51,7 +55,8 @@ const LetterRightArrow = ({
                         selectedColor[index],
                         selectedWidth[index],
                         selectedHeight[index],
-                        selectedText[index]
+                        selectedText[index],
+                        selectedArrow[index],
                     );
                 }}
                 options={colors}
@@ -74,7 +79,8 @@ const LetterRightArrow = ({
                         selectedColor[index],
                         selectedWidth[index],
                         selectedHeight[index],
-                        selectedText[index]
+                        selectedText[index],
+                        selectedArrow[index],
                     );
                 }}
                 options={fonts}
@@ -97,7 +103,8 @@ const LetterRightArrow = ({
                         selectedColor[index],
                         selectedWidth[index],
                         selectedHeight[index],
-                        selectedText[index]
+                        selectedText[index],
+                        selectedArrow[index],
                     );
                 }}
                 options={colors}
@@ -120,7 +127,8 @@ const LetterRightArrow = ({
                         selectedColor[index],
                         selectedWidth[index],
                         selectedHeight[index],
-                        selectedText[index]
+                        selectedText[index],
+                        selectedArrow[index],
                     );
                 }}
                 min={2}
@@ -144,7 +152,8 @@ const LetterRightArrow = ({
                         selectedColor[index],
                         selectedWidth[index],
                         selectedHeight[index],
-                        selectedText[index]
+                        selectedText[index],
+                        selectedArrow[index],
                     );
                 }}
                 min={10}
@@ -168,7 +177,8 @@ const LetterRightArrow = ({
                         selectedColor[index],
                         selectedWidth[index],
                         selectedHeight[index],
-                        selectedText[index]
+                        selectedText[index],
+                        selectedArrow[index],
                     );
                 }}
                 min={1}
@@ -193,6 +203,30 @@ const LetterRightArrow = ({
                         selectedWidth[index],
                         selectedHeight[index],
                         selectedText[index],
+                        selectedArrow[index],
+                    );
+                }}
+            />
+            <InputBlockArrow
+                label="Введите абсолютную ссылку для перехода в формате (https://example.com/)"
+                selectedValue={selectedArrow[index]}
+                onChange={(event) => {
+                    handleChange(
+                        blockType,
+                        'arrow',
+                        index,
+                        event,
+                        setSelectedArrow,
+                        selectedArrow,
+                        selectedOptions[index],
+                        setEmptyLetter,
+                        selectedFontFamily[index],
+                        selectedFontSize[index],
+                        selectedColor[index],
+                        selectedWidth[index],
+                        selectedHeight[index],
+                        selectedText[index],
+                        selectedArrow[index],
                     );
                 }}
             />
@@ -209,6 +243,7 @@ const LetterRightArrow = ({
                 setSelectedText={setSelectedText}
                 setCalledFunctions={setCalledFunctions}
                 calledFunctions={calledFunctions}
+                setSelectedArrow={setSelectedArrow}
             />
         </div>
     );

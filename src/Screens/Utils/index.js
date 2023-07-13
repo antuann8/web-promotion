@@ -48,6 +48,7 @@ export const createArrowBlock = async (setEmptyLetter, setCalledFunctions, calle
         height: '30px',
         text: 'Измените текст, фон блока, фон текста в управлении блоком',
         type: 'arrow',
+        arrow: '#',
     };
     // Отправить POST-запрос
     await addArrowBlock(data);

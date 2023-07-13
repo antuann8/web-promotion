@@ -45,6 +45,7 @@ const LetterCreatorScreen = () => {
     const [selectedHeight, setSelectedHeight] = useState([]);
     const [selectedText, setSelectedText] = useState([]);
     const [calledFunctions, setCalledFunctions] = useState([]);
+    const [selectedArrow, setSelectedArrow] = useState([]);
 
 
     useEffect(() => {
@@ -68,6 +69,8 @@ const LetterCreatorScreen = () => {
         setSelectedHeight,
         selectedText,
         setSelectedText,
+        selectedArrow,
+        setSelectedArrow,
         );
 
     return (
@@ -88,6 +91,7 @@ const LetterCreatorScreen = () => {
                     setSelectedWidth={setSelectedWidth}
                     setSelectedHeight={setSelectedHeight}
                     setSelectedText={setSelectedText}
+                    setSelectedArrow={setSelectedArrow}
                 />
                 <LetterCenter emptyLetter={emptyLetter} />
                 <LetterRight
@@ -110,6 +114,8 @@ const LetterCreatorScreen = () => {
                     setSelectedHeight={setSelectedHeight}
                     selectedText={selectedText}
                     setSelectedText={setSelectedText}
+                    selectedArrow={selectedArrow}
+                    setSelectedArrow={setSelectedArrow}
 
                     clearOneBlock={handleClearOneBlock}
                     colors={colors}

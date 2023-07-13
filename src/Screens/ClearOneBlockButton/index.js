@@ -13,6 +13,7 @@ const ClearOneBlockButton = ({
                             setSelectedText,
                             calledFunctions,
                             setCalledFunctions,
+                            setSelectedArrow,
                                 }) => {
     return (
         <div>
@@ -27,6 +28,7 @@ const ClearOneBlockButton = ({
                 setSelectedText,
                 calledFunctions,
                 setCalledFunctions,
+                setSelectedArrow,
             )}>Удалить блок</button>
         </div>
     );

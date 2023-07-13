@@ -23,6 +23,8 @@ const LetterRight = ({
                     setSelectedHeight,
                     selectedText,
                     setSelectedText,
+                    selectedArrow,
+                    setSelectedArrow,
                     clearOneBlock,
                     colors,
                     fonts
@@ -80,6 +82,9 @@ const LetterRight = ({
                                     setSelectedHeight={setSelectedHeight}
                                     selectedText={selectedText}
                                     setSelectedText={setSelectedText}
+                                    selectedArrow={selectedArrow}
+                                    setSelectedArrow={setSelectedArrow}
+
                                     index={index}
                                     clearOneBlock={clearOneBlock}
                                     colors={colors}

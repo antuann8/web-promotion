@@ -13,17 +13,32 @@ const updateBlock = async (index, value, setSelected, selected, data, updateFunc
     await getUpdateLetter(setEmptyLetter);
 };
 
-const createDataObject = (blockType, index, backcolor, fontFamily, fontSize, color, width, height, text) => {
-    return {
-        'blockType' : blockType,
-        'index': index,
-        'backcolor': backcolor,
-        'fontFamily': fontFamily,
-        'fontSize': fontSize + 'px',
-        'color' : color,
-        'width' : width + 'px',
-        'height' : height + 'px',
-        'text' : text,
+const createDataObject = (blockType, index, backcolor, fontFamily, fontSize, color, width, height, text, arrow) => {
+    if (blockType === 'text') {
+        return {
+            'blockType': blockType,
+            'index': index,
+            'backcolor': backcolor,
+            'fontFamily': fontFamily,
+            'fontSize': fontSize + 'px',
+            'color': color,
+            'width': width + 'px',
+            'height': height + 'px',
+            'text': text,
+        }
+    } else if (blockType === 'arrow') {
+        return {
+            'blockType': blockType,
+            'index': index,
+            'backcolor': backcolor,
+            'fontFamily': fontFamily,
+            'fontSize': fontSize + 'px',
+            'color': color,
+            'width': width + 'px',
+            'height': height + 'px',
+            'text': text,
+            'arrow' : arrow,
+        }
     }
 }
 
@@ -41,7 +56,8 @@ export const handleChange = async (
     color,
     width,
     height,
-    text
+    text,
+    arrow,
 ) => {
     let value = event.target.value;
 
@@ -69,8 +85,9 @@ export const handleChange = async (
     fontFamily = type === 'fontFamily' ? event.target.value : fontFamily;
     color = type === 'color' ? event.target.value : color;
     text = type === 'text' ? event.target.value : text;
+    arrow = type === 'arrow' ? event.target.value : arrow;
 
-    const data = createDataObject(blockType, index, backcolor, fontFamily, fontSize, color, width, height, text);
+    const data = createDataObject(blockType, index, backcolor, fontFamily, fontSize, color, width, height, text, arrow);
 
     await updateBlock(index, event.target.value, setSelected, selected, data, changeParams, setEmptyLetter);
 };
