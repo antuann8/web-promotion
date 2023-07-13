@@ -24,6 +24,8 @@ const LetterRightText = ({
                              setSelectedHeight,
                              selectedText,
                              setSelectedText,
+                             selectedArrow,
+                             setSelectedArrow,
                              clearOneBlock,
                              colors,
                              fonts,
@@ -208,6 +210,7 @@ const LetterRightText = ({
                 setSelectedHeight={setSelectedHeight}
                 setSelectedText={setSelectedText}
                 setCalledFunctions={setCalledFunctions}
+                setSelectedArrow={setSelectedArrow}
                 calledFunctions={calledFunctions}
             />
         </div>

@@ -3,6 +3,7 @@ import {
     getCountBlocks,
     addBlock,
     addArrowBlock,
+    addImageBlock,
 } from "../../Models/LetterCreator"
 
 export const getBlocksCount = async (setCountBlocks) => {
@@ -52,6 +53,19 @@ export const createArrowBlock = async (setEmptyLetter, setCalledFunctions, calle
     };
     // Отправить POST-запрос
     await addArrowBlock(data);
+
+    await getUpdateLetter(setEmptyLetter);
+};
+
+export const createImageBlock = async (setEmptyLetter, setCalledFunctions, calledFunctions) => {
+
+    setCalledFunctions([...calledFunctions, 'createImageBlock']);
+
+    const data = {
+        width: "100px",
+    };
+    // Отправить POST-запрос
+    await addImageBlock(data);
 
     await getUpdateLetter(setEmptyLetter);
 };

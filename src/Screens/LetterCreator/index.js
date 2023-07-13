@@ -17,6 +17,7 @@ import {
     getUpdateLetter,
     createBlock,
     createArrowBlock,
+    createImageBlock,
 } from '../Utils';
 
 import {
@@ -80,6 +81,7 @@ const LetterCreatorScreen = () => {
                 <LetterLeft
                     calledFunctions={calledFunctions}
                     setCalledFunctions={setCalledFunctions}
+                    createImageBlock={createImageBlock}
                     createArrowBlock={createArrowBlock}
                     createBlock={createBlock}
                     handleClearAllBlocks={handleClearAllBlocks}
