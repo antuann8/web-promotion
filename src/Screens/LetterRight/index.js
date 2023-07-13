@@ -93,10 +93,32 @@ const LetterRight = ({
                                 colors={colors}
                                 fonts={fonts}
                                     />
-                                    :
+                                    : calledFunctions[index] === 'createImageBlock' ?
                                     <LetterRightImage
-
-                                    />
+                                        blockType="image"
+                                        selectedWidth={selectedWidth}
+                                        setSelectedWidth={setSelectedWidth}
+                                        calledFunctions={calledFunctions}
+                                        setCalledFunctions={setCalledFunctions}
+                                        selectedOptions={selectedOptions}
+                                        handleChange={handleChange}
+                                        setSelectedOptions={setSelectedOptions}
+                                        selectedFontFamily={selectedFontFamily}
+                                        setEmptyLetter={setEmptyLetter}
+                                        selectedFontSize={selectedFontSize}
+                                        setSelectedFontFamily={setSelectedFontFamily}
+                                        setSelectedFontSize={setSelectedFontSize}
+                                        selectedColor={selectedColor}
+                                        setSelectedColor={setSelectedColor}
+                                        selectedHeight={selectedHeight}
+                                        setSelectedHeight={setSelectedHeight}
+                                        selectedText={selectedText}
+                                        setSelectedText={setSelectedText}
+                                        selectedArrow={selectedArrow}
+                                        setSelectedArrow={setSelectedArrow}
+                                        index={index}
+                                        clearOneBlock={clearOneBlock}
+                                    /> : null
                             }
                         </CollapsibleBlock>
                     </div>

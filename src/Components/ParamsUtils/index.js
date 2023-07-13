@@ -39,6 +39,12 @@ const createDataObject = (blockType, index, backcolor, fontFamily, fontSize, col
             'text': text,
             'arrow' : arrow,
         }
+    } else if (blockType === 'image') {
+        return {
+            'blockType' : blockType,
+            'index': index,
+            'width' : width + 'px',
+        }
     }
 }
 

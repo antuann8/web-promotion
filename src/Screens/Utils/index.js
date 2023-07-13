@@ -62,7 +62,7 @@ export const createImageBlock = async (setEmptyLetter, setCalledFunctions, calle
     setCalledFunctions([...calledFunctions, 'createImageBlock']);
 
     const data = {
-        width: "100px",
+        width: "600px",
     };
     // Отправить POST-запрос
     await addImageBlock(data);
