@@ -115,9 +115,14 @@ export const handleImageChange = async (
     const incrementedName = `image-${fileCounter}.${fileExtension}`;
     setFileCounter(fileCounter + 1);
 
+    const data = {
+        imageName: incrementedName,
+        index: index,
+    }
+
     console.log(`Инкрементированное имя файла: ${incrementedName}`);
 
-        await changeImageName(incrementedName);
+        await changeImageName(data);
         await changeImage(file);
         await getUpdateLetter(setEmptyLetter);
 }
