@@ -28,6 +28,8 @@ const LetterRightImage = ({
                               selectedImage,
                               setSelectedImage,
                               handleImageChange,
+                              setFileCounter,
+                              fileCounter,
 
                               clearOneBlock,
                               index,
@@ -68,6 +70,8 @@ const LetterRightImage = ({
                         index,
                         event,
                         setEmptyLetter,
+                        setFileCounter,
+                        fileCounter,
                     );
                 }}
             />

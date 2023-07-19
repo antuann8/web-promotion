@@ -22,7 +22,9 @@ const useLocalStorageSaver = (
                                selectedImage,
                                setSelectedImage,
                                title,
-                               setTitle
+                               setTitle,
+                               fileCounter,
+                               setFileCounter,
                            ) => {
     useEffect(() => {
         // При монтировании компонента восстанавливаем состояние из localStorage
@@ -80,6 +82,11 @@ const useLocalStorageSaver = (
         if (savedTitle) {
             setTitle(JSON.parse(savedTitle));
         }
+
+        const savedFileCounter = localStorage.getItem('fileCounter');
+        if (savedFileCounter) {
+            setFileCounter(Number(savedFileCounter));
+        }
     }, []);
 
     useEffect(() => {
@@ -126,6 +133,11 @@ const useLocalStorageSaver = (
     useEffect(() => {
         localStorage.setItem('title', JSON.stringify(title));
     }, [title]);
+
+    useEffect(() => {
+        // Каждый раз, когда состояние fileCounter изменяется, сохраняем его в localStorage
+        localStorage.setItem('fileCounter', fileCounter);
+    }, [fileCounter]);
 
     return null;
 };

@@ -31,6 +31,8 @@ const LetterRight = ({
                     selectedImage,
                     setSelectedImage,
                     handleImageChange,
+                    setFileCounter,
+                    fileCounter,
                     clearOneBlock,
                     colors,
                     fonts
@@ -125,6 +127,8 @@ const LetterRight = ({
                                         selectedImage={selectedImage}
                                         setSelectedImage={setSelectedImage}
                                         handleImageChange={handleImageChange}
+                                        setFileCounter={setFileCounter}
+                                        fileCounter={fileCounter}
                                         index={index}
                                         clearOneBlock={clearOneBlock}
                                     /> : null

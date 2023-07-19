@@ -103,14 +103,23 @@ export const handleImageChange = async (
     index,
     event,
     setEmptyLetter,
+    setFileCounter,
+    fileCounter,
 ) => {
-    const buffer = event.target.files[0];
+    const file = event.target.files[0];
+    const fileName = file.name;
+    const fileExtension = fileName.split('.').pop();
 
+    // Используем инкрементированное имя файла
+    const incrementedName = `image-${fileCounter}.${fileExtension}`;
+    setFileCounter(fileCounter + 1);
+
+    console.log(`Инкрементированное имя файла: ${incrementedName}`);
         // const uploadData = {
         //     name: "ex.jpg",
         //     buffer: buffer,
         // }
 
-        await changeImage(buffer);
+        await changeImage(file);
         await getUpdateLetter(setEmptyLetter);
 }

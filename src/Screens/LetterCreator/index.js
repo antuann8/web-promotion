@@ -53,6 +53,7 @@ const LetterCreatorScreen = () => {
     const [selectedArrow, setSelectedArrow] = useState([]);
     const [selectedImage, setSelectedImage] = useState([]);
     const [title, setTitle] = useState([]);
+    const [fileCounter, setFileCounter] = useState(0);
 
 
     useLocalStorageSaver(
@@ -77,7 +78,9 @@ const LetterCreatorScreen = () => {
         selectedImage,
         setSelectedImage,
         title,
-        setTitle
+        setTitle,
+        fileCounter,
+        setFileCounter,
     );
 
     useEffect(() => {
@@ -157,6 +160,8 @@ const LetterCreatorScreen = () => {
                     selectedImage={selectedImage}
                     setSelectedImage={setSelectedImage}
                     handleImageChange={handleImageChange}
+                    setFileCounter={setFileCounter}
+                    fileCounter={fileCounter}
 
                     clearOneBlock={handleClearOneBlock}
                     colors={colors}
