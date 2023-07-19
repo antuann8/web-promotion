@@ -51,7 +51,6 @@ export const handleClearOneBlock = async (
                                     calledFunctions,
                                     setCalledFunctions,
                                     setSelectedArrow,
-                                    setSelectedImage,
                                     title,
                                     setTitle,
 ) => {
@@ -68,7 +67,6 @@ export const handleClearOneBlock = async (
     setSelectedText(prevSelectedText => prevSelectedText.filter((_, i) => i !== index));
     setCalledFunctions(calledFunctions.filter((_, i) => i !== index));
     setSelectedArrow(prevSelectedArrow => prevSelectedArrow.filter((_, i) => i !== index));
-    setSelectedImage(prevSelectedImage => prevSelectedImage.filter((_, i) => i !== index));
     setTitle(title.filter((_, i) => i !== index));
     setEmptyLetter(response);
 }

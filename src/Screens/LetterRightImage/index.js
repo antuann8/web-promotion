@@ -25,12 +25,11 @@ const LetterRightImage = ({
                               setSelectedText,
                               selectedArrow,
                               setSelectedArrow,
-                              selectedImage,
-                              setSelectedImage,
                               handleImageChange,
                               setFileCounter,
                               fileCounter,
-
+                              title,
+                              setTitle,
                               clearOneBlock,
                               index,
                           }) => {
@@ -89,6 +88,8 @@ const LetterRightImage = ({
                 setCalledFunctions={setCalledFunctions}
                 calledFunctions={calledFunctions}
                 setSelectedArrow={setSelectedArrow}
+                title={title}
+                setTitle={setTitle}
             />
         </div>
     );

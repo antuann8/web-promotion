@@ -28,8 +28,6 @@ const LetterRight = ({
                     setSelectedText,
                     selectedArrow,
                     setSelectedArrow,
-                    selectedImage,
-                    setSelectedImage,
                     handleImageChange,
                     setFileCounter,
                     fileCounter,
@@ -69,6 +67,8 @@ const LetterRight = ({
                                     setSelectedText={setSelectedText}
                                     selectedArrow={selectedArrow}
                                     setSelectedArrow={setSelectedArrow}
+                                    title={title}
+                                    setTitle={setTitle}
                                     index={index}
                                     clearOneBlock={clearOneBlock}
                                     colors={colors}
@@ -97,6 +97,8 @@ const LetterRight = ({
                                 selectedArrow={selectedArrow}
                                 setSelectedArrow={setSelectedArrow}
                                 index={index}
+                                title={title}
+                                setTitle={setTitle}
                                 clearOneBlock={clearOneBlock}
                                 colors={colors}
                                 fonts={fonts}
@@ -124,10 +126,10 @@ const LetterRight = ({
                                         setSelectedText={setSelectedText}
                                         selectedArrow={selectedArrow}
                                         setSelectedArrow={setSelectedArrow}
-                                        selectedImage={selectedImage}
-                                        setSelectedImage={setSelectedImage}
                                         handleImageChange={handleImageChange}
                                         setFileCounter={setFileCounter}
+                                        title={title}
+                                        setTitle={setTitle}
                                         fileCounter={fileCounter}
                                         index={index}
                                         clearOneBlock={clearOneBlock}

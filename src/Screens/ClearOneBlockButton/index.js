@@ -14,10 +14,13 @@ const ClearOneBlockButton = ({
                             calledFunctions,
                             setCalledFunctions,
                             setSelectedArrow,
+                            title,
+                            setTitle,
                                 }) => {
     return (
         <div>
-            <button className="letter__redactor__button-right" onClick={() => clearOneBlock(index,
+            <button className="letter__redactor__button-right" onClick={() => clearOneBlock(
+                index,
                 setEmptyLetter,
                 setSelectedOptions,
                 setSelectedFontFamily,
@@ -29,6 +32,8 @@ const ClearOneBlockButton = ({
                 calledFunctions,
                 setCalledFunctions,
                 setSelectedArrow,
+                title,
+                setTitle,
             )}>Удалить блок</button>
         </div>
     );

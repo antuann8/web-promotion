@@ -157,8 +157,6 @@ const LetterCreatorScreen = () => {
                     setSelectedText={setSelectedText}
                     selectedArrow={selectedArrow}
                     setSelectedArrow={setSelectedArrow}
-                    selectedImage={selectedImage}
-                    setSelectedImage={setSelectedImage}
                     handleImageChange={handleImageChange}
                     setFileCounter={setFileCounter}
                     fileCounter={fileCounter}

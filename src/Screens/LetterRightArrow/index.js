@@ -28,7 +28,8 @@ const LetterRightArrow = ({
                               setSelectedText,
                               selectedArrow,
                               setSelectedArrow,
-
+                              title,
+                              setTitle,
                               clearOneBlock,
                               colors,
                               fonts,
@@ -244,6 +245,8 @@ const LetterRightArrow = ({
                 setCalledFunctions={setCalledFunctions}
                 calledFunctions={calledFunctions}
                 setSelectedArrow={setSelectedArrow}
+                title={title}
+                setTitle={setTitle}
             />
         </div>
     );
