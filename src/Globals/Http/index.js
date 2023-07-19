@@ -156,6 +156,23 @@ const requestJsonNotResponse = async (endpoint, data) => {
 	await fetch(url, options);
 };
 
+const requestImageNotResponse = async (endpoint, data) => {
+	const url = `${API.url}${endpoint}`;
+	const headers = new Headers({
+		'X-Token': API.key,
+	});
+	const token = ls('token');
+	if (token) {
+		headers.append('Authorization', `Bearer ${token}`);
+	}
+	const options = {
+		method: 'POST',
+		headers,
+		body: data,
+	};
+	await fetch(url, options);
+};
+
 
 const Http = {
 	request,
@@ -164,6 +181,7 @@ const Http = {
 	requestHtmlNotResponse,
 	requestJsonGetHtml,
 	requestJsonNotResponse,
+	requestImageNotResponse,
 };
 
 export default Http;

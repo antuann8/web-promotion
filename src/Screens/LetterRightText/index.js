@@ -32,7 +32,6 @@ const LetterRightText = ({
                              index,
                          }) => {
 
-    console.log(`letterRightText index - ${index}`);
     return (
         <div>
             <SelectBlock

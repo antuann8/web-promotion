@@ -139,13 +139,13 @@ const DashboardScreen = () => {
 	// };
 // http://localhost:8190/api/v1/check?paymentId=20230411140900497002&type=2&responseType=html
 
-	// const openFile = () => {
-		// const payload = {
-		// 	name: 'Alex',
-		// 	city: 'Kazan',
-		// 	companyName: 'Pavit Team',
-		// 	email: 'antontest66@gmail.com',
-		// };
+	const openFile = () => {
+		const payload = {
+			name: 'Alex',
+			city: 'Kazan',
+			companyName: 'Pavit Team',
+			email: 'Iskramet0@gmail.com',
+		};
 
 	// 	const payload = [
 	// 	{
@@ -161,41 +161,41 @@ const DashboardScreen = () => {
 	// 		email: "antontest66@gmail.com"
 	// 	},
 	// ];
-	//
-	// 	// const url = 'http://localhost:8190/api/v1/promotion';
+
+		const url = 'http://localhost:8190/api/v1/promotion';
 	// 	const url = 'http://localhost:8190/api/v1/promotions';
 	//
 	//
-	// 	const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM2YTBmY2RkYWIzYzg0NGUzZWRjYmMiLCJuYW1lIjoi0JDQtNC80LjQvSIsInVzZXJuYW1lIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYSQxMCRHYTJueHlzc0hXdkVXT2NDdFNyQkQub2t3MFRFYmZBR25NcllFTDBKSE1PdmYxNXlJMW5ONiIsInBob25lIjoiNzkxMTExMTExMTExIiwic3RhdHVzIjoxLCJ1cGRhdGVkQXQiOiIyMDIzLTAxLTI2VDE2OjE0OjAyLjg3OVoiLCJjcmVhdGVkQXQiOiIyMDIzLTAxLTI2VDE2OjE0OjAyLjg3OVoiLCJpYXQiOjE2ODcxODU0OTgsImV4cCI6MTY4ODA0OTQ5OH0.sWuo42kcQ85DxBfX9IsBRtvq_MyrDFXLWcEiQvVeIcs";
+		const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDYxYzYxZWZlZmE4ODYwMzBhYzk1Y2QiLCJzdGF0dXMiOjEsInVwZGF0ZWRBdCI6IjIwMjMtMDUtMTVUMDU6NDE6NTAuNzAxWiIsImNyZWF0ZWRBdCI6IjIwMjMtMDUtMTVUMDU6NDE6NTAuNzAxWiIsIl9fdiI6MCwibmFtZSI6IkFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTAkR2Eybnh5c3NIV3ZFV09jQ3RTckJELm9rdzBURWJmQUduTXJZRUwwSkhNT3ZmMTV5STFuTjYiLCJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjg5NTkzMTAyLCJleHAiOjE2OTA0NTcxMDJ9.F7a49d11X4Sy1PjoWmy6xVoPDvcdwob1UVUIwgjZTEg";
 	//
-	// 	fetch(url, {
-	// 		method: 'POST',
-	// 		headers: {
-	// 			'Authorization': `Bearer ${token}`,
-	// 			'Content-Type': 'application/json'
-	// 		},
-	// 		body: JSON.stringify(payload)
-	// 	})
-	// 		.then(response => {
-	// 			if (!response.ok) {
-	// 				throw new Error('Ошибка при выполнении запроса');
-	// 			}
-	// 			return response.text();
-	// 		})
-	// 		.then(html => {
-	// 			const newWindow = window.open();
-	// 			if (!newWindow) {
-	// 				throw new Error('Не удалось открыть новое окно');
-	// 			}
-	// 			newWindow.document.open();
-	// 			newWindow.document.write(html);
-	// 			newWindow.document.close();
-	// 		})
-	// 		.catch(error => {
-	// 			console.error(error);
-	// 			// Обработка ошибок
-	// 		});
-	// };
+		fetch(url, {
+			method: 'POST',
+			headers: {
+				'Authorization': `Bearer ${token}`,
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(payload)
+		})
+			.then(response => {
+				if (!response.ok) {
+					throw new Error('Ошибка при выполнении запроса');
+				}
+				return response.text();
+			})
+			.then(html => {
+				const newWindow = window.open();
+				if (!newWindow) {
+					throw new Error('Не удалось открыть новое окно');
+				}
+				newWindow.document.open();
+				newWindow.document.write(html);
+				newWindow.document.close();
+			})
+			.catch(error => {
+				console.error(error);
+				// Обработка ошибок
+			});
+	};
 
 	useEffect(async () => {
 		setLoading(false);
@@ -211,7 +211,7 @@ const DashboardScreen = () => {
 					{/*<div><button onClick={openFileInNewWindow}>Открыть файл</button></div>*/}
 					{/*<button onClick={handleClick}>Межсерверное взаимодействие</button>*/}
 					{/*<div><button onClick={check}>Check</button></div>*/}
-					{/*<div><button onClick={openFile}>Открыть файл</button></div>*/}
+					<div><button onClick={openFile}>Открыть файл</button></div>
 					<br/>
 					{/*<div>*/}
 					{/*	<button onClick={downloadPDF}>*/}

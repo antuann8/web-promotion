@@ -1,6 +1,7 @@
 import InputBlock from "../InputBlock";
 import React from "react";
 import ClearOneBlockButton from "../ClearOneBlockButton";
+import InputBlockImage from "../InputBlockImage";
 
 const LetterRightImage = ({
                               blockType,
@@ -24,10 +25,14 @@ const LetterRightImage = ({
                               setSelectedText,
                               selectedArrow,
                               setSelectedArrow,
+                              selectedImage,
+                              setSelectedImage,
+                              handleImageChange,
 
                               clearOneBlock,
                               index,
                           }) => {
+
     return (
         <div>
             <InputBlock
@@ -54,6 +59,17 @@ const LetterRightImage = ({
                 }}
                 min={10}
                 max={600}
+            />
+            <InputBlockImage
+                label="Загрузите изображение"
+                // selectedValue={selectedWidth[index]}
+                onChange={(event) => {
+                    handleImageChange(
+                        index,
+                        event,
+                        setEmptyLetter,
+                    );
+                }}
             />
             <ClearOneBlockButton
                 index={index}

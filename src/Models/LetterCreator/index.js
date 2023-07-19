@@ -16,6 +16,8 @@ const clearOneBlock = async (data)              => await Http.requestJsonNotResp
 
 const changeParams = async (data)               => await Http.requestJsonNotResponse(`creator/change/params`, data);
 
+const changeImage = async (data)                => await Http.requestImageNotResponse(`creator/change/image`,data);
+
 
 
 
@@ -28,4 +30,5 @@ export {
     changeParams,
     addArrowBlock,
     addImageBlock,
+    changeImage,
 }

@@ -6,7 +6,7 @@ const CollapsibleBlock = ({ title, children, index }) => {
     return (
         <div>
             <h3 onClick={() => setIsOpen(!isOpen)}>
-                {title + index}
+                {index + '. ' + title }
                 <span
                     style={{
                         marginLeft: '20px',

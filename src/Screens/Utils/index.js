@@ -16,9 +16,10 @@ export const getUpdateLetter = async (setEmptyLetter) => {
     setEmptyLetter(res);
 };
 
-export const createBlock = async (setEmptyLetter, setCalledFunctions, calledFunctions) => {
+export const createBlock = async (setEmptyLetter, setCalledFunctions, calledFunctions, setTitle, title) => {
 
     setCalledFunctions([...calledFunctions, 'createBlock']);
+    setTitle([...title, 'Блок с текстом']);
 
     const data = {
         backcolor: '#00ff00',
@@ -36,9 +37,10 @@ export const createBlock = async (setEmptyLetter, setCalledFunctions, calledFunc
     await getUpdateLetter(setEmptyLetter);
 };
 
-export const createArrowBlock = async (setEmptyLetter, setCalledFunctions, calledFunctions) => {
+export const createArrowBlock = async (setEmptyLetter, setCalledFunctions, calledFunctions, setTitle, title) => {
 
     setCalledFunctions([...calledFunctions, 'createArrowBlock']);
+    setTitle([...title, 'Блок с ссылкой']);
 
     const data = {
         backcolor: '#00ff00',
@@ -57,9 +59,10 @@ export const createArrowBlock = async (setEmptyLetter, setCalledFunctions, calle
     await getUpdateLetter(setEmptyLetter);
 };
 
-export const createImageBlock = async (setEmptyLetter, setCalledFunctions, calledFunctions) => {
+export const createImageBlock = async (setEmptyLetter, setCalledFunctions, calledFunctions, setTitle, title) => {
 
     setCalledFunctions([...calledFunctions, 'createImageBlock']);
+    setTitle([...title, 'Блок с изображением']);
 
     const data = {
         width: "600px",

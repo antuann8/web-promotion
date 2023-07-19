@@ -208,7 +208,7 @@ const LetterRightArrow = ({
                 }}
             />
             <InputBlockArrow
-                label="Введите абсолютную ссылку для перехода в формате (https://example.com/)"
+                label="Введите абсолютную ссылку для отображения изображение в формате (https://example.png/)"
                 selectedValue={selectedArrow[index]}
                 onChange={(event) => {
                     handleChange(

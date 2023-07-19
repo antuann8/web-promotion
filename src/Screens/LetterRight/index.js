@@ -1,10 +1,12 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import LetterRightText from "../LetterRightText";
 import LetterRightArrow from "../LetterRightArrow";
 import CollapsibleBlock from "../CollapsibleBlock";
 import LetterRightImage from "../LetterRightImage";
 
 const LetterRight = ({
+                    title,
+                    setTitle,
                     setCalledFunctions,
                     calledFunctions,
                     countBlocks,
@@ -26,10 +28,14 @@ const LetterRight = ({
                     setSelectedText,
                     selectedArrow,
                     setSelectedArrow,
+                    selectedImage,
+                    setSelectedImage,
+                    handleImageChange,
                     clearOneBlock,
                     colors,
                     fonts
 }) => {
+
 
     return (
         <div className='letter__redactor-right'>
@@ -37,7 +43,7 @@ const LetterRight = ({
             {
                 Array.from({ length: countBlocks }, (_, index) => (
                     <div key={index}>
-                        <CollapsibleBlock title="Блок №" index={index + 1}>
+                        <CollapsibleBlock title={title[index]} index={index + 1}>
                             {
                                 calledFunctions[index] === 'createBlock' ? <LetterRightText
                                     blockType="text"
@@ -116,6 +122,9 @@ const LetterRight = ({
                                         setSelectedText={setSelectedText}
                                         selectedArrow={selectedArrow}
                                         setSelectedArrow={setSelectedArrow}
+                                        selectedImage={selectedImage}
+                                        setSelectedImage={setSelectedImage}
+                                        handleImageChange={handleImageChange}
                                         index={index}
                                         clearOneBlock={clearOneBlock}
                                     /> : null

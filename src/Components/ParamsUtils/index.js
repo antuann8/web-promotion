@@ -1,5 +1,6 @@
 import {
-    changeParams
+    changeParams,
+    changeImage,
 } from "../../Models/LetterCreator";
 
 import {getUpdateLetter} from "../../Screens/Utils";
@@ -97,3 +98,19 @@ export const handleChange = async (
 
     await updateBlock(index, event.target.value, setSelected, selected, data, changeParams, setEmptyLetter);
 };
+
+export const handleImageChange = async (
+    index,
+    event,
+    setEmptyLetter,
+) => {
+    const buffer = event.target.files[0];
+
+        // const uploadData = {
+        //     name: "ex.jpg",
+        //     buffer: buffer,
+        // }
+
+        await changeImage(buffer);
+        await getUpdateLetter(setEmptyLetter);
+}
