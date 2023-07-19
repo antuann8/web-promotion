@@ -1,6 +1,7 @@
 import {
     changeParams,
     changeImage,
+    changeImageName,
 } from "../../Models/LetterCreator";
 
 import {getUpdateLetter} from "../../Screens/Utils";
@@ -115,11 +116,8 @@ export const handleImageChange = async (
     setFileCounter(fileCounter + 1);
 
     console.log(`Инкрементированное имя файла: ${incrementedName}`);
-        // const uploadData = {
-        //     name: "ex.jpg",
-        //     buffer: buffer,
-        // }
 
+        await changeImageName(incrementedName);
         await changeImage(file);
         await getUpdateLetter(setEmptyLetter);
 }

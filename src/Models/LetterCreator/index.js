@@ -18,6 +18,10 @@ const changeParams = async (data)               => await Http.requestJsonNotResp
 
 const changeImage = async (data)                => await Http.requestImageNotResponse(`creator/change/image`,data);
 
+const changeImageName = async (data)                => await Http.requestJsonNotResponse(`creator/change/getImageName`,data);
+
+
+
 
 
 
@@ -31,4 +35,5 @@ export {
     addArrowBlock,
     addImageBlock,
     changeImage,
+    changeImageName,
 }
