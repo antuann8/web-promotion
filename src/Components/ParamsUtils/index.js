@@ -106,6 +106,7 @@ export const handleImageChange = async (
     setEmptyLetter,
     setFileCounter,
     fileCounter,
+    width,
 ) => {
     const file = event.target.files[0];
     const fileName = file.name;
@@ -118,6 +119,7 @@ export const handleImageChange = async (
     const data = {
         imageName: incrementedName,
         index: index,
+        width: width,
     }
 
     console.log(`Инкрементированное имя файла: ${incrementedName}`);

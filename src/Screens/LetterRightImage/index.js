@@ -63,7 +63,6 @@ const LetterRightImage = ({
             />
             <InputBlockImage
                 label="Загрузите изображение"
-                // selectedValue={selectedWidth[index]}
                 onChange={(event) => {
                     handleImageChange(
                         index,
@@ -71,6 +70,7 @@ const LetterRightImage = ({
                         setEmptyLetter,
                         setFileCounter,
                         fileCounter,
+                        selectedWidth[index],
                     );
                 }}
             />
