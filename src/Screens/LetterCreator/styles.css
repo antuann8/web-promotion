@@ -87,3 +87,25 @@
     transition: background-color .3s ease 0s;
     width: 450px;
 }
+
+.letter__redactor__save-button__container {
+    background: #f4f3ef;
+    border-top: 1px solid #ccc;
+    bottom: 0;
+    margin-left: -10px;
+    padding: 15px 10px;
+    position: fixed;
+    width: 100%;
+}
+
+.letter__redactor__save-button {
+    background: #333;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 20px;
+    width: 160px;
+}

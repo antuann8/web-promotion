@@ -8,6 +8,7 @@ import {
 } from "../../Screens/Utils";
 
 export const handleClearAllBlocks = async (
+                                    setTemplates,
                                     setEmptyLetter,
                                     setSelectedOptions,
                                     setSelectedFontFamily,
@@ -37,6 +38,7 @@ export const handleClearAllBlocks = async (
     setSelectedArrow([]);
     setSelectedImage([]);
     setTitle([]);
+    setTemplates([]);
 
     localStorage.clear();
 
@@ -48,6 +50,7 @@ export const handleClearAllBlocks = async (
 };
 
 export const handleClearOneBlock = async (
+                                    setTemplates,
                                     index,
                                     setEmptyLetter,
                                     selectedOptions,
@@ -85,6 +88,7 @@ export const handleClearOneBlock = async (
     setCalledFunctions(calledFunctions.filter((_, i) => i !== index));
     setSelectedArrow(prevSelectedArrow => prevSelectedArrow.filter((_, i) => i !== index));
     setTitle(title.filter((_, i) => i !== index));
+    setTemplates(prev => prev.filter((_, i) => i !== index));
 
     let selectedOptionsArray = JSON.parse(localStorage.getItem('selectedOptions'));
     selectedOptionsArray.splice(index, 1);

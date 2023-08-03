@@ -40,6 +40,31 @@ const LetterRightArrow = ({
 
     return (
         <div>
+            <InputBlockText
+                label="Введите текст блока"
+                selectedValue={selectedText[index]}
+                onChange={(event) => {
+                    handleChange(
+                        blockType,
+                        'text',
+                        index,
+                        event,
+                        setSelectedText,
+                        selectedText,
+                        selectedOptions[index],
+                        setEmptyLetter,
+                        selectedFontFamily[index],
+                        selectedFontSize[index],
+                        selectedColor[index],
+                        selectedWidth[index],
+                        selectedHeight[index],
+                        selectedText[index],
+                        selectedArrow[index],
+                    );
+                }}
+                setShowModal={setShowModal}
+                index={index}
+            />
             <SelectBlock
                 label="Выберите задний фон блока:"
                 selectValue={selectedOptions[index]}
@@ -186,30 +211,6 @@ const LetterRightArrow = ({
                 }}
                 min={1}
                 max={100}
-            />
-            <InputBlockText
-                label="Введите текст блока"
-                selectedValue={selectedText[index]}
-                onChange={(event) => {
-                    handleChange(
-                        blockType,
-                        'text',
-                        index,
-                        event,
-                        setSelectedText,
-                        selectedText,
-                        selectedOptions[index],
-                        setEmptyLetter,
-                        selectedFontFamily[index],
-                        selectedFontSize[index],
-                        selectedColor[index],
-                        selectedWidth[index],
-                        selectedHeight[index],
-                        selectedText[index],
-                        selectedArrow[index],
-                    );
-                }}
-                setShowModal={setShowModal}
             />
             <InputBlockArrow
                 label="Введите абсолютную ссылку для отображения изображение в формате (https://example.png/)"

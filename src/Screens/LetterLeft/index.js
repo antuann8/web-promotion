@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
+import {Context} from "../../Components/Provider";
 
 import LetterLeftModal from "../LetterLeftModal";
 
 // styles
 import './styles.css';
+
 
 const LetterLeft = ({
                         showModal,
@@ -32,6 +34,8 @@ const LetterLeft = ({
         setShowModal(!showModal);
     }
 
+    const {setTemplates} = useContext(Context);
+
     return (
         <div className="letter__redactor-left">
             <div className="letter__redactor__button__container letter__one">
@@ -51,6 +55,7 @@ const LetterLeft = ({
                 )}
                 <button className="letter__redactor__button-left" onClick={handleModal}> Обучалка по вставке шаблонных переменных </button>
                 <button className="letter__redactor__button-left" onClick={() => handleClearAllBlocks(
+                    setTemplates,
                     setEmptyLetter,
                     setSelectedOptions,
                     setSelectedFontFamily,

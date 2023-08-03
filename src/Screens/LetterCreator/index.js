@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
+import {Context} from "../../Components/Provider";
 
 // template
 import Template from "../../Components/Template";
@@ -24,6 +25,10 @@ import {
 } from '../Utils';
 
 import {
+    handleSaveClick,
+} from '../../Components/SaveUtils'
+
+import {
     handleClearAllBlocks,
     handleClearOneBlock,
 } from "../../Components/ClearUtils";
@@ -38,6 +43,7 @@ import './styles.css';
 
 // constants
 import {colors, fonts} from '../../Globals/Constants/index'
+
 
 const LetterCreatorScreen = () => {
     const [emptyLetter, setEmptyLetter] = useState(null);
@@ -55,6 +61,7 @@ const LetterCreatorScreen = () => {
     const [title, setTitle] = useState([]);
     const [fileCounter, setFileCounter] = useState(0);
     const [showModal, setShowModal] = useState(false);
+    const {templates} = useContext(Context);
 
 
     useLocalStorageSaver(
@@ -170,6 +177,9 @@ const LetterCreatorScreen = () => {
                     colors={colors}
                     fonts={fonts}
                 />
+            </div>
+            <div className='letter__redactor__save-button__container'>
+                <button onClick={() => {handleSaveClick(templates)}} className='letter__redactor__save-button' type="submit">Сохранить шаблон</button>
             </div>
         </Template>
     );

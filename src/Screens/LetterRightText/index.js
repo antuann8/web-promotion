@@ -38,6 +38,30 @@ const LetterRightText = ({
 
     return (
         <div>
+            <InputBlockText
+                label="Введите текст блока"
+                selectedValue={selectedText[index]}
+                onChange={(event) => {
+                    handleChange(
+                        blockType,
+                        'text',
+                        index,
+                        event,
+                        setSelectedText,
+                        selectedText,
+                        selectedOptions[index],
+                        setEmptyLetter,
+                        selectedFontFamily[index],
+                        selectedFontSize[index],
+                        selectedColor[index],
+                        selectedWidth[index],
+                        selectedHeight[index],
+                        selectedText[index],
+                    );
+                }}
+                index={index}
+                setShowModal={setShowModal}
+            />
             <SelectBlock
                 label="Выберите задний фон блока:"
                 selectValue={selectedOptions[index]}
@@ -178,29 +202,6 @@ const LetterRightText = ({
                 }}
                 min={1}
                 max={100}
-            />
-            <InputBlockText
-                label="Введите текст блока"
-                selectedValue={selectedText[index]}
-                onChange={(event) => {
-                    handleChange(
-                        blockType,
-                        'text',
-                        index,
-                        event,
-                        setSelectedText,
-                        selectedText,
-                        selectedOptions[index],
-                        setEmptyLetter,
-                        selectedFontFamily[index],
-                        selectedFontSize[index],
-                        selectedColor[index],
-                        selectedWidth[index],
-                        selectedHeight[index],
-                        selectedText[index],
-                    );
-                }}
-                setShowModal={setShowModal}
             />
             <ClearOneBlockButton
                 index={index}
