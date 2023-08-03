@@ -5,6 +5,8 @@ import CollapsibleBlock from "../CollapsibleBlock";
 import LetterRightImage from "../LetterRightImage";
 
 const LetterRight = ({
+                    showModal,
+                    setShowModal,
                     title,
                     setTitle,
                     setCalledFunctions,
@@ -46,6 +48,8 @@ const LetterRight = ({
                         <CollapsibleBlock title={title[index]} index={index + 1}>
                             {
                                 calledFunctions[index] === 'createBlock' ? <LetterRightText
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
                                     blockType="text"
                                     calledFunctions={calledFunctions}
                                     setCalledFunctions={setCalledFunctions}
@@ -75,6 +79,8 @@ const LetterRight = ({
                                     fonts={fonts}
                                 /> : calledFunctions[index] === 'createArrowBlock' ?
                                     <LetterRightArrow
+                                showModal={showModal}
+                                setShowModal={setShowModal}
                                 blockType="arrow"
                                 calledFunctions={calledFunctions}
                                 setCalledFunctions={setCalledFunctions}

@@ -7,6 +7,7 @@
 /* left, center, right containers */
 
 .letter__redactor-left {
+    text-align: left;
     width: 180px;
     grid-area: left;
 }
@@ -16,7 +17,6 @@
     min-height: 1000px;
     background-color: white;
     text-align: right;
-    margin: 0 auto;
     grid-area: center;
 
 }
@@ -37,7 +37,7 @@
     font-size: 16px;
     padding: 10px;
     width: 160px;
-    height: 60px;
+    height: auto;
     margin-bottom: 10px;
 }
 

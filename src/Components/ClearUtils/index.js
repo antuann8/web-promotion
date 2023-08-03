@@ -21,6 +21,9 @@ export const handleClearAllBlocks = async (
                                     setSelectedImage,
                                     setTitle,
 ) => {
+    let token = localStorage.getItem('token');
+    let user = localStorage.getItem('user');
+    let fileCounter = localStorage.getItem('fileCounter');
 
     await clearAllBlocks();
     setSelectedFontFamily([]);
@@ -35,21 +38,35 @@ export const handleClearAllBlocks = async (
     setSelectedImage([]);
     setTitle([]);
 
+    localStorage.clear();
+
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', user);
+    localStorage.setItem('fileCounter', fileCounter);
+
     await getUpdateLetter(setEmptyLetter);
 };
 
 export const handleClearOneBlock = async (
                                     index,
                                     setEmptyLetter,
+                                    selectedOptions,
                                     setSelectedOptions,
+                                    selectedFontFamily,
                                     setSelectedFontFamily,
+                                    selectedFontSize,
                                     setSelectedFontSize,
+                                    selectedColor,
                                     setSelectedColor,
+                                    selectedWidth,
                                     setSelectedWidth,
+                                    selectedHeight,
                                     setSelectedHeight,
+                                    selectedText,
                                     setSelectedText,
                                     calledFunctions,
                                     setCalledFunctions,
+                                    selectedArrow,
                                     setSelectedArrow,
                                     title,
                                     setTitle,
@@ -68,5 +85,57 @@ export const handleClearOneBlock = async (
     setCalledFunctions(calledFunctions.filter((_, i) => i !== index));
     setSelectedArrow(prevSelectedArrow => prevSelectedArrow.filter((_, i) => i !== index));
     setTitle(title.filter((_, i) => i !== index));
+
+    let selectedOptionsArray = JSON.parse(localStorage.getItem('selectedOptions'));
+    selectedOptionsArray.splice(index, 1);
+    localStorage.removeItem('selectedOptions');
+    localStorage.setItem('selectedOptions', JSON.stringify(selectedOptionsArray));
+
+
+    let selectedFontFamilyArray = JSON.parse(localStorage.getItem('selectedFontFamily'));
+    selectedFontFamilyArray.splice(index, 1);
+    localStorage.removeItem('selectedFontFamily');
+    localStorage.setItem('selectedFontFamily', JSON.stringify(selectedFontFamilyArray));
+
+    let selectedFontSizeArray = JSON.parse(localStorage.getItem('selectedFontSize'));
+    selectedFontSizeArray.splice(index, 1);
+    localStorage.removeItem('selectedFontSize');
+    localStorage.setItem('selectedFontSize', JSON.stringify(selectedFontSizeArray));
+
+    let selectedColorArray = JSON.parse(localStorage.getItem('selectedColor'));
+    selectedColorArray.splice(index, 1);
+    localStorage.removeItem('selectedColor');
+    localStorage.setItem('selectedColor', JSON.stringify(selectedColorArray));
+
+    let selectedWidthArray = JSON.parse(localStorage.getItem('selectedWidth'));
+    selectedWidthArray.splice(index, 1);
+    localStorage.removeItem('selectedWidth');
+    localStorage.setItem('selectedWidth', JSON.stringify(selectedWidthArray));
+
+    let selectedHeightArray = JSON.parse(localStorage.getItem('selectedHeight'));
+    selectedHeightArray.splice(index, 1);
+    localStorage.removeItem('selectedHeight');
+    localStorage.setItem('selectedHeight', JSON.stringify(selectedHeightArray));
+
+    let selectedTextArray = JSON.parse(localStorage.getItem('selectedText'));
+    selectedTextArray.splice(index, 1);
+    localStorage.removeItem('selectedText');
+    localStorage.setItem('selectedText', JSON.stringify(selectedTextArray));
+
+    let calledFunctionsArray = JSON.parse(localStorage.getItem('calledFunctions'));
+    calledFunctionsArray.splice(index, 1);
+    localStorage.removeItem('calledFunctions');
+    localStorage.setItem('calledFunctions', JSON.stringify(calledFunctionsArray));
+
+    let selectedArrowArray = JSON.parse(localStorage.getItem('selectedArrow'));
+    selectedArrowArray.splice(index, 1);
+    localStorage.removeItem('selectedArrow');
+    localStorage.setItem('selectedArrow', JSON.stringify(selectedArrowArray));
+
+    let titleArray = JSON.parse(localStorage.getItem('title'));
+    titleArray.splice(index, 1);
+    localStorage.removeItem('title');
+    localStorage.setItem('title', JSON.stringify(titleArray));
+
     setEmptyLetter(response);
 }

@@ -54,6 +54,7 @@ const LetterCreatorScreen = () => {
     const [selectedImage, setSelectedImage] = useState([]);
     const [title, setTitle] = useState([]);
     const [fileCounter, setFileCounter] = useState(0);
+    const [showModal, setShowModal] = useState(false);
 
 
     useLocalStorageSaver(
@@ -113,6 +114,8 @@ const LetterCreatorScreen = () => {
             <h1 className="letter__redactor__header">Визуальный редактор письма</h1>
             <div className="letter__redactor__container">
                 <LetterLeft
+                    showModal={showModal}
+                    setShowModal={setShowModal}
                     title={title}
                     setTitle={setTitle}
                     calledFunctions={calledFunctions}
@@ -134,6 +137,8 @@ const LetterCreatorScreen = () => {
                 />
                 <LetterCenter emptyLetter={emptyLetter} />
                 <LetterRight
+                    showModal={showModal}
+                    setShowModal={setShowModal}
                     title={title}
                     setTitle={setTitle}
                     setCalledFunctions={setCalledFunctions}

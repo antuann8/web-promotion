@@ -7,6 +7,8 @@ import ClearOneBlockButton from "../ClearOneBlockButton";
 
 
 const LetterRightArrow = ({
+                              showModal,
+                              setShowModal,
                               blockType,
                               calledFunctions,
                               setCalledFunctions,
@@ -186,7 +188,7 @@ const LetterRightArrow = ({
                 max={100}
             />
             <InputBlockText
-                label="Введите текст блока:"
+                label="Введите текст блока"
                 selectedValue={selectedText[index]}
                 onChange={(event) => {
                     handleChange(
@@ -207,6 +209,7 @@ const LetterRightArrow = ({
                         selectedArrow[index],
                     );
                 }}
+                setShowModal={setShowModal}
             />
             <InputBlockArrow
                 label="Введите абсолютную ссылку для отображения изображение в формате (https://example.png/)"
@@ -235,15 +238,23 @@ const LetterRightArrow = ({
                 index={index}
                 clearOneBlock={clearOneBlock}
                 setEmptyLetter={setEmptyLetter}
+                selectedOptions={selectedOptions}
                 setSelectedOptions={setSelectedOptions}
+                selectedFontFamily={selectedFontFamily}
                 setSelectedFontFamily={setSelectedFontFamily}
+                selectedFontSize={selectedFontSize}
                 setSelectedFontSize={setSelectedFontSize}
+                selectedColor={selectedColor}
                 setSelectedColor={setSelectedColor}
+                selectedWidth={selectedWidth}
                 setSelectedWidth={setSelectedWidth}
+                selectedHeight={selectedHeight}
                 setSelectedHeight={setSelectedHeight}
+                selectedText={selectedText}
                 setSelectedText={setSelectedText}
                 setCalledFunctions={setCalledFunctions}
                 calledFunctions={calledFunctions}
+                selectedArrow={selectedArrow}
                 setSelectedArrow={setSelectedArrow}
                 title={title}
                 setTitle={setTitle}
