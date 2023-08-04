@@ -4,39 +4,65 @@ import InputBlock from "../InputBlock";
 import InputBlockText from "../InputBlockText";
 import InputBlockArrow from "../InputBlockArrow";
 import ClearOneBlockButton from "../ClearOneBlockButton";
-
+import {colors, fonts} from "../../Globals/Constants";
+import {Context} from "../../Components/Provider";
+import {handleChange} from "../../Components/ParamsUtils";
+import {clearOneBlock} from "../../Models/LetterCreator";
 
 const LetterRightArrow = ({
-                              showModal,
-                              setShowModal,
+                              // showModal,
+                              // setShowModal,
                               blockType,
-                              calledFunctions,
-                              setCalledFunctions,
-                              selectedOptions,
-                              handleChange,
-                              setSelectedOptions,
-                              selectedFontFamily,
-                              setEmptyLetter,
-                              selectedFontSize,
-                              setSelectedFontFamily,
-                              setSelectedFontSize,
-                              selectedColor,
-                              setSelectedColor,
-                              selectedWidth,
-                              setSelectedWidth,
-                              selectedHeight,
-                              setSelectedHeight,
-                              selectedText,
-                              setSelectedText,
-                              selectedArrow,
-                              setSelectedArrow,
-                              title,
-                              setTitle,
-                              clearOneBlock,
-                              colors,
-                              fonts,
+                              // calledFunctions,
+                              // setCalledFunctions,
+                              // selectedOptions,
+                              // setSelectedOptions,
+                              // selectedFontFamily,
+                              // setEmptyLetter,
+                              // selectedFontSize,
+                              // setSelectedFontFamily,
+                              // setSelectedFontSize,
+                              // selectedColor,
+                              // setSelectedColor,
+                              // selectedWidth,
+                              // setSelectedWidth,
+                              // selectedHeight,
+                              // setSelectedHeight,
+                              // selectedText,
+                              // setSelectedText,
+                              // selectedArrow,
+                              // setSelectedArrow,
+                              // title,
+                              // setTitle,
+                              // clearOneBlock,
+                              // colors,
+                              // fonts,
                               index,
                           }) => {
+
+    const {showModal,
+        setShowModal,
+        calledFunctions,
+        setCalledFunctions,
+        selectedOptions,
+        setSelectedOptions,
+        selectedFontFamily,
+        setEmptyLetter,
+        selectedFontSize,
+        setSelectedFontFamily,
+        setSelectedFontSize,
+        selectedColor,
+        setSelectedColor,
+        selectedWidth,
+        setSelectedWidth,
+        selectedHeight,
+        setSelectedHeight,
+        selectedText,
+        setSelectedText,
+        selectedArrow,
+        setSelectedArrow,
+        title,
+        setTitle, } = useContext(Context);
 
     return (
         <div>
@@ -237,28 +263,28 @@ const LetterRightArrow = ({
             />
             <ClearOneBlockButton
                 index={index}
-                clearOneBlock={clearOneBlock}
-                setEmptyLetter={setEmptyLetter}
-                selectedOptions={selectedOptions}
-                setSelectedOptions={setSelectedOptions}
-                selectedFontFamily={selectedFontFamily}
-                setSelectedFontFamily={setSelectedFontFamily}
-                selectedFontSize={selectedFontSize}
-                setSelectedFontSize={setSelectedFontSize}
-                selectedColor={selectedColor}
-                setSelectedColor={setSelectedColor}
-                selectedWidth={selectedWidth}
-                setSelectedWidth={setSelectedWidth}
-                selectedHeight={selectedHeight}
-                setSelectedHeight={setSelectedHeight}
-                selectedText={selectedText}
-                setSelectedText={setSelectedText}
-                setCalledFunctions={setCalledFunctions}
-                calledFunctions={calledFunctions}
-                selectedArrow={selectedArrow}
-                setSelectedArrow={setSelectedArrow}
-                title={title}
-                setTitle={setTitle}
+                // clearOneBlock={clearOneBlock}
+                // setEmptyLetter={setEmptyLetter}
+                // selectedOptions={selectedOptions}
+                // setSelectedOptions={setSelectedOptions}
+                // selectedFontFamily={selectedFontFamily}
+                // setSelectedFontFamily={setSelectedFontFamily}
+                // selectedFontSize={selectedFontSize}
+                // setSelectedFontSize={setSelectedFontSize}
+                // selectedColor={selectedColor}
+                // setSelectedColor={setSelectedColor}
+                // selectedWidth={selectedWidth}
+                // setSelectedWidth={setSelectedWidth}
+                // selectedHeight={selectedHeight}
+                // setSelectedHeight={setSelectedHeight}
+                // selectedText={selectedText}
+                // setSelectedText={setSelectedText}
+                // setCalledFunctions={setCalledFunctions}
+                // calledFunctions={calledFunctions}
+                // selectedArrow={selectedArrow}
+                // setSelectedArrow={setSelectedArrow}
+                // title={title}
+                // setTitle={setTitle}
             />
         </div>
     );

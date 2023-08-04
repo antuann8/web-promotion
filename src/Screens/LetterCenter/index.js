@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {Context} from "../../Components/Provider";
 
-const LetterCenter = ({ emptyLetter }) => {
+const LetterCenter = () => {
+
+    const {emptyLetter} = useContext(Context);
+
     return (
         <div className="letter__redactor-center">
             {emptyLetter ? (

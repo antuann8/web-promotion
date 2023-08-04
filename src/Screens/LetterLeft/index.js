@@ -2,39 +2,56 @@ import React, {useContext, useState} from 'react';
 import {Context} from "../../Components/Provider";
 
 import LetterLeftModal from "../LetterLeftModal";
-
+import {createBlock, createImageBlock, createArrowBlock} from "../Utils";
+import {handleClearAllBlocks} from "../../Components/ClearUtils";
 // styles
 import './styles.css';
 
 
 const LetterLeft = ({
-                        showModal,
-                        setShowModal,
-                        setTitle,
-                        title,
-                        calledFunctions,
-                        createBlock,
-                        createImageBlock,
-                        createArrowBlock,
-                        setCalledFunctions,
-                        handleClearAllBlocks,
-                        setEmptyLetter,
-                        setSelectedOptions,
-                        setSelectedFontFamily,
-                        setSelectedFontSize,
-                        setSelectedColor,
-                        setSelectedWidth,
-                        setSelectedHeight,
-                        setSelectedText,
-                        setSelectedArrow,
-                        setSelectedImage,
+                        // showModal,
+                        // setShowModal,
+                        // setTitle,
+                        // title,
+                        // calledFunctions,
+                        // createBlock,
+                        // createImageBlock,
+                        // createArrowBlock,
+                        // setCalledFunctions,
+                        // handleClearAllBlocks,
+                        // setEmptyLetter,
+                        // setSelectedOptions,
+                        // setSelectedFontFamily,
+                        // setSelectedFontSize,
+                        // setSelectedColor,
+                        // setSelectedWidth,
+                        // setSelectedHeight,
+                        // setSelectedText,
+                        // setSelectedArrow,
+                        // setSelectedImage,
                     }) => {
+
+    const {showModal,
+        setShowModal,
+        setTitle,
+        title,
+        calledFunctions,
+        setCalledFunctions,
+        setEmptyLetter,
+        setSelectedOptions,
+        setSelectedFontFamily,
+        setSelectedFontSize,
+        setSelectedColor,
+        setSelectedWidth,
+        setSelectedHeight,
+        setSelectedText,
+        setSelectedArrow,
+        setSelectedImage,
+        setTemplates, } = useContext(Context);
 
     const handleModal = () => {
         setShowModal(!showModal);
     }
-
-    const {setTemplates} = useContext(Context);
 
     return (
         <div className="letter__redactor-left">
@@ -48,7 +65,7 @@ const LetterLeft = ({
                         <div className="letter__modal">
                             <LetterLeftModal
                                 handleModal={handleModal}
-                                setShowModal={setShowModal}
+                                // setShowModal={setShowModal}
                             />
                         </div>
                     </div>

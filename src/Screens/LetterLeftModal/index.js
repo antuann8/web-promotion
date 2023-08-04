@@ -1,13 +1,16 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 
 // styles, photos
 import './styles.css';
 import ex1 from './images/ex-1.jpg';
+import {Context} from "../../Components/Provider";
 
 
 const LetterLeft = (
-    {setShowModal}
+    // {setShowModal}
 ) => {
+
+    const {setShowModal} = useContext(Context);
 
     return (
         <div>

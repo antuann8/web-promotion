@@ -1,27 +1,45 @@
-import { useEffect } from 'react';
+import {useContext, useEffect} from 'react';
 
 // constants
 import {colors, fonts} from '../../Globals/Constants/index'
+import {Context} from "../Provider";
 
 const useUpdateBlockSettings = (
-    countBlocks,
-    selectedFontFamily,
-    setSelectedFontFamily,
-    selectedFontSize,
-    setSelectedFontSize,
-    selectedOptions,
-    setSelectedOptions,
-    selectedColor,
-    setSelectedColor,
-    selectedWidth,
-    setSelectedWidth,
-    selectedHeight,
-    setSelectedHeight,
-    selectedText,
-    setSelectedText,
-    selectedArrow,
-    setSelectedArrow,
+    // countBlocks,
+    // selectedFontFamily,
+    // setSelectedFontFamily,
+    // selectedFontSize,
+    // setSelectedFontSize,
+    // selectedOptions,
+    // setSelectedOptions,
+    // selectedColor,
+    // setSelectedColor,
+    // selectedWidth,
+    // setSelectedWidth,
+    // selectedHeight,
+    // setSelectedHeight,
+    // selectedText,
+    // setSelectedText,
+    // selectedArrow,
+    // setSelectedArrow,
                         ) => {
+    const {countBlocks,
+        selectedFontFamily,
+        setSelectedFontFamily,
+        selectedFontSize,
+        setSelectedFontSize,
+        selectedOptions,
+        setSelectedOptions,
+        selectedColor,
+        setSelectedColor,
+        selectedWidth,
+        setSelectedWidth,
+        selectedHeight,
+        setSelectedHeight,
+        selectedText,
+        setSelectedText,
+        selectedArrow,
+        setSelectedArrow, } = useContext(Context);
 
     const startFontSize = "10";
     const startWidth = "600";
