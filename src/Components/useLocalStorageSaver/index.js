@@ -1,32 +1,7 @@
 import {useContext, useEffect} from 'react';
 import {Context} from "../Provider";
 
-const useLocalStorageSaver = (
-                               // selectedOptions,
-                               // setSelectedOptions,
-                               // selectedFontFamily,
-                               // setSelectedFontFamily,
-                               // selectedFontSize,
-                               // setSelectedFontSize,
-                               // selectedColor,
-                               // setSelectedColor,
-                               // selectedWidth,
-                               // setSelectedWidth,
-                               // selectedHeight,
-                               // setSelectedHeight,
-                               // selectedText,
-                               // setSelectedText,
-                               // calledFunctions,
-                               // setCalledFunctions,
-                               // selectedArrow,
-                               // setSelectedArrow,
-                               // selectedImage,
-                               // setSelectedImage,
-                               // title,
-                               // setTitle,
-                               // fileCounter,
-                               // setFileCounter,
-                           ) => {
+const useLocalStorageSaver = () => {
 
     const {selectedOptions,
         setSelectedOptions,

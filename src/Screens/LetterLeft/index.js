@@ -7,29 +7,7 @@ import {handleClearAllBlocks} from "../../Components/ClearUtils";
 // styles
 import './styles.css';
 
-
-const LetterLeft = ({
-                        // showModal,
-                        // setShowModal,
-                        // setTitle,
-                        // title,
-                        // calledFunctions,
-                        // createBlock,
-                        // createImageBlock,
-                        // createArrowBlock,
-                        // setCalledFunctions,
-                        // handleClearAllBlocks,
-                        // setEmptyLetter,
-                        // setSelectedOptions,
-                        // setSelectedFontFamily,
-                        // setSelectedFontSize,
-                        // setSelectedColor,
-                        // setSelectedWidth,
-                        // setSelectedHeight,
-                        // setSelectedText,
-                        // setSelectedArrow,
-                        // setSelectedImage,
-                    }) => {
+const LetterLeft = () => {
 
     const {showModal,
         setShowModal,
@@ -63,10 +41,7 @@ const LetterLeft = ({
                 {showModal && (
                     <div className="letter__modal-overlay">
                         <div className="letter__modal">
-                            <LetterLeftModal
-                                handleModal={handleModal}
-                                // setShowModal={setShowModal}
-                            />
+                            <LetterLeftModal/>
                         </div>
                     </div>
                 )}

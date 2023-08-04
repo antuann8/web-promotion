@@ -6,9 +6,7 @@ import ex1 from './images/ex-1.jpg';
 import {Context} from "../../Components/Provider";
 
 
-const LetterLeft = (
-    // {setShowModal}
-) => {
+const LetterLeft = () => {
 
     const {setShowModal} = useContext(Context);
 

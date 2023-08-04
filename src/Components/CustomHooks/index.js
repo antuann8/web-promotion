@@ -4,25 +4,8 @@ import {useContext, useEffect} from 'react';
 import {colors, fonts} from '../../Globals/Constants/index'
 import {Context} from "../Provider";
 
-const useUpdateBlockSettings = (
-    // countBlocks,
-    // selectedFontFamily,
-    // setSelectedFontFamily,
-    // selectedFontSize,
-    // setSelectedFontSize,
-    // selectedOptions,
-    // setSelectedOptions,
-    // selectedColor,
-    // setSelectedColor,
-    // selectedWidth,
-    // setSelectedWidth,
-    // selectedHeight,
-    // setSelectedHeight,
-    // selectedText,
-    // setSelectedText,
-    // selectedArrow,
-    // setSelectedArrow,
-                        ) => {
+const useUpdateBlockSettings = () => {
+
     const {countBlocks,
         selectedFontFamily,
         setSelectedFontFamily,
