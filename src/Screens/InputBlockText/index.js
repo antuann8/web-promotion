@@ -9,23 +9,18 @@ const InputBlockText = ({
                         index,
                     }) => {
 
-    const {templates, setTemplates} = useContext(Context);
+    // const {templates, setTemplates} = useContext(Context);
 
-    const handleBlur = (e) => {
-        const regex = /{([^}]+)}/g;
-        let match;
-        while ((match = regex.exec(e.target.value))) {
-            const value = match[1].trim();
-            if (value) {
-                setTemplates((prev) => [...prev, {index, value}]);
-            }
-        }
-    }
-
-    // templates.map((template) => {
-    //     console.log(`${template.value}, Индекс равен - ${template.index} `);
-    // })
-
+    // const handleBlur = (e) => {
+    //     const regex = /{([^}]+)}/g;
+    //     let match;
+    //     while ((match = regex.exec(e.target.value))) {
+    //         const value = match[1].trim();
+    //         if (value) {
+    //             setTemplates((prev) => [...prev, {index, value}]);
+    //         }
+    //     }
+    // }
 
     return (
         <div>
@@ -38,7 +33,7 @@ const InputBlockText = ({
                 type="text"
                 value={selectedValue}
                 onChange={onChange}
-                onBlur={(e) => handleBlur(e)}
+                // onBlur={(e) => handleBlur(e)}
             />
             {/*<button onClick={() => console.log(values)}>Показать значения</button>*/}
         </div>

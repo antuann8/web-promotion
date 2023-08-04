@@ -25,7 +25,7 @@ const request = async (endpoint, data, isFile) => {
 		if (isDevelopmentMode) console.log(response);
 		try {
 			const json = await response.json();
-			if (isDevelopmentMode) console.log(json);
+			// if (isDevelopmentMode) console.log(json);
 			return json;
 		} catch (ex) {
 			return null;
@@ -54,7 +54,7 @@ const get = async (endpoint, data, isFile) => {
 		if (isDevelopmentMode) console.log(response);
 		try {
 			const json = await response.json();
-			if (isDevelopmentMode) console.log(json);
+			// if (isDevelopmentMode) console.log(json);
 			return json;
 		} catch (ex) {
 			return null;
@@ -82,7 +82,7 @@ const getHtml = async (endpoint, data) => {
 		if (isDevelopmentMode) console.log(response);
 		try {
 			const html = await response.text();
-			if (isDevelopmentMode) console.log(html);
+			// if (isDevelopmentMode) console.log(html);
 			return html;
 		} catch (ex) {
 			return null;

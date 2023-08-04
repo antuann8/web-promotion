@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useMemo, useState} from 'react';
 import {Context} from "../../Components/Provider";
 
 import LetterLeftModal from "../LetterLeftModal";
@@ -30,6 +30,12 @@ const LetterLeft = () => {
     const handleModal = () => {
         setShowModal(!showModal);
     }
+
+    useEffect(() => {
+        const saveButton = document.querySelector('.letter__redactor__save-button__container');
+        saveButton.style.display = showModal ? 'none' : 'block';
+    }, [showModal])
+
 
     return (
         <div className="letter__redactor-left">
