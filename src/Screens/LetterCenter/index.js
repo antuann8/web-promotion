@@ -6,6 +6,7 @@ const LetterCenter = () => {
     const {emptyLetter} = useContext(Context);
 
     return (
+        <>
         <div className="letter__redactor-center">
             {emptyLetter ? (
                 <span className='letter__reset' dangerouslySetInnerHTML={{ __html: emptyLetter }}></span>
@@ -13,6 +14,7 @@ const LetterCenter = () => {
                 <div>Loading...</div>
             )}
         </div>
+        </>
     );
 };
 

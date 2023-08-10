@@ -1,4 +1,4 @@
-import {templatesParams, postLetterStr} from "../../Models/Templates";
+import {postLetterStr} from "../../Models/Templates";
 import {get} from "../../Models/LetterCreator";
 
 export const handleSaveClick = (templates) => {

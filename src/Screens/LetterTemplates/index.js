@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useHistory} from 'react-router-dom';
 import Template from "../../Components/Template";
 
 
@@ -8,6 +7,14 @@ import './styles.css';
 import Loader from "../../Components/Loader";
 
 const LetterTemplatesScreen = () => {
+
+    useEffect(() => {
+
+        const res = async () => {
+
+        }
+        res();
+    }, [])
 
     return (
         <Template>
