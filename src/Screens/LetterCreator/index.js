@@ -27,9 +27,15 @@ import {
 
 // styles
 import './styles.css';
+import LetterSaveModal from "../LetterSaveModal";
 
 const LetterCreatorScreen = () => {
-    const {templates, setEmptyLetter, setCountBlocks} = useContext(Context);
+    const {
+        setEmptyLetter,
+        setCountBlocks,
+        showSaveModal,
+        setShowSaveModal,
+    } = useContext(Context);
 
     useLocalStorageSaver();
 
@@ -40,6 +46,15 @@ const LetterCreatorScreen = () => {
 
     useUpdateBlockSettings();
 
+    const handleModal = () => {
+        setShowSaveModal(!showSaveModal);
+    }
+
+    useEffect(() => {
+        const saveButton = document.querySelector('.letter__redactor__save-button__container');
+        saveButton.style.display = showSaveModal ? 'none' : 'block';
+    }, [showSaveModal])
+
     return (
         <Template>
             <h1 className="letter__redactor__header">Визуальный редактор письма</h1>
@@ -48,8 +63,19 @@ const LetterCreatorScreen = () => {
                 <LetterCenter/>
                 <LetterRight/>
             </div>
+            {showSaveModal && (
+                <div className="letter__modal-overlay">
+                    <div className="letter__modal">
+                        <LetterSaveModal/>
+                    </div>
+                </div>
+            )}
             <div className='letter__redactor__save-button__container'>
-                <button onClick={() => {handleSaveClick(templates)}} className='letter__redactor__save-button' type="submit">Сохранить шаблон</button>
+                <button onClick={handleModal}
+                        className='letter__redactor__save-button'
+                        type="submit">
+                    Сохранить шаблон
+                </button>
             </div>
         </Template>
     );

@@ -19,6 +19,9 @@ const Provider = ({children}) => {
     const [title, setTitle] = useState([]);
     const [fileCounter, setFileCounter] = useState(0);
     const [showModal, setShowModal] = useState(false);
+    const [showSaveModal, setShowSaveModal] = useState(false);
+    const [templateName, setTemplateName] = useState('');
+    const [arrTemplateNames, setArrTemplateNames] = useState([]);
 
     return (
         <Context.Provider value={{
@@ -54,6 +57,12 @@ const Provider = ({children}) => {
             setFileCounter,
             showModal,
             setShowModal,
+            showSaveModal,
+            setShowSaveModal,
+            templateName,
+            setTemplateName,
+            arrTemplateNames,
+            setArrTemplateNames,
         }}>
             {children}
         </Context.Provider>

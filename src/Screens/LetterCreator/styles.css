@@ -88,6 +88,18 @@
     width: 450px;
 }
 
+.letter__redactor__description-save-button {
+    margin-bottom: 5px;
+    background: #fffcf5;
+    border: 1px solid #ccc5b9;
+    border-radius: 4px;
+    box-shadow: none;
+    display: block;
+    padding: 10px;
+    transition: background-color .3s ease 0s;
+    width: 100%;
+}
+
 .letter__redactor__save-button__container {
     background: #f4f3ef;
     border-top: 1px solid #ccc;
