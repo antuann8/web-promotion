@@ -38,44 +38,50 @@ export const handleSaveClick = (
     setArrTemplateNames,
     setTemplateName,
     setShowSaveModal,
+    arrTemplateNames,
 ) => {
-
-    const getLetter = async () => {
-        const res = await get();
-        return res;
-    };
-
-    async function processData() {
-        const str = await getLetter();
-
-        const data = {
-            'html': str,
-            'name' : `${templateName}.html`,
+    if (templateName === '') {
+        alert('Ошибка! Введите корректное значение имени');
+    } else if (arrTemplateNames.includes(templateName)) {
+        alert('Ошибка! Такое название шаблона уже есть, используйте другое');
+    } else {
+        const getLetter = async () => {
+            const res = await get();
+            return res;
         };
 
-        await postLetterStr(data);
+        async function processData() {
+            const str = await getLetter();
+
+            const data = {
+                'html': str,
+                'name': `${templateName}.html`,
+            };
+
+            await postLetterStr(data);
+        }
+
+        processData();
+
+        setArrTemplateNames((prev) => [...prev, templateName]);
+        setTemplateName('');
+
+        alert('Шаблон сохранен!');
+        handleClearAllBlocks(
+            setTemplates,
+            setEmptyLetter,
+            setSelectedOptions,
+            setSelectedFontFamily,
+            setSelectedFontSize,
+            setSelectedColor,
+            setSelectedWidth,
+            setSelectedHeight,
+            setSelectedText,
+            setCalledFunctions,
+            setSelectedArrow,
+            setSelectedImage,
+            setTitle,)
+        setShowSaveModal(false);
     }
-
-    processData();
-
-    setArrTemplateNames((prev) => [...prev, templateName]);
-    setTemplateName('');
-
-    alert('Шаблон сохранен!');
-    handleClearAllBlocks(
-        setTemplates,
-        setEmptyLetter,
-        setSelectedOptions,
-        setSelectedFontFamily,
-        setSelectedFontSize,
-        setSelectedColor,
-        setSelectedWidth,
-        setSelectedHeight,
-        setSelectedText,
-        setCalledFunctions,
-        setSelectedArrow,
-        setSelectedImage,
-        setTitle,)
-    setShowSaveModal(false);
 }
 

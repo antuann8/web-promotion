@@ -33,16 +33,14 @@ const LetterSaveModal = () => {
         setTemplateName(e.target.value);
     }
 
-    console.log(`УВИДЬ МЕНЯЯЯ`);
-    console.log(arrTemplateNames);
-
     return (
-        <div>
+        <div className='letter__redactor__save__modal'>
             <h1 className='education__header-save'>Введите название для вашего шаблона</h1>
-            <div>
+            <div className='center'>
                 {/*<div className="letter__redactor__description">Введите текст блока</div>*/}
                 <input
-                    className="letter__redactor__description-save-button"
+                    placeholder='Введите название...'
+                    className="letter__redactor__description-save-button-input-modal"
                     type="text"
                     onChange={(e) => {handleChange(e)}}
                 />
@@ -65,15 +63,16 @@ const LetterSaveModal = () => {
                 setArrTemplateNames,
                 setTemplateName,
                 setShowSaveModal,
+                arrTemplateNames,
                 )}}
-                    className='letter__redactor__button-left education__closed-button'
+                    className='letter__redactor__button-left-save-modal left'
                     type="submit">
                 Сохранить шаблон
             </button>
             {/*// Добавь вверх функци сохранения клика, передай templateName также создай массив для templateName, отдельную переменную,*/}
             {/*которую также буду передавать , то есть в функцию передаю arr , Затем в функции делаю setArr()Такую хуйню, и так будут сох*/}
             {/*ранять все имена.*/}
-            <button className="letter__redactor__button-left education__closed-button" onClick={() => setShowSaveModal(false)}>
+            <button className="letter__redactor__button-left-save-modal education__closed-button" onClick={() => setShowSaveModal(false)}>
                 Вернуться назад
             </button>
         </div>

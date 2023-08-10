@@ -41,6 +41,18 @@
     margin-bottom: 10px;
 }
 
+.letter__redactor__button-left-save-modal {
+    background: #333;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
 .letter__redactor__button-left:hover {
     background-color: #aaaaaa;
 }
@@ -97,7 +109,21 @@
     display: block;
     padding: 10px;
     transition: background-color .3s ease 0s;
-    width: 100%;
+    width: 400px;
+}
+
+.letter__redactor__description-save-button-input-modal {
+    margin-bottom: 20px;
+    background: #fffcf5;
+    border: 1px solid #ccc5b9;
+    border-radius: 4px;
+    box-shadow: none;
+    display: block;
+    padding: 10px;
+    transition: background-color .3s ease 0s;
+    width: 400px;
+    margin-left: 120px;
+
 }
 
 .letter__redactor__save-button__container {
