@@ -24,7 +24,10 @@ const LetterTemplatesScreen = () => {
         // Загружаем HTML-код документа по ссылке
         axios.get(`https://s3.super-appz.ru/download/postman/templates/${templateName}.html`)
             .then(response => {
-                setHtmlContent(response.data);
+                const modifiedHtml = response.data.replace(/<%=\s*(.*?)\s*%>/g, (match, captureGroup) => {
+                    return `{${captureGroup}}`;
+                });
+                setHtmlContent(modifiedHtml);
             })
             .catch(error => {
                 console.error('Ошибка при загрузке HTML:', error);
