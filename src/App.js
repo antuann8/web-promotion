@@ -16,8 +16,10 @@ import Requisite		from "./Screens/Requisite";
 
 import letterCreator 	from "./Screens/LetterCreator";
 import letterTemplates 	from "./Screens/LetterTemplates";
+import letterTemplate from "./Screens/LetterTemplate";
 
 import Error			from './Screens/Error';
+
 
 
 
@@ -39,8 +41,10 @@ const App = () => (
 			<Route path='/requisite' component={Requisite} exact />
 			{/*<Route path='/addRequisite' component={AddRequisite} exact />*/}
 
-			<Route path={'/lettercreator'} component={letterCreator} exact/>
-			<Route path={'/lettertemplates'} component={letterTemplates} exact/>
+			<Route path={'/letter-creator'} component={letterCreator} exact/>
+			<Route path={'/letter-templates'} component={letterTemplates} exact/>
+			<Route path={'/letter-template'} component={letterTemplate} exact/>
+
 
 			<Route path='/error' component={Error} status={500} exact />
 			<Route path='/error401' component={Error} status={401} exact />

@@ -2,23 +2,13 @@ import {postLetterStr} from "../../Models/Templates";
 import {get} from "../../Models/LetterCreator";
 import {handleClearAllBlocks} from "../ClearUtils";
 
-// export const handleTemplateName = (
-//     setTemplates,
-//     setEmptyLetter,
-//     setSelectedOptions,
-//     setSelectedFontFamily,
-//     setSelectedFontSize,
-//     setSelectedColor,
-//     setSelectedWidth,
-//     setSelectedHeight,
-//     setSelectedText,
-//     setCalledFunctions,
-//     setSelectedArrow,
-//     setSelectedImage,
-//     setTitle,
-// ) => {
-//
-// }
+function pushToLocalStorageArray(key, value) {
+    const storedArray = JSON.parse(localStorage.getItem(key)) || [];
+    storedArray.push(value);
+    localStorage.setItem(key, JSON.stringify(storedArray));
+}
+
+
 
 export const handleSaveClick = (
     setTemplates,
@@ -64,6 +54,7 @@ export const handleSaveClick = (
         processData();
 
         setArrTemplateNames((prev) => [...prev, templateName]);
+        pushToLocalStorageArray('templateNames', templateName);
         setTemplateName('');
 
         alert('Шаблон сохранен!');

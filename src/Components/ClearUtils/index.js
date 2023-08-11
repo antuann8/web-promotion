@@ -25,6 +25,7 @@ export const handleClearAllBlocks = async (
     let token = localStorage.getItem('token');
     let user = localStorage.getItem('user');
     let fileCounter = localStorage.getItem('fileCounter');
+    let templateNames = localStorage.getItem('templateNames');
 
     await clearAllBlocks();
     setSelectedFontFamily([]);
@@ -45,6 +46,7 @@ export const handleClearAllBlocks = async (
     localStorage.setItem('token', token);
     localStorage.setItem('user', user);
     localStorage.setItem('fileCounter', fileCounter);
+    localStorage.setItem('templateNames', templateNames);
 
     await getUpdateLetter(setEmptyLetter);
 };

@@ -21,10 +21,6 @@ import {
     getUpdateLetter,
 } from '../Utils';
 
-import {
-    handleSaveClick,
-} from '../../Components/SaveUtils'
-
 // styles
 import './styles.css';
 import LetterSaveModal from "../LetterSaveModal";

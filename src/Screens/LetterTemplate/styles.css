@@ -1,0 +1,36 @@
+.letter__template__container {
+    display: flex;
+}
+
+.letter__template__html{
+    width: 600px;
+}
+
+.letter__template__container__head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.head__edit {
+    display: flex;
+}
+
+.back-button {
+    content:'';
+    width:30px;
+    height:30px;
+    border: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    background:url(./images/back.svg) 0 0 no-repeat;
+}
+
+.letter__template__header{
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.letter__template__description {
+    width: 600px;
+}

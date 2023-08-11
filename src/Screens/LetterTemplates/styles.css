@@ -1,0 +1,23 @@
+.templates__table {
+    margin-top: 10px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.templates__table__header {
+    background: #333;
+    border-bottom: 3px solid #ccc;
+}
+
+.templates__table__row {
+    text-align: left;
+    margin-left: 5px;
+}
+
+.table-tr__th th{
+    border: 1px solid grey;
+}
+
+.templates__link {
+    cursor: pointer;
+}
