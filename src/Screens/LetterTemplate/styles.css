@@ -1,5 +1,6 @@
 .letter__template__container {
     display: flex;
+    margin-bottom: 100px;
 }
 
 .letter__template__html{
