@@ -108,10 +108,10 @@ const LetterTemplatesScreen = () => {
         }
     }
 
-    const handleTemplateParamsChange = (e, index) => {
+    const handleTemplateParamsChange = (e, index, itemIndex) => {
         const newArrTemplateParams = [...arrTemplateParams];
 
-        newArrTemplateParams[index] = e.target.value;
+        newArrTemplateParams[index][itemIndex] = e.target.value;
 
         setArrTemplateParams(newArrTemplateParams);
     }
@@ -202,8 +202,8 @@ const LetterTemplatesScreen = () => {
                                         templateParams.map((templateItem, itemIndex) => (
                                             <div key={itemIndex}>
                                                 <InputBlockTextEmail
-                                                    selectedValue={arrTemplateParams[index]}
-                                                    onChange={(e) => { handleTemplateParamsChange(e, index) }}
+                                                    selectedValue={arrTemplateParams[index][itemIndex]}
+                                                    onChange={(e) => { handleTemplateParamsChange(e, index, itemIndex) }}
                                                     item={templateItem}
                                                 />
                                             </div>
