@@ -35,6 +35,12 @@ const fonts = {
     "Verdana, Geneva, sans-serif": "Verdana, Geneva, sans-serif"
 };
 
+const usersCountEnum = {};
+
+for (let i = 0; i <= 20; i++) {
+    usersCountEnum[i] = i;
+}
+
 
 const commonStatus = {
     IN_ACTIVE: 0,
@@ -97,4 +103,5 @@ export {
     sectionType,
     colors,
     fonts,
+    usersCountEnum,
 };

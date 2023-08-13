@@ -16,11 +16,13 @@ import InputBlockEmail from "../InputBlockEmail";
 import EmailError from "../InputBlockEmail/EmailError";
 import InputBlockTextEmail from "../InputBlockTextEmail";
 import {postLetterToEmail} from "../../Models/Templates";
+import SelectBlock from "../SelectBlock";
+import {usersCountEnum} from "../../Globals/Constants";
 
 
 const LetterTemplatesScreen = () => {
     const [htmlContent, setHtmlContent] = useState('');
-    const [usersCount, setUsersCount] = useState(1);
+    const [usersCount, setUsersCount] = useState(0);
     const [arrCount, setArrCount] = useState([]);
     const [emailValue, setEmailValue] = useState([]);
     const [isCorrectEmail, setIsCorrectEmail] = useState([]);
@@ -106,17 +108,66 @@ const LetterTemplatesScreen = () => {
         }
     }
 
-    const handleTemplateParamsChange = (e, innerIndex) => {
-        const value = e.target.value;
+    const handleTemplateParamsChange = (e, index) => {
+        const newArrTemplateParams = [...arrTemplateParams];
 
-        const newTemplateParams = [...templateParams];
-        newTemplateParams[innerIndex] = value;
-        setTemplateParams(newTemplateParams);
+        newArrTemplateParams[index] = e.target.value;
+
+        setArrTemplateParams(newArrTemplateParams);
     }
 
+
+
+
     useEffect(() => {
-        console.log(templateParams);
-    }, [templateParams]);
+        handleCreateNewArrParams(usersCount);
+        if (!emailValue) {
+            setEmailValue(Array.from({ length: usersCount }, () => ''));
+        } else {
+            setEmailValue((prev) => {
+                if (prev.length < usersCount) {
+                    const additionalEmptyValues = Array.from({ length: usersCount - prev.length }, () => '');
+                    return [...prev, ...additionalEmptyValues];
+                } else {
+                    return prev.slice(0, usersCount);
+                }
+            });
+        }
+        if (!isCorrectEmail || isCorrectEmail.length === 0) {
+            setIsCorrectEmail(Array.from({ length: usersCount }, () => true));
+        } else {
+            setIsCorrectEmail((prev) => {
+                if (prev.length < usersCount) {
+                    const additionalValues = Array.from({ length: usersCount - prev.length }, () => true);
+                    return [...prev, ...additionalValues];
+                } else {
+                    return prev.slice(0, usersCount);
+                }
+            });
+        }
+    }, [usersCount]);
+
+    const handleCreateNewArrParams = (usersCount) => {
+        if (!arrTemplateParams || arrTemplateParams.length === 0) {
+            const nestedArray = templateParams.slice(); // Создаем копию templateParams
+            const newArr = Array.from({ length: usersCount }, () => [...nestedArray]);
+            setArrTemplateParams(newArr);
+        } else {
+            setArrTemplateParams((prev) => {
+                if (prev.length < usersCount) {
+                    const additionalValues = Array.from({ length: usersCount - prev.length }, () => [...templateParams]);
+                    return [...prev, ...additionalValues];
+                } else {
+                    return prev.slice(0, usersCount);
+                }
+            });
+        }
+    };
+
+
+    useEffect(() => {
+        console.log(arrTemplateParams);
+    }, [arrTemplateParams]);
 
     return (
         <Template>
@@ -128,36 +179,32 @@ const LetterTemplatesScreen = () => {
             </div>
             <div className='letter__template__container'>
                 <div className='letter__template__description'>
-                    <InputBlock
-                        label="Введите количество пользователей для рассылки: (min: 1 , max: 100)"
+                    <SelectBlock
+                        label="Введите количество пользователей для рассылки:"
                         selectedValue={usersCount}
                         onChange={(e) => {
                             handleChange(e, setUsersCount);
-                            setEmailValue(Array(usersCount).fill(''));
-                            setIsCorrectEmail(Array(usersCount).fill(true));
-                            setArrTemplateParams(Array(usersCount).fill(''));
                         }}
-                        min={1}
-                        max={100}
+                        options={usersCountEnum}
                     />
                     {usersCount > 0 &&
                         arrCount.map((_, index) => (
                             <div key={index}>
-                                <p style={{marginLeft: '150px', fontSize: '20px', fontWeight: 'bolder'}}>{index + 1} получатель</p>
+                                <p style={{ marginLeft: '150px', fontSize: '20px', fontWeight: 'bolder' }}>{index + 1} получатель</p>
                                 <InputBlockEmail
                                     label="Введите email получателя"
                                     onChange={(e) => { handleEmailChange(e, index) }}
                                     selectedValue={emailValue[index]}
                                 />
-                                {!isCorrectEmail[index] && <EmailError/>}
+                                {!isCorrectEmail[index] && <EmailError />}
                                 <div key={index}>
                                     {templateParams.length !== 0 &&
-                                        templateParams.map((_, i) => (
-                                            <div key={`${index}-${i}`}>
+                                        templateParams.map((templateItem, itemIndex) => (
+                                            <div key={itemIndex}>
                                                 <InputBlockTextEmail
-                                                    selectedValue={templateParams[i]}
-                                                    onChange={(e) => { handleTemplateParamsChange(e, i) }}
-                                                    item={templateParams[i]}
+                                                    selectedValue={arrTemplateParams[index]}
+                                                    onChange={(e) => { handleTemplateParamsChange(e, index) }}
+                                                    item={templateItem}
                                                 />
                                             </div>
                                         ))}
@@ -165,7 +212,7 @@ const LetterTemplatesScreen = () => {
                             </div>
                         ))}
                 </div>
-                <div className='letter__template__html'>
+            <div className='letter__template__html'>
                     {ReactHtmlParser(htmlContent)}
                 </div>
                 <div className='letter__redactor__save-button__container'>
