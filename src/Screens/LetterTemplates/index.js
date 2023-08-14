@@ -6,19 +6,33 @@ import {useHistory} from "react-router-dom";
 import './styles.css';
 import Loader from "../../Components/Loader";
 import {Context} from "../../Components/Provider";
+import {getTemplateNames} from "../../Models/Templates";
 
 
 const LetterTemplatesScreen = () => {
 
-    let templateNames = JSON.parse(localStorage.getItem('templateNames'));
+    const [templateNames, setTemplateNames] = useState([]);
+
+    useEffect(() => {
+        const getNames = async () => {
+
+            const res = await getTemplateNames();
+            setTemplateNames(res);
+        }
+        getNames();
+    }, []);
+
+    useEffect(() => {
+        console.log(templateNames);
+    }, [templateNames]);
 
     const history = useHistory();
 
 
-    const handleClick = (item) => {
+    const handleClick = (name) => {
         // передаем параметры в объекте вторым аргументом
         history.push('/letter-template', {
-            name: item,
+            name: name,
         });
     }
 
@@ -35,9 +49,9 @@ const LetterTemplatesScreen = () => {
                 <tbody>
                 {templateNames ? templateNames.map((item, index) =>
                     <tr className='templates__table__row templates__link table-tr__td' key={index}
-                        onClick={() => handleClick(item)}>
+                        onClick={() => handleClick(item.name)}>
                         <td>{index + 1}</td>
-                        <td>{item}</td>
+                        <td>{item.name}</td>
                     </tr>
                 ) : null}
                 </tbody>

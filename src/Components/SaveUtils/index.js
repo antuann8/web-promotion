@@ -81,32 +81,6 @@ export const handleSaveClick = (
             }
         }
         postName();
-        // Функция очистки
-        // const getLetter = async () => {
-        //     const res = await get();
-        //     return res;
-        // };
-
-        // Теперь будем здесь отправлять запрос с именем на сервер для добавления в БД
-
-
-        // async function processData() {
-        //     const str = await getLetter();
-        //
-        //     const data = {
-        //         'html': str,
-        //         'name': `${templateName}.html`,
-        //     };
-        //
-        //     await postLetterStr(data);
-        // }
-
-        // processData();
-
-        // setArrTemplateNames((prev) => [...prev, templateName]);
-        // pushToLocalStorageArray('templateNames', templateName);
-        // setTemplateName('');
-
 
         }
 }
