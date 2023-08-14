@@ -153,7 +153,27 @@ const requestJsonNotResponse = async (endpoint, data) => {
 		headers,
 		body: JSON.stringify(data)
 	};
-	await fetch(url, options);
+	 await fetch(url, options);
+
+};
+
+const requestJsonWithResponse = async (endpoint, data) => {
+	const url = `${API.url}${endpoint}`;
+	const headers = new Headers({
+		'X-Token': API.key,
+		'Content-Type': 'application/json'
+	});
+	const token = ls('token');
+	if (token)
+		headers.append('Authorization', `Bearer ${token}`);
+	const options = {
+		method: 'POST',
+		headers,
+		body: JSON.stringify(data)
+	};
+	const response = await fetch(url, options);
+
+	return response;
 };
 
 const requestImageNotResponse = async (endpoint, data) => {
@@ -182,6 +202,7 @@ const Http = {
 	requestJsonGetHtml,
 	requestJsonNotResponse,
 	requestImageNotResponse,
+	requestJsonWithResponse,
 };
 
 export default Http;

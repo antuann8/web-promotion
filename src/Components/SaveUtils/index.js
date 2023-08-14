@@ -1,4 +1,4 @@
-import {postLetterStr} from "../../Models/Templates";
+import {postLetterStr, postTemplateName} from "../../Models/Templates";
 import {get} from "../../Models/LetterCreator";
 import {handleClearAllBlocks} from "../ClearUtils";
 
@@ -32,47 +32,82 @@ export const handleSaveClick = (
 ) => {
     if (templateName === '') {
         alert('Ошибка! Введите корректное значение имени');
-    } else if (arrTemplateNames.includes(templateName)) {
-        alert('Ошибка! Такое название шаблона уже есть, используйте другое');
     } else {
-        const getLetter = async () => {
-            const res = await get();
-            return res;
-        };
 
-        async function processData() {
-            const str = await getLetter();
-
-            const data = {
-                'html': str,
-                'name': `${templateName}.html`,
-            };
-
-            await postLetterStr(data);
+        const dataName = {
+            'name' : templateName,
         }
 
-        processData();
 
-        setArrTemplateNames((prev) => [...prev, templateName]);
-        pushToLocalStorageArray('templateNames', templateName);
-        setTemplateName('');
+        const postName = async () => {
 
-        alert('Шаблон сохранен!');
-        handleClearAllBlocks(
-            setTemplates,
-            setEmptyLetter,
-            setSelectedOptions,
-            setSelectedFontFamily,
-            setSelectedFontSize,
-            setSelectedColor,
-            setSelectedWidth,
-            setSelectedHeight,
-            setSelectedText,
-            setCalledFunctions,
-            setSelectedArrow,
-            setSelectedImage,
-            setTitle,)
-        setShowSaveModal(false);
-    }
+            const response = await postTemplateName(dataName);
+            console.log(response);
+
+            if (response.status === 200) {
+
+                const str = await get();
+
+                const data = {
+                    'html': str,
+                    'name': `${templateName}.html`,
+                };
+
+                await postLetterStr(data);
+
+                await alert('Шаблон создан!');
+
+                await setShowSaveModal(false);
+
+                await handleClearAllBlocks(
+                    setTemplates,
+                    setEmptyLetter,
+                    setSelectedOptions,
+                    setSelectedFontFamily,
+                    setSelectedFontSize,
+                    setSelectedColor,
+                    setSelectedWidth,
+                    setSelectedHeight,
+                    setSelectedText,
+                    setCalledFunctions,
+                    setSelectedArrow,
+                    setSelectedImage,
+                    setTitle,)
+
+            } else if (response.status === 409) {
+                alert('Ошибка! Такое название шаблона уже есть, используйте другое');
+            } else {
+                alert('Произошла ошибка! Шаблон не создан');
+            }
+        }
+        postName();
+        // Функция очистки
+        // const getLetter = async () => {
+        //     const res = await get();
+        //     return res;
+        // };
+
+        // Теперь будем здесь отправлять запрос с именем на сервер для добавления в БД
+
+
+        // async function processData() {
+        //     const str = await getLetter();
+        //
+        //     const data = {
+        //         'html': str,
+        //         'name': `${templateName}.html`,
+        //     };
+        //
+        //     await postLetterStr(data);
+        // }
+
+        // processData();
+
+        // setArrTemplateNames((prev) => [...prev, templateName]);
+        // pushToLocalStorageArray('templateNames', templateName);
+        // setTemplateName('');
+
+
+        }
 }
 

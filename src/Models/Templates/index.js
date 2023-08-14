@@ -4,7 +4,10 @@ const postLetterStr   = async (data)                    => await Http.requestJso
 
 const postLetterToEmail = async (data)                  => await Http.requestJsonNotResponse(`promotions`, data);
 
+const postTemplateName = async (data)                  => await Http.requestJsonWithResponse(`template/name/add`, data);
+
 export {
     postLetterStr,
     postLetterToEmail,
+    postTemplateName,
 }
