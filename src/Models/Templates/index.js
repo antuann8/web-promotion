@@ -8,9 +8,12 @@ const postTemplateName = async (data)                   => await Http.requestJso
 
 const getTemplateNames = async ()                       => await Http.get(`template/names`);
 
+const getExampleUsers = async ()                        => await Http.get(`get/example/users`);
+
 export {
     postLetterStr,
     postLetterToEmail,
     postTemplateName,
     getTemplateNames,
+    getExampleUsers,
 }

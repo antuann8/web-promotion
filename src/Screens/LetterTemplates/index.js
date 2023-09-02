@@ -29,10 +29,11 @@ const LetterTemplatesScreen = () => {
     const history = useHistory();
 
 
-    const handleClick = (name) => {
+    const handleClick = (name, status) => {
         // передаем параметры в объекте вторым аргументом
         history.push('/letter-template', {
             name: name,
+            status: status,
         });
     }
 
@@ -44,14 +45,16 @@ const LetterTemplatesScreen = () => {
                 <tr className='templates__table__row table-tr__th'>
                     <th>№</th>
                     <th>Название шаблона</th>
+                    <th>Статус шаблона</th>
                 </tr>
                 </thead>
                 <tbody>
                 {templateNames ? templateNames.map((item, index) =>
                     <tr className='templates__table__row templates__link table-tr__td' key={index}
-                        onClick={() => handleClick(item.name)}>
+                        onClick={() => handleClick(item.name, item.status)}>
                         <td>{index + 1}</td>
                         <td>{item.name}</td>
+                        <td>{item.status ?? ""}</td>
                     </tr>
                 ) : null}
                 </tbody>
