@@ -24,14 +24,28 @@
  */
 
 const ls = (name, value) => {
-	if (typeof value != 'undefined') {
-		if (value === null) window.localStorage.removeItem(name);
-		else window.localStorage.setItem(name, JSON.stringify(value));
+	if (typeof value !== 'undefined') {
+		if (value === null) {
+			window.localStorage.removeItem(name);
+		} else {
+			window.localStorage.setItem(name, JSON.stringify(value));
+		}
 	} else {
-		if (typeof name == 'undefined') window.localStorage.clear();
-		else return JSON.parse(window.localStorage.getItem(name) || null);
+		if (typeof name === 'undefined') {
+			window.localStorage.clear();
+		} else {
+			const storedValue = window.localStorage.getItem(name);
+			try {
+				return JSON.parse(storedValue) || null;
+			} catch (error) {
+				// Обработайте ошибку разбора JSON, если необходимо
+				console.error('Error parsing JSON:', error);
+				return null;
+			}
+		}
 	}
 };
+
 
 export {
 	ls

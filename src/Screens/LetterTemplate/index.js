@@ -10,6 +10,9 @@ import ReactHtmlParser from 'react-html-parser';
 // data
 import {changeMailingConditionStatus, getMailingConditions} from "../../Models/Mailing";
 
+// models
+import {updateCron} from "../../Models/Cron";
+
 // styles
 import './styles.css';
 
@@ -19,48 +22,29 @@ const LetterTemplatesScreen = () => {
     const [htmlContent, setHtmlContent] = useState('');
     const [templateParams, setTemplateParams] = useState([]);
     // const [exampleUsers, setExampleUsers] = useState([]);
-    const { control, handleSubmit, watch, setValue } = useForm();
+    const { control, handleSubmit, watch, setValue, formState : {errors} } = useForm();
     const selectedCondition = watch('condition');
-    const [currentDate, setCurrentDate] = useState();
-    const [statusValues, setStatusValues] = useState({});
     const [mailingConditions, setMailingConditions] = useState([]);
-    const [filteredCondition, setFilteredCondition] = useState({});
-
-
-    useEffect(() => {
-        const today = new Date();
-        const day = String(today.getDate()).padStart(2, '0'); // Форматируем день (добавляем ведущий ноль, если день < 10)
-        const month = String(today.getMonth() + 1).padStart(2, '0'); // Форматируем месяц (январь - 0, декабрь - 11, поэтому прибавляем 1)
-
-        setCurrentDate(`${day}.${month}`);
-    }, []);
+    const [isOptionSelected, setIsOptionSelected] = useState(false);
 
     const onSubmit = async (data) => {
         const {status, condition} = data;
-        const id = filteredCondition._id;
-        await changeMailingConditionStatus(id, status);
-        console.log(`Статус: ${status}, Условие: ${condition}`)
+        await changeMailingConditionStatus(condition, status);
 
-        if (status === undefined) {
-            alert('Выберите статус шаблона')
-        }
-
-        if (condition === '') {
-            alert('Выберите условие для рассылки')
-        }
-
-        alert('Сохранено')
+        await updateCron();
+        await alert('Сохранено')
     };
 
     const handleConditionChange = (selectedOption) => {
         setValue('condition', selectedOption);
-        // Сбросить значение статуса при изменении опции в основном select-е
-        setValue('status', '');
-        // Создать или обновить значение статуса для выбранной опции
-        setStatusValues((prevStatusValues) => ({
-            ...prevStatusValues,
-            [selectedOption]: prevStatusValues[selectedOption] || '',
-        }));
+
+        mailingConditions.forEach((item) => {
+            if (item.code === selectedOption) {
+                setValue('status', item.status);
+            }
+        })
+
+        // setValue('status', statusValue);
     };
 
     const history = useHistory();
@@ -70,8 +54,8 @@ const LetterTemplatesScreen = () => {
 
     useEffect(() => {
         const get = async () => {
-            const mailingConditions = await getMailingConditions();
-            setMailingConditions(mailingConditions);
+            const mailingConditionsData = await getMailingConditions();
+            setMailingConditions(mailingConditionsData);
         }
         get();
     }, [])
@@ -106,17 +90,6 @@ const LetterTemplatesScreen = () => {
         history.push('/letter-templates');
     }
 
-    // useEffect(() => {
-    //     console.log(exampleUsers);
-    // },[exampleUsers]);
-
-
-    useEffect(() => {
-        const foundCondition = mailingConditions.find((item) => item.code === selectedCondition);
-        setFilteredCondition(foundCondition);
-        console.log(foundCondition);
-    }, [selectedCondition, mailingConditions]);
-
     return (
         <Template>
             <div className='letter__template__container__head'>
@@ -133,44 +106,57 @@ const LetterTemplatesScreen = () => {
                             <Controller
                                 name="condition"
                                 control={control}
+                                rules={{
+                                    required: 'Выберите условие рассылки!'
+                                }}
                                 defaultValue=""
-                                render={({ field }) => (
-                                    <select
-                                        {...field}
-                                        className='letter__template__form-container__select'
-                                        onChange={(e) => handleConditionChange(e.target.value)}
-                                    >
-                                        <option value="" disabled> </option>
-                                        {
-                                            mailingConditions.map((item, index) => (
-                                                <option value={item.code} key={index}>{item.name}</option>
-                                            ))
-                                        }
-                                    </select>
+                                render={({ field, fieldState: {error} }) => (
+                                    <div>
+                                        <select
+                                            {...field}
+                                            className='letter__template__form-container__select'
+                                            onChange={(e) => {
+                                                handleConditionChange(e.target.value);
+                                                setIsOptionSelected(true);
+                                            }}
+                                        >
+                                            <option value="" disabled> </option>
+                                            {
+                                                mailingConditions.map((item, index) => (
+                                                    <option value={item.code} key={index}>{item.name}</option>
+                                                ))
+                                            }
+                                        </select>
+                                        {error && !isOptionSelected && <div style={{color: 'red'}}>{error.message}</div>}
+                                    </div>
                                 )}
                             />
                         </label>
-                        {/*{selectedCondition && (*/}
+                        {selectedCondition && (
                         <label htmlFor="status" className='letter__template__form-container__name'>
                             Выберите статус шаблона
                             <Controller
                                 name="status"
+                                rules={{
+                                    required: 'Выберите статус шаблона!'
+                                }}
                                 control={control}
-                                defaultValue=""
-                                render={({ field }) => (
-                                    <select
-                                        {...field}
-                                        className="letter__template__form-container__select"
-                                    >
-                                        <option value=""></option>
-
-                                        <option value="true">Активен</option>
-                                        <option value="false" selected={filteredCondition?.status === "false"}>Не активен</option>
-                                    </select>
+                                render={({ field, fieldState: {error} }) => (
+                                    <div>
+                                        <select
+                                            {...field}
+                                            className="letter__template__form-container__select"
+                                        >
+                                            <option value=""></option>
+                                            <option value="true">Активен</option>
+                                            <option value="false">Не активен</option>
+                                        </select>
+                                        {error && <div style={{color: 'red'}}>{error.message}</div>}
+                                    </div>
                                 )}
                             />
                         </label>
-                        {/*)}*/}
+                        )}
                         <div className='letter__redactor__save-button__container'>
                             <button
                                 className='letter__redactor__save-button'

@@ -23,7 +23,9 @@ import {
 
 // styles
 import './styles.css';
-import LetterSaveModal from "../LetterSaveModal";
+
+// modals
+import LetterConditionModal from "../LetterConditionModal";
 
 const LetterCreatorScreen = () => {
     const {
@@ -62,7 +64,7 @@ const LetterCreatorScreen = () => {
             {showSaveModal && (
                 <div className="letter__modal-overlay">
                     <div className="letter__modal">
-                        <LetterSaveModal/>
+                        <LetterConditionModal/>
                     </div>
                 </div>
             )}

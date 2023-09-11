@@ -62,8 +62,8 @@ const Template = (props) => {
 					<li className="menu__header__item"><Link className="menu__arrow" to={'/letter-creator'} className={isselect('letter-creator')}>Визуальный редактор</Link></li>
 					<li className="menu__header__item"><Link className="menu__arrow" to={'/letter-templates'} className={isselect('letter-templates')}>Рассылка писем</Link></li>
 
-					<li className="menu__header__item"><b>Администрирование</b></li>
-					<li className="menu__header__item"><Link className="menu__arrow" to={'/users'} className={isselect('user')}>Пользователи</Link></li>
+					{/*<li className="menu__header__item"><b>Администрирование</b></li>*/}
+					{/*<li className="menu__header__item"><Link className="menu__arrow" to={'/users'} className={isselect('user')}>Пользователи</Link></li>*/}
 				</ul>
 				<div className="logoff">
 					<Link to={'/'} onClick={show}>Выход из системы</Link>

@@ -22,6 +22,7 @@ const Provider = ({children}) => {
     const [showSaveModal, setShowSaveModal] = useState(false);
     const [templateName, setTemplateName] = useState('');
     const [arrTemplateNames, setArrTemplateNames] = useState([]);
+    const [showConditionModal, setShowConditionModal] = useState(false);
 
     return (
         <Context.Provider value={{
@@ -63,6 +64,8 @@ const Provider = ({children}) => {
             setTemplateName,
             arrTemplateNames,
             setArrTemplateNames,
+            showConditionModal,
+            setShowConditionModal,
         }}>
             {children}
         </Context.Provider>

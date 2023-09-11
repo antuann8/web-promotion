@@ -37,6 +37,10 @@ const LetterTemplatesScreen = () => {
         });
     }
 
+    useEffect(() => {
+        console.log(templateNames)
+    },[templateNames])
+
     return (
         <Template>
             <h1>Выберите шаблон письма для рассылки</h1>
@@ -45,7 +49,8 @@ const LetterTemplatesScreen = () => {
                 <tr className='templates__table__row table-tr__th'>
                     <th>№</th>
                     <th>Название шаблона</th>
-                    <th>Статус шаблона</th>
+                    {/*<th>Статус шаблона</th>*/}
+                    {/*<th>Условие(-я) рассылки шаблона</th>*/}
                 </tr>
                 </thead>
                 <tbody>
@@ -54,7 +59,8 @@ const LetterTemplatesScreen = () => {
                         onClick={() => handleClick(item.name, item.status)}>
                         <td>{index + 1}</td>
                         <td>{item.name}</td>
-                        <td>{item.status ?? ""}</td>
+                        {/*<td>{item.status == "true" ? "Активен" : item.status == "false" ? "Не активен" : "Статус не задан"}</td>*/}
+                        {/*<td>{item.conditionName ?? ""}</td>*/}
                     </tr>
                 ) : null}
                 </tbody>

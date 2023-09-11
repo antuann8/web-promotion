@@ -30,16 +30,17 @@ const LetterSaveModal = () => {
     } = useContext(Context);
 
     const handleChange = (e) => {
-        setTemplateName(e.target.value);
+        // setTemplateName(e.target.value);
+        alert(`Условие такое - ${e.target.value}`)
     }
 
     return (
         <div className='letter__redactor__save__modal'>
-            <h1 className='education__header-save'>Введите название для вашего шаблона</h1>
+            <h1 className='education__header-save'>Введите условие для вашего шаблона</h1>
             <div className='center'>
                 {/*<div className="letter__redactor__description">Введите текст блока</div>*/}
                 <input
-                    placeholder='Введите название...'
+                    placeholder='Введите условие...'
                     className="letter__redactor__description-save-button-input-modal"
                     type="text"
                     onChange={(e) => {handleChange(e)}}
@@ -69,9 +70,6 @@ const LetterSaveModal = () => {
                     type="submit">
                 Сохранить шаблон
             </button>
-            {/*// Добавь вверх функци сохранения клика, передай templateName также создай массив для templateName, отдельную переменную,*/}
-            {/*которую также буду передавать , то есть в функцию передаю arr , Затем в функции делаю setArr()Такую хуйню, и так будут сох*/}
-            {/*ранять все имена.*/}
             <button className="letter__redactor__button-left-save-modal education__closed-button" onClick={() => setShowSaveModal(false)}>
                 Вернуться назад
             </button>
