@@ -31,7 +31,7 @@ const LetterConditionModal = () => {
     // } = useContext(Context);
 
     const {
-        // setShowSaveModal,
+        setShowSaveModal,
         setTemplateName,
         setShowConditionModal,
         showConditionModal,
@@ -71,31 +71,9 @@ const LetterConditionModal = () => {
                     type="submit">
                 Сохранить шаблон
             </button>
-            {/*<button onClick={() => {handleSaveClick(*/}
-            {/*    setTemplates,*/}
-            {/*    setEmptyLetter,*/}
-            {/*    setSelectedOptions,*/}
-            {/*    setSelectedFontFamily,*/}
-            {/*    setSelectedFontSize,*/}
-            {/*    setSelectedColor,*/}
-            {/*    setSelectedWidth,*/}
-            {/*    setSelectedHeight,*/}
-            {/*    setSelectedText,*/}
-            {/*    setCalledFunctions,*/}
-            {/*    setSelectedArrow,*/}
-            {/*    setSelectedImage,*/}
-            {/*    setTitle,*/}
-            {/*    templateName,*/}
-            {/*    setArrTemplateNames,*/}
-            {/*    setTemplateName,*/}
-            {/*    setShowSaveModal,*/}
-            {/*    arrTemplateNames,*/}
-            {/*    )}}*/}
-            {/*        className='letter__redactor__button-left-save-modal left'*/}
-            {/*        type="submit">*/}
-            {/*    Сохранить шаблон*/}
-            {/*</button>*/}
-            <button className="letter__redactor__button-left-save-modal education__closed-button" onClick={() => setShowConditionModal(false)}>
+            <button className="letter__redactor__button-left-save-modal education__closed-button" onClick={() => {
+                setShowSaveModal(false);
+            }}>
                 Вернуться назад
             </button>
         </div>

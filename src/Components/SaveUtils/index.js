@@ -2,14 +2,6 @@ import {postLetterStr, postTemplateName} from "../../Models/Templates";
 import {get} from "../../Models/LetterCreator";
 import {handleClearAllBlocks} from "../ClearUtils";
 
-function pushToLocalStorageArray(key, value) {
-    const storedArray = JSON.parse(localStorage.getItem(key)) || [];
-    storedArray.push(value);
-    localStorage.setItem(key, JSON.stringify(storedArray));
-}
-
-
-
 export const handleSaveClick = (
     setTemplates,
     setEmptyLetter,
@@ -29,20 +21,38 @@ export const handleSaveClick = (
     setTemplateName,
     setShowSaveModal,
     arrTemplateNames,
+    selectedConditionOptions,
 ) => {
     if (templateName === '') {
         alert('Ошибка! Введите корректное значение имени');
+    } else if (selectedConditionOptions.length == 0) {
+        alert('Ошибка! Выберите хотя бы одно условие');
     } else {
+        let conditionData;
 
-        const dataName = {
-            'name' : templateName,
+        if (selectedConditionOptions.length === 1) {
+            conditionData = {
+                'conditionId': selectedConditionOptions[0].value,
+                'status': 'false',
+            };
+        } else {
+            conditionData = [];
+            for (let i = 0; i < selectedConditionOptions.length; i++) {
+                conditionData.push({
+                    'conditionId': selectedConditionOptions[i].value,
+                    'status': 'false',
+                });
+            }
         }
 
+        const dataName = {
+            'name': templateName,
+            'conditionData': conditionData,
+        };
 
         const postName = async () => {
 
             const response = await postTemplateName(dataName);
-            console.log(response);
 
             if (response.status === 200) {
 
@@ -82,6 +92,6 @@ export const handleSaveClick = (
         }
         postName();
 
-        }
+    }
 }
 
