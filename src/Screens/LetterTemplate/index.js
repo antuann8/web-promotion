@@ -10,7 +10,7 @@ import ReactHtmlParser from 'react-html-parser';
 
 // data
 import {changeMailingConditionStatus, getMailingConditions} from "../../Models/Mailing";
-import {getTemplateNames} from "./../../Models/Templates"
+import {getTemplateNames, updateTemplateName} from "./../../Models/Templates"
 
 // models
 import {updateCron} from "../../Models/Cron";
@@ -41,8 +41,13 @@ const LetterTemplatesScreen = () => {
     const onSubmit = async (data) => {
         const {status, condition} = data;
 
+        const updateTemplateData = {status, index};
+        const updateCronData = {condition, index};
 
-        await updateCron();
+        await updateTemplateName(templateId, updateTemplateData);
+        // Нужен запрос к бд templateNames для изменения данных
+
+        await updateCron(templateId, updateCronData);
         await alert('Сохранено')
     };
 
@@ -163,8 +168,8 @@ const LetterTemplatesScreen = () => {
                                     />
                                 </label>
                                 {selectedCondition && (
-                                    <label htmlFor="status" className='letter__template__form-container__name'>
-                                        Выберите статус шаблона
+                                    <label>
+                                        <label htmlFor="status" className='letter__template__form-container__name'>Выберите статус шаблона</label>
                                         <Controller
                                             name="status"
                                             rules={{
