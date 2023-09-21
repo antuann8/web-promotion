@@ -10,7 +10,7 @@ import ReactHtmlParser from 'react-html-parser';
 
 // data
 import {changeMailingConditionStatus, getMailingConditions} from "../../Models/Mailing";
-import {getTemplateNames, updateTemplateName} from "./../../Models/Templates"
+import {getTemplateNames, postLetterToEmail, updateTemplateName} from "./../../Models/Templates"
 
 // models
 import {updateCron} from "../../Models/Cron";
@@ -42,12 +42,17 @@ const LetterTemplatesScreen = () => {
         const {status, condition} = data;
 
         const updateTemplateData = {status, index};
-        const updateCronData = {condition, index};
+        const updateCronData = {condition, index, status};
+        const isSend = true;
 
         await updateTemplateName(templateId, updateTemplateData);
         // Нужен запрос к бд templateNames для изменения данных
 
-        await updateCron(templateId, updateCronData);
+        await updateCron(templateId, updateCronData, isSend);
+
+        // if (status === "true") {
+        //     await postLetterToEmail();
+        // }
         await alert('Сохранено')
     };
 
